@@ -1,0 +1,40 @@
+html {
+    /* px 表示“像素（pixels）”: 基础字号为 10 像素 */
+    font-size: 10px;
+    /* Google fonts 输出的 CSS */
+    font-family: 'Open Sans', sans-serif;
+    background-color: #535e7c;
+}
+
+h1 {
+    margin: 0 auto;
+    font-size: 60px;
+    text-align: center;
+    padding: 20px 0px;
+    color: black;
+    text-shadow: 3px 3px 5px red;
+}
+
+p, li {
+    font-size: 16px;
+    /* line-height 后面可以跟不同的参数，如果是数字，就是当前字体大小乘上数字 */
+    line-height: 2;
+    letter-spacing: 1px;
+    color: whitesmoke;
+}
+a {
+    font-size: 16px;
+    /* line-height 后面可以跟不同的参数，如果是数字，就是当前字体大小乘上数字 */
+    line-height: 2;
+    letter-spacing: 1px;
+    color: #02F000;
+}
+body {
+    margin: 0 auto;
+    padding: 0 50px 50px 50px;
+}
+img {
+    display: block;
+    margin: 0 auto;
+    width: 400px;
+}
