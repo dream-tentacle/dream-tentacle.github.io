@@ -28,3 +28,9 @@ body {
   background-size: cover;
   border: 0.5vmin solid red;
 }
+button{
+  font-size: 24px;
+  background-color: aqua;
+  border: 0.25vmin solid black;
+  border-radius: 10px;
+}

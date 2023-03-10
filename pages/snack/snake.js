@@ -1,5 +1,5 @@
 const SNAKE_SPEED = 5;
-const snakeBody = [
+let snakeBody = [
     {x:11, y:11},
     {x:11, y:10},
     {x:11, y:9}
