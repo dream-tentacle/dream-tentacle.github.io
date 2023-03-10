@@ -1,9 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=ZCOOL+XiaoWei&display=swap');
 html {
     /* px 表示“像素（pixels）”: 基础字号为 10 像素 */
-    font-size: 10px;
+  font-size: 10px;
     /* Google fonts 输出的 CSS */
-    font-family: 'Open Sans', sans-serif;
-    background-color: #535e7c;
+  font-family: 'ZCOOL XiaoWei', sans-serif;
+  background-color: #535e7c;
 }
 
 h1 {
