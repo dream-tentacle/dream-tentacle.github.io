@@ -40,5 +40,8 @@ body {
     margin: 0 auto;
     padding: 0 50px 50px 50px;
 }
-
+.flex{
+  display:flex;
+  flex-direction: column;
+}
 

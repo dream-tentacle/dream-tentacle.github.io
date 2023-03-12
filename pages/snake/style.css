@@ -5,7 +5,8 @@ body {
   justify-content: center;
   align-items: center;
   margin: 0;
-  background-color: gray;
+  background-color: white;
+    font-family: 'Noto Sans SC', sans-serif;
 }
 
 #game-board {
@@ -29,8 +30,22 @@ body {
   border: 0.5vmin solid red;
 }
 button{
-  font-size: 24px;
-  background-color: aqua;
-  border: 0.25vmin solid black;
+  background-color: #1773EC;
+  border: 0;
   border-radius: 10px;
+  color: white;
+  
+}
+#UandD{
+  display: flex;
+  flex-direction: column;
+}
+#restart{
+  padding: 24px;
+  font-size: 32px;
+}
+.dir{
+  font-size: 24px;
+  margin: 8px;
+  padding: 16px;
 }

@@ -5,7 +5,7 @@ const main = () => {
     update();
     draw();
     if (gameOver) {
-        alert("Game Over");
+        
         clearInterval(gameLoop);
     }
 }
