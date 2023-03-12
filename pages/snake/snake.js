@@ -1,14 +1,12 @@
 const SNAKE_SPEED = 5;
 let snakeBody = [
     {x:11, y:11},
-    {x:11, y:10},
-    {x:11, y:9}
+    {x:11, y:10}
 ];
 
 const updateSnake = () => {
     // remove tail segment
     snakeBody.pop();
-
     // add new head segment
     const newHead = {...snakeBody[0]};
     const snakeDirection = getInputDirection();
