@@ -137,7 +137,7 @@ function App() {
           logText: newIssue.logText,
           nextStates: newIssue.nextStates,
           id: `log-${nanoid()}`,
-          age: age,
+          age: "age" in newIssue ? newIssue.age : age,
           className: "className" in newIssue ? newIssue.className : "",
         },
         ...logList,
@@ -152,6 +152,11 @@ function App() {
         addLog(issues[351]);
         return true;
       }
+    }
+    if (nowState.stateID === 201) {
+      let poss = Math.random();
+      addLog(issues[362 + Math.round(poss * 113)]);
+      return true;
     }
   }
   function nextLog(nowState) {
@@ -256,32 +261,32 @@ function App() {
   function sheriffBattle(sheriff) {
     const result = battleResult(sheriff);
     if (result === 0 || result === 5) {
-      addLog(issues[400]);
+      addLog(issues[503]);
     } else {
       addLog(issues[sheriff.winNextStateID]);
     }
   }
   function expeditionConsequence() {
     if (sheriff === 0 && reputation >= 10) {
-      addLog(issues[401]);
+      addLog(issues[504]);
       setSheriff(1);
     } else if (sheriff >= 1) {
       let poss = Math.random();
       if (sheriff === 1 && poss <= reputation * 0.01) {
-        addLog(issues[402]);
+        addLog(issues[505]);
         setSheriff(2);
       } else if (sheriff === 2 && poss <= reputation * 0.015) {
-        addLog(issues[403]);
+        addLog(issues[506]);
         setSheriff(3);
       } else if (sheriff === 3 && poss <= reputation * 0.02) {
-        addLog(issues[404]);
+        addLog(issues[506]);
         setSheriff(4);
       } else if (
         sheriff === 4 &&
         reputation >= 15 &&
         poss <= reputation * 0.04
       ) {
-        addLog(issues[405]);
+        addLog(issues[507]);
         setSheriff(5);
       } else addLog(issues[202]);
     } else addLog(issues[202]);
@@ -307,7 +312,7 @@ function App() {
   }
   const writerActionButton = (
     <div className="writerActionButton">
-      <button onClick={() => addLog(issues[201])}>写作</button>
+      <button onClick={() => addLog(issues[201])}>外出取材</button>
       <button onClick={() => expeditionConsequence()}>出去转转</button>
       {occultist ? (
         <button onClick={() => addLog(issues[203])}>磨练</button>
@@ -393,7 +398,7 @@ function App() {
     if (logList[0].stateID === 202) return expeditionButton;
     if (logList[0].stateID === 216) return walletButton;
     if (logList[0].stateID === 352) return occultButton;
-    if (logList[0].stateID === 406) return sheriffOneButton;
+    if (logList[0].stateID === 509) return sheriffOneButton;
     if ("enemy" in issues[logList[0].stateID]) return battleButton;
     return nextButton;
   };
