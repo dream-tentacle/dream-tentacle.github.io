@@ -1,0 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=ZCOOL+XiaoWei&display=swap");
+button {
+  font-size: x-large;
+  color: white;
+  background-color: indianred;
+  border: 0;
+  border-radius: 32px;
+  padding: 4px 32px;
+  margin: 8px;
+  font-family: "ZCOOL XiaoWei", sans-serif;
+  font-weight: bold;
+}
+p,
+li {
+  font-family: "ZCOOL XiaoWei", sans-serif;
+  font-size: large;
+}
+
+.Cornflowerblue {
+  color: #6495ed;
+}
+.Tomato {
+  color: #ff6347;
+}
+.Lightslategray {
+  color: #778899;
+}
+.Blue {
+  color: blue;
+}
