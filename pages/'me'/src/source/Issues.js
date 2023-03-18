@@ -1839,7 +1839,7 @@ const issues = [
   {
     stateID: 316,
     logText: "我没赢得奖金",
-    nextStates: [{ possibility: 2.0, stateID: 0 }],
+    nextStates: [{ possibility: 2.0, stateID: 200 }],
   },
   {
     stateID: 317,
