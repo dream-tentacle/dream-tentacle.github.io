@@ -1,21 +1,50 @@
 @import url("https://fonts.googleapis.com/css2?family=ZCOOL+XiaoWei&display=swap");
 button {
-  font-size: x-large;
-  color: white;
-  background-color: indianred;
-  border: 0;
-  border-radius: 32px;
-  padding: 4px 32px;
+  font-size: 20px;
+  color: indianred;
+  background-color: white;
+  border: 2px solid indianred;
+  border-radius: 8px;
+  padding: 12px 8px;
   margin: 8px;
   font-family: "ZCOOL XiaoWei", sans-serif;
   font-weight: bold;
+  cursor: pointer; /* 指针/手形图标 */
+}
+button:hover {
+  color: white;
+  background-color: indianred;
+}
+button:active {
+  color: white;
+  background-color: indianred;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
 }
 p,
-li {
+li,
+.Ability {
   font-family: "ZCOOL XiaoWei", sans-serif;
-  font-size: large;
+  font-size: 20px;
 }
-
+.Ability span {
+  background-color: white;
+  border-radius: 8px;
+  padding: 4px 8px;
+  margin: 8px;
+}
+.Ability span.Cornflowerblue {
+  border: 2px solid #6495ed;
+}
+.Ability span.Tomato {
+  border: 2px solid #ff6347;
+}
+.Ability span.Lightslategray {
+  border: 2px solid #778899;
+}
+.Ability span.Blue {
+  border: 2px solid blue;
+}
 .Cornflowerblue {
   color: #6495ed;
 }
