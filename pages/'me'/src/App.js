@@ -6,11 +6,12 @@ import Ability from "./components/Ability";
 import "./App.css";
 
 //hobbies
-const write = "写作", // eslint-disable-next-line
-  sport = 1;
+const write = "写作",
+  sport = "运动";
 
 //career
-const writer = "作家";
+const writer = "作家",
+  athlete = "运动员";
 
 const actionPerYear = 10;
 
@@ -30,7 +31,7 @@ const backgroundColors = [
 
 function App() {
   //States:
-  const [age, setAge] = useState(18);
+  const [age, setAge] = useState(0);
   const [money, setMoney] = useState(3);
   const [hobby, setHobby] = useState([]);
   const [career, setCareer] = useState("无");
@@ -87,7 +88,8 @@ function App() {
       //过于黑暗
       setInsertIssueID(3);
     }
-    setDark(dark + darkGain);
+    if (dark + darkGain < 0) setDark(0);
+    else setDark(dark + darkGain);
   }
   function specialIssueConsequence(newIssue) {
     let a = 0,
@@ -102,13 +104,16 @@ function App() {
     addAbility(a, b, c, d);
     if ("reputation" in newIssue)
       setReputation(reputation + newIssue.reputation);
+    if ("age" in newIssue) setAge(newIssue.age);
     //三种失败途径
     if ("dark" in newIssue) dealDark(newIssue.dark);
     if ("time" in newIssue) dealTime(newIssue.time);
     if ("money" in newIssue) dealMoney(newIssue.money);
     //一些特殊事件结果
+    if (newIssue.stateID === 99) setHobby([...hobby, sport]);
     if (newIssue.stateID === 100) setHobby([...hobby, write]);
     if (newIssue.stateID === 151) setCareer(writer);
+    if (newIssue.stateID === 152) setCareer(athlete);
     if (newIssue.stateID === 360) setOccultist(true);
   }
   function addLog(newIssue) {
@@ -117,17 +122,15 @@ function App() {
       (!occultist && newIssue.stateID <= 198 && newIssue.stateID >= 195)
     ) {
       if (newIssue.stateID === 305) {
-        if (hobby.some((onehobby) => onehobby === write)) {
-          nextLog(issues[302]);
-        }
-      }
-      nextLog(newIssue);
-    } else if (
-      newIssue.stateID === 260 &&
-      usedIssue.some((ele) => ele === 260)
-    ) {
+        if (hobby.some((onehobby) => onehobby === write)) addLog(issues[306]);
+        else addLog(issues[307]);
+      } else if (newIssue.stateID === 311) {
+        if (hobby.some((onehobby) => onehobby === sport)) addLog(issues[313]);
+        else addLog(issues[312]);
+      } else nextLog(newIssue);
+    } else if (newIssue.stateID === 260 && usedIssue.some((ele) => ele === 260))
       nextLog(issues[241]);
-    } else {
+    else {
       setLogList([
         {
           stateID: newIssue.stateID,
@@ -198,6 +201,7 @@ function App() {
       addLog({
         stateID: 199,
         logText: "我观察到了敌人的弱点，并一击致胜",
+        className: "Cornflowerblue",
         nextStates: [
           { possibility: enemy.gain, stateID: enemy.gainState },
           { possibility: 2.0, stateID: 200 },
@@ -207,6 +211,7 @@ function App() {
       addLog({
         stateID: 199,
         logText: "我激发了敌人的欲望，让他们沉醉于迷惘",
+        className: "Blue",
         nextStates: [
           { possibility: enemy.gain, stateID: enemy.gainState },
           { possibility: 2.0, stateID: 200 },
@@ -216,6 +221,7 @@ function App() {
       addLog({
         stateID: 199,
         logText: "我运用技艺击败了敌人",
+        className: "Lightslategray",
         nextStates: [
           { possibility: enemy.gain, stateID: enemy.gainState },
           { possibility: 2.0, stateID: 200 },
@@ -225,6 +231,7 @@ function App() {
       addLog({
         stateID: 199,
         logText: "我运用力量击败了敌人",
+        className: "Tomato",
         nextStates: [
           { possibility: enemy.gain, stateID: enemy.gainState },
           { possibility: 2.0, stateID: 200 },
@@ -263,10 +270,10 @@ function App() {
       if (sheriff === 1 && poss <= reputation * 0.01) {
         addLog(issues[402]);
         setSheriff(2);
-      } else if (sheriff === 2 && poss <= reputation * 0.02) {
+      } else if (sheriff === 2 && poss <= reputation * 0.015) {
         addLog(issues[403]);
         setSheriff(3);
-      } else if (sheriff === 3 && poss <= reputation * 0.04) {
+      } else if (sheriff === 3 && poss <= reputation * 0.02) {
         addLog(issues[404]);
         setSheriff(4);
       } else if (
@@ -288,15 +295,33 @@ function App() {
   const nextButton = (
     <button onClick={() => nextLog(logList[0])}>下一步</button>
   );
+  const careerChooseButton = (
+    <div className="careerChooseButton">
+      <button onClick={() => addLog(issues[151])}>写作</button>
+      <button onClick={() => addLog(issues[152])}>运动</button>
+    </div>
+  );
   function spareButton() {
     if (career === writer) return writerActionButton;
+    if (career === athlete) return athleteActionButton;
   }
   const writerActionButton = (
-    <div className="spareButton">
+    <div className="writerActionButton">
       <button onClick={() => addLog(issues[201])}>写作</button>
       <button onClick={() => expeditionConsequence()}>出去转转</button>
       {occultist ? (
         <button onClick={() => addLog(issues[203])}>磨练</button>
+      ) : (
+        ""
+      )}
+    </div>
+  );
+  const athleteActionButton = (
+    <div className="athleteActionButton">
+      <button onClick={() => addLog(issues[206])}>参加比赛</button>
+      <button onClick={() => expeditionConsequence()}>出去转转</button>
+      {occultist ? (
+        <button onClick={() => addLog(issues[314])}>磨练</button>
       ) : (
         ""
       )}
@@ -363,6 +388,7 @@ function App() {
     </div>
   );
   const buttonCondition = () => {
+    if (logList[0].stateID === 150) return careerChooseButton;
     if (logList[0].stateID === 200) return spareButton();
     if (logList[0].stateID === 202) return expeditionButton;
     if (logList[0].stateID === 216) return walletButton;
@@ -391,8 +417,8 @@ function App() {
       {age >= 18 ? (
         <div className="AdultCondition">
           <p>
-            <span Style="color: #007d93">时间：{time}</span>,{" "}
-            <span Style="color: #ccac00">金钱：{money}</span>
+            <span style={{ color: "#007d93" }}>时间：{time}</span>,{" "}
+            <span style={{ color: "#ccac00" }}>金钱：{money}</span>
           </p>
           <p>兴趣：{hobby.length > 0 ? hobby : "无"}</p>
           <p>职业：{career}</p>

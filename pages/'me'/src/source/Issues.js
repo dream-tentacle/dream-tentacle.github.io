@@ -5,6 +5,7 @@ const issues = [
     logText: "我出生了",
     nextStates: [
       { possibility: 0.2, stateID: 1 },
+      { possibility: 0.4, stateID: 99 },
       { possibility: 2.0, stateID: 100 },
     ],
   },
@@ -517,24 +518,29 @@ const issues = [
   },
   {
     stateID: 99,
-    logText: "1111111111111111111111 ",
-    nextStates: [{ possibility: 2.0, stateID: 0 }],
+    logText: "我对运动产生了兴趣",
+    nextStates: [{ possibility: 2.0, stateID: 101 }],
+    defend: 2,
+    age: 10,
   },
   {
     stateID: 100,
     logText: "我对写作产生了兴趣",
     nextStates: [{ possibility: 2.0, stateID: 101 }],
     observe: 2,
+    age: 10,
   },
   {
     stateID: 101,
     logText: "我考上大学了",
-    nextStates: [{ possibility: 2.0, stateID: 151 }],
+    nextStates: [{ possibility: 2.0, stateID: 102 }],
+    age: 18,
   },
   {
     stateID: 102,
-    logText: "1111111111111111111111 ",
-    nextStates: [{ possibility: 2.0, stateID: 0 }],
+    logText: "我毕业了",
+    nextStates: [{ possibility: 2.0, stateID: 150 }],
+    age: 22,
   },
   {
     stateID: 103,
@@ -773,19 +779,18 @@ const issues = [
   },
   {
     stateID: 150,
-    logText: "1111111111111111111111 ",
-    nextStates: [{ possibility: 2.0, stateID: 0 }],
+    logText: "我当以何谋生？",
+    nextStates: [{ possibility: 2.0, stateID: 199 }],
   },
   {
     stateID: 151,
-    logText: "我成为了作家 ",
+    logText: "我成为了作家",
     nextStates: [{ possibility: 2.0, stateID: 200 }],
-    observe: 1,
   },
   {
     stateID: 152,
-    logText: "1111111111111111111111 ",
-    nextStates: [{ possibility: 2.0, stateID: 0 }],
+    logText: "我成为了运动员",
+    nextStates: [{ possibility: 2.0, stateID: 200 }],
   },
   {
     stateID: 153,
@@ -1033,17 +1038,17 @@ const issues = [
   {
     stateID: 200,
     logText: "我闲下来了 ",
-    nextStates: [{ possibility: 2.0, stateID: 201 }],
+    nextStates: [{ possibility: 2.0, stateID: 199 }],
   },
   //闲下来的操作：
   {
     stateID: 201,
     logText: "我决定观察人生百态，并落成文字",
     nextStates: [
-      { possibility: 0.2, stateID: 301 }, //301是无思路
-      { possibility: 0.2, stateID: 305 }, //305是隐藏判断兴趣
-      { possibility: 0.5, stateID: 302 },
-      { possibility: 2.0, stateID: 303 },
+      { possibility: 0.2, stateID: 305 }, //判断兴趣
+      { possibility: 0.1, stateID: 301 }, //无思路
+      { possibility: 0.3, stateID: 302 }, //一些
+      { possibility: 2.0, stateID: 303 }, //很多
     ],
     time: 1,
   },
@@ -1076,8 +1081,12 @@ const issues = [
   },
   {
     stateID: 206,
-    logText: "1111111111111111111111 ",
-    nextStates: [{ possibility: 2.0, stateID: 0 }],
+    logText: "我决定参加比赛",
+    nextStates: [
+      { possibility: 0.2, stateID: 311 }, //判断兴趣
+      { possibility: 0.7, stateID: 308 }, //一些
+      { possibility: 2.0, stateID: 309 }, //很多
+    ],
   },
   {
     stateID: 207,
@@ -1735,7 +1744,7 @@ const issues = [
     stateID: 301,
     logText: "可恶！什么思路都没有。左脑装满了水，右脑装满了面粉，一晃全是浆糊",
     nextStates: [
-      { possibility: 0.7, stateID: 304 },
+      { possibility: 0.8, stateID: 304 },
       { possibility: 2.0, stateID: 200 },
     ],
   },
@@ -1752,7 +1761,7 @@ const issues = [
     stateID: 303,
     logText: "不错，我的书获得了大卖",
     nextStates: [
-      { possibility: 0.2, stateID: 195 },
+      { possibility: 0.5, stateID: 195 },
       { possibility: 2.0, stateID: 200 },
     ],
     money: 2,
@@ -1767,58 +1776,64 @@ const issues = [
   {
     stateID: 305,
     logText: "判断是否有兴趣：写作……（若出现此条请反馈给开发者）",
-    nextStates: [{ possibility: 2.0, stateID: 304 }],
+    nextStates: [{ possibility: 2.0, stateID: 199 }],
     hidden: true,
   },
   {
     stateID: 306,
-    logText: "1111111111111111111111",
-    nextStates: [{ possibility: 2.0, stateID: 0 }],
+    logText: "我没什么好的思路，不过凭着一腔热情随便写写也是可以的",
+    nextStates: [{ possibility: 2.0, stateID: 302 }],
   },
   {
     stateID: 307,
-    logText: "1111111111111111111111",
-    nextStates: [{ possibility: 2.0, stateID: 0 }],
+    logText: "我对写作实在没啥兴趣，凑不出有用的思路",
+    nextStates: [{ possibility: 2.0, stateID: 301 }],
   },
   {
     stateID: 308,
-    logText: "1111111111111111111111",
-    nextStates: [{ possibility: 2.0, stateID: 0 }],
+    logText: "我获得了一些奖金",
+    nextStates: [{ possibility: 2.0, stateID: 200 }],
+    money: 1,
   },
   {
     stateID: 309,
-    logText: "1111111111111111111111",
-    nextStates: [{ possibility: 2.0, stateID: 0 }],
+    logText: "我获得了很多奖金",
+    nextStates: [{ possibility: 2.0, stateID: 200 }],
+    money: 2,
   },
   {
     stateID: 310,
-    logText: "1111111111111111111111",
-    nextStates: [{ possibility: 2.0, stateID: 0 }],
+    logText: "所以参加的是业余比赛，没有奖金",
+    nextStates: [{ possibility: 2.0, stateID: 200 }],
   },
   {
     stateID: 311,
-    logText: "1111111111111111111111",
-    nextStates: [{ possibility: 2.0, stateID: 0 }],
+    logText: "判断是否有兴趣：运动……",
+    nextStates: [{ possibility: 2.0, stateID: 199 }],
+    hidden: true,
   },
   {
     stateID: 312,
-    logText: "1111111111111111111111",
-    nextStates: [{ possibility: 2.0, stateID: 0 }],
+    logText: "我对运动没啥兴趣",
+    nextStates: [{ possibility: 2.0, stateID: 310 }],
   },
   {
     stateID: 313,
-    logText: "1111111111111111111111",
-    nextStates: [{ possibility: 2.0, stateID: 0 }],
+    logText: "最近状态不佳，不过以我从小的锻炼，获得奖金还是很容易的",
+    nextStates: [{ possibility: 2.0, stateID: 308 }],
   },
   {
     stateID: 314,
-    logText: "1111111111111111111111",
-    nextStates: [{ possibility: 2.0, stateID: 0 }],
+    logText: "我决定磨练我的心之力量",
+    nextStates: [
+      { possibility: 0.3, stateID: 196 },
+      { possibility: 2.0, stateID: 315 },
+    ],
   },
   {
     stateID: 315,
-    logText: "1111111111111111111111",
-    nextStates: [{ possibility: 2.0, stateID: 0 }],
+    logText: "最近的训练并没有什么成效",
+    nextStates: [{ possibility: 2.0, stateID: 200 }],
   },
   {
     stateID: 316,
@@ -2233,17 +2248,17 @@ const issues = [
   },
   {
     stateID: 398,
-    logText: "1111111111111111111111",
-    nextStates: [{ possibility: 2.0, stateID: 0 }],
-  },
-  {
-    stateID: 399,
     logText: "结局：入狱",
     nextStates: [{ possibility: 2.0, stateID: end }],
   },
   {
-    stateID: 400,
+    stateID: 399,
     logText: "“你被逮捕了！”",
+    nextStates: [{ possibility: 2.0, stateID: 398 }],
+  },
+  {
+    stateID: 400,
+    logText: "治安官比以往敌人强得多。我无力地瘫倒在墙角。",
     nextStates: [{ possibility: 2.0, stateID: 399 }],
   },
   {
@@ -2251,32 +2266,38 @@ const issues = [
     logText:
       "我有了些名声，有愚蠢的治安官认为我是邪教徒，竟然开始搜查我犯案的证据",
     nextStates: [{ possibility: 2.0, stateID: 202 }],
+    className: "Navy",
   },
   {
     stateID: 402,
     logText: "治安官搜集到了我外出行动的证据",
     nextStates: [{ possibility: 2.0, stateID: 202 }],
+    className: "Navy",
   },
   {
     stateID: 403,
     logText: "治安官搜集到了我采购物资的证据，真糟糕",
     nextStates: [{ possibility: 2.0, stateID: 202 }],
+    className: "Navy",
   },
   {
     stateID: 404,
     logText:
       "治安官搜集到了我召集同伙的证据。假如我的名声再增大，或许我就有麻烦了",
     nextStates: [{ possibility: 2.0, stateID: 202 }],
+    className: "Navy",
   },
   {
     stateID: 405,
     logText: "治安官找到我了！",
     nextStates: [{ possibility: 2.0, stateID: 406 }],
+    className: "Navy",
   },
   {
     stateID: 406,
     logText: "或许我可以用一些钱来贿赂他，不然我就要背水一战了",
     nextStates: [{ possibility: 2.0, stateID: 199 }],
+    className: "Navy",
     sheriff: {
       observe: 5,
       defend: 5,
@@ -2289,16 +2310,19 @@ const issues = [
     stateID: 407,
     logText: "你很不错。不过，下次就不是我了，祝你好运~",
     nextStates: [{ possibility: 2.0, stateID: 200 }],
+    className: "Navy",
   },
   {
     stateID: 408,
     logText: "治安官迎来了他的末日。",
     nextStates: [{ possibility: 2.0, stateID: 409 }],
+    className: "Darkred",
   },
   {
     stateID: 409,
     logText: "“胜利之人，你莫得意。我的同僚强大许多。等着。”",
     nextStates: [{ possibility: 2.0, stateID: 200 }],
+    className: "Navy",
     reputation: 10,
   },
 ];
