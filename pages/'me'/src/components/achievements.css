@@ -1,11 +1,3 @@
-.achievementPicture {
-  width: 100px;
-  height: 100px;
-  max-width: 40%;
-  max-height: 40%;
-  border: 3px solid #6495ed;
-  border-radius: 10px;
-}
 .Achievements {
   position: absolute;
   background-color: white;
@@ -32,10 +24,4 @@ button:hover.AchievementsButton {
 }
 button:active.AchievementsButton {
   background-color: #6495ed;
-}
-.gainedAchievement {
-  border: 3px solid green;
-}
-.notGainedAchievement {
-  border: 3px solid gray;
 }

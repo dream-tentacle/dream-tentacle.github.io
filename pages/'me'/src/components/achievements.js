@@ -2,15 +2,19 @@ import React from "react";
 import "./achievements.css";
 import OneAchievement from "./oneAchievement";
 import dark from "../images/dark.png";
+import bowl from "../images/bowl.png";
 
 const achievementList = [
-  { name: "黑暗", discription: "我陷入了黑暗", image: dark },
-  { name: "告罄", discription: "我没钱了" },
-  { name: "平凡即是喜乐", discription: "平凡的生活，我已经满足了" },
+  { name: "黑暗", discription: "沉沦黑暗之中", image: dark },
+  { name: "告罄", discription: "花光了所有的钱", image: bowl },
+  { name: "平凡即是喜乐", discription: "我满足于平凡的生活" },
   { name: "入狱", discription: "一失足成千古恨" },
-  { name: "质变" },
-  { name: "一次抗争" },
-  { name: "钱不是万能的，但没有钱是万万不能的" },
+  { name: "质变", discription: "属性总和达到20点" },
+  { name: "一次抗争", discription: "击杀治安官" },
+  {
+    name: "钱不是万能的，但没有钱是万万不能的",
+    discription: "花点钱贿赂治安官",
+  },
 ];
 
 function Achievements(props) {

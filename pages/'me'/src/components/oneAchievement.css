@@ -1,0 +1,59 @@
+#oneAchievement {
+  border-radius: 5px;
+  margin: 10px auto;
+  display: flex;
+  justify-content: space-between; /*自动分配空间，不拉伸*/
+  align-items: center;
+  flex-wrap: wrap; /*当元素超出时自动换行*/
+}
+#oneAchievement:hover {
+  background-color: #cee5ee;
+}
+.gainedAchievement {
+  background-color: #add8e6;
+}
+.notGainedAchievement {
+  background-color: #add8e6;
+}
+.notGainedAchievement .achievementPicture {
+  opacity: 0.4;
+  filter: alpha(opacity=40); /*  IE8 及其更早版本 */
+}
+.achievementPicture {
+  width: 100px;
+  height: 100px;
+  max-width: 40%;
+  max-height: 40%;
+  border: 3px solid #424242;
+  margin: 8px;
+}
+.centerTexts {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  width: 70%;
+  padding: auto 100px;
+}
+.nameText {
+  margin: 4px 2px;
+  padding: 2px 8px;
+  min-height: 24px;
+  background-color: #6fbbd3;
+  border-radius: 4px;
+}
+
+.discriptionText {
+  margin: 4px 2px;
+  padding-left: 8px;
+  padding-top: 8px;
+  height: 60px;
+  background-color: #6fbbd3;
+  border-radius: 4px;
+}
+
+#oneAchievement:hover .discriptionText {
+  background-color: #add8e6;
+}
+#oneAchievement:hover .nameText {
+  background-color: #add8e6;
+}

@@ -1,11 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=ZCOOL+XiaoWei&display=swap");
 button {
   font-size: 20px;
+  font-family: "ZCOOL XiaoWei", sans-serif;
+  font-weight: bold;
   color: indianred;
   background-color: white;
   border: 2px solid indianred;
-  font-family: "ZCOOL XiaoWei", sans-serif;
-  font-weight: bold;
   cursor: pointer; /* 指针/手形图标 */
   box-shadow: 0 6px #999;
   border-radius: 8px;
@@ -35,7 +35,7 @@ p,
 li,
 .Ability {
   font-family: "ZCOOL XiaoWei", sans-serif;
-  font-size: 20px;
+  font-size: 18px;
 }
 .Ability span {
   background-color: white;
