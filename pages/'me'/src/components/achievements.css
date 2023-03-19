@@ -1,0 +1,29 @@
+.achievementPicture {
+  width: 100px;
+  height: 100px;
+  max-width: 40%;
+  max-height: 40%;
+  background-color: white;
+  border: 3px solid #6495ed;
+  border-radius: 10px;
+}
+.Achievements {
+  position: absolute;
+  background-color: white;
+  max-width: 600px;
+  width: 80%;
+  margin: 3%;
+  padding: 20px;
+  border: 3px solid black;
+  border-radius: 30px;
+}
+.AchievementsButton {
+  color: #6495ed;
+  border: 2px solid #6495ed;
+}
+button:hover.AchievementsButton {
+  background-color: #6495ed;
+}
+button:active.AchievementsButton {
+  background-color: #6495ed;
+}

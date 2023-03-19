@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { nanoid } from "nanoid";
-import Log from "./components/Log";
-import issues from "./source/Issues";
-import Ability from "./components/Ability";
+import Log from "./components/log";
+import issues from "./source/issues";
+import Ability from "./components/ability";
+import Achievements from "./components/achievements";
 import "./App.css";
 
 //hobbies
@@ -44,6 +45,7 @@ function App() {
   const [insertIssueID, setInsertIssueID] = useState(0);
   const [usedIssue, setUsedIssue] = useState([]);
   const [sheriff, setSheriff] = useState(0);
+  const [achievementsBox, setAchievementsBox] = useState(false);
   const [logList, setLogList] = useState([
     {
       stateID: 0,
@@ -117,6 +119,12 @@ function App() {
     if (newIssue.stateID === 151) setCareer(writer);
     if (newIssue.stateID === 152) setCareer(athlete);
     if (newIssue.stateID === 360) setOccultist(true);
+    //结局
+    if (newIssue.stateID === 2) localStorage.setItem("告罄", true);
+    if (newIssue.stateID === 6) localStorage.setItem("黑暗", true);
+    if (newIssue.stateID === 7) localStorage.setItem("不幸", true);
+    if (newIssue.stateID === 354) localStorage.setItem("平凡即是喜乐", true);
+    if (newIssue.stateID === 501) localStorage.setItem("入狱", true);
   }
   function addLog(newIssue) {
     if (
@@ -437,6 +445,18 @@ function App() {
   //App:
   return (
     <div className="App">
+      {achievementsBox ? (
+        <Achievements setAchievementsBox={setAchievementsBox} />
+      ) : (
+        ""
+      )}
+      <button
+        className="AchievementsButton"
+        onClick={() => setAchievementsBox(true)}
+      >
+        打开成就
+      </button>
+      <br />
       {backgroundColor()}
       {occultist ? <Ability {...ability} /> : ""}
       {age >= 18 ? (
