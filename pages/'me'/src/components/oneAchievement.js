@@ -1,10 +1,19 @@
 import React from "react";
 
 function OneAchievement(props) {
+  const achieved = localStorage.getItem(props.name);
   return (
-    <div>
+    <div className={achieved ? "gainedAchievement" : "notGainedAchievement"}>
       <div style={{ display: "flex", justifyContent: "space-between" }}>
-        <div className="achievementPicture" style={{}}></div>
+        {props.image ? (
+          <img
+            className="achievementPicture"
+            src={props.image}
+            alt="成就图片"
+          ></img>
+        ) : (
+          <div className="achievementPicture"></div>
+        )}
         <p
           style={{
             alignSelf: "center",
@@ -12,15 +21,13 @@ function OneAchievement(props) {
             textAlign: "center",
           }}
         >
-          {props.name}
+          {props.name + (achieved ? "——" + props.discription : "")}
         </p>
-        <p
-          style={{
-            alignSelf: "center",
-          }}
-        >
-          {localStorage.getItem(props.name) ? "已达成" : "未达成"}
-        </p>
+        {achieved ? (
+          <p style={{ alignSelf: "center", color: "green" }}>已达成</p>
+        ) : (
+          <p style={{ alignSelf: "center", color: "gray" }}>未达成</p>
+        )}
       </div>
       <br />
     </div>

@@ -3,19 +3,25 @@
   height: 100px;
   max-width: 40%;
   max-height: 40%;
-  background-color: white;
   border: 3px solid #6495ed;
   border-radius: 10px;
 }
 .Achievements {
   position: absolute;
   background-color: white;
-  max-width: 600px;
   width: 80%;
-  margin: 3%;
-  padding: 20px;
+  max-width: 800px;
+  margin: 3% 10%;
+  padding: 10px;
   border: 3px solid black;
   border-radius: 30px;
+}
+.AchievementTextBox {
+  border-bottom: 2px solid gainsboro;
+  border-top: 2px solid gainsboro;
+  height: 500px;
+  padding: 5px;
+  overflow: auto;
 }
 .AchievementsButton {
   color: #6495ed;
@@ -26,4 +32,10 @@ button:hover.AchievementsButton {
 }
 button:active.AchievementsButton {
   background-color: #6495ed;
+}
+.gainedAchievement {
+  border: 3px solid green;
+}
+.notGainedAchievement {
+  border: 3px solid gray;
 }

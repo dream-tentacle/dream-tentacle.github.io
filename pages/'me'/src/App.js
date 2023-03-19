@@ -125,6 +125,9 @@ function App() {
     if (newIssue.stateID === 7) localStorage.setItem("不幸", true);
     if (newIssue.stateID === 354) localStorage.setItem("平凡即是喜乐", true);
     if (newIssue.stateID === 501) localStorage.setItem("入狱", true);
+    if (newIssue.stateID === 510)
+      localStorage.setItem("钱不是万能的，但没有钱是万万不能的", true);
+    if (newIssue.stateID === 511) localStorage.setItem("一次抗争", true);
   }
   function addLog(newIssue) {
     if (
@@ -446,7 +449,9 @@ function App() {
   return (
     <div className="App">
       {achievementsBox ? (
-        <Achievements setAchievementsBox={setAchievementsBox} />
+        <div className="achievementsBackground">
+          <Achievements setAchievementsBox={setAchievementsBox} />
+        </div>
       ) : (
         ""
       )}

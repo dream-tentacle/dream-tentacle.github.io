@@ -1083,6 +1083,7 @@ const issues = [
       { possibility: 0.4, stateID: 308 }, //一些
       { possibility: 2.0, stateID: 309 }, //很多
     ],
+    time: -1,
   },
   {
     stateID: 207,
@@ -1830,6 +1831,7 @@ const issues = [
       { possibility: 0.3, stateID: 196 },
       { possibility: 2.0, stateID: 315 },
     ],
+    time: -1,
   },
   {
     stateID: 315,
@@ -2853,6 +2855,12 @@ const issues = [
   {
     stateID: 512,
     logText: "“胜利之人，你莫得意。我的同僚强大许多。”",
+    nextStates: [{ possibility: 2.0, stateID: 513 }],
+    className: "Navy",
+  },
+  {
+    stateID: 513,
+    logText: "我现在更容易被治安官发现（声望 +10）",
     nextStates: [{ possibility: 2.0, stateID: 200 }],
     className: "Navy",
     reputation: 10,
