@@ -39,7 +39,7 @@ function App() {
   const [hobby, setHobby] = useState([]);
   const [career, setCareer] = useState("无");
   const [time, setTime] = useState(actionPerYear);
-  const [reputation, setReputation] = useState(0);
+  const [reputation, setReputation] = useState(100);
   const [occultist, setOccultist] = useState(false);
   const [dark, setDark] = useState(0);
   const [insertIssueID, setInsertIssueID] = useState(0);
@@ -292,14 +292,14 @@ function App() {
         addLog(issues[506]);
         setSheriff(3);
       } else if (sheriff === 3 && poss <= reputation * 0.02) {
-        addLog(issues[506]);
+        addLog(issues[507]);
         setSheriff(4);
       } else if (
         sheriff === 4 &&
         reputation >= 15 &&
         poss <= reputation * 0.04
       ) {
-        addLog(issues[507]);
+        addLog(issues[508]);
         setSheriff(5);
       } else addLog(issues[202]);
     } else addLog(issues[202]);
