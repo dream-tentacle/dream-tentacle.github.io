@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { nanoid } from "nanoid";
 import Log from "./components/Log";
 import issues from "./source/Issues";
@@ -28,6 +28,8 @@ const backgroundColors = [
   "#515A5A",
   "#424949",
 ];
+
+const maxLogs = 100;
 
 function App() {
   //States:
@@ -70,7 +72,7 @@ function App() {
       desire: ability.desire + desire,
     });
   }
-  function dealMoney(moneyGain) {
+  /* function dealMoney(moneyGain) {
     if (money < -moneyGain) {
       setInsertIssueID(2); //花光了钱
     }
@@ -90,7 +92,7 @@ function App() {
     }
     if (dark + darkGain < 0) setDark(0);
     else setDark(dark + darkGain);
-  }
+  } */
   function specialIssueConsequence(newIssue) {
     let a = 0,
       b = 0,
@@ -106,9 +108,9 @@ function App() {
       setReputation(reputation + newIssue.reputation);
     if ("age" in newIssue) setAge(newIssue.age);
     //三种失败途径
-    if ("dark" in newIssue) dealDark(newIssue.dark);
-    if ("time" in newIssue) dealTime(newIssue.time);
-    if ("money" in newIssue) dealMoney(newIssue.money);
+    if ("dark" in newIssue) setDark((x) => x + newIssue.dark);
+    if ("money" in newIssue) setMoney((x) => x + newIssue.money);
+    if ("time" in newIssue) setTime((x) => x + newIssue.time);
     //一些特殊事件结果
     if (newIssue.stateID === 99) setHobby([...hobby, sport]);
     if (newIssue.stateID === 100) setHobby([...hobby, write]);
@@ -254,8 +256,8 @@ function App() {
         logText: "我不敌对手，受了重伤。我住院了",
         nextStates: [{ possibility: 2.0, stateID: 200 }],
       });
-      dealMoney(-2);
-      dealTime(2);
+      setMoney((x) => x - 2);
+      setTime((x) => x - 2);
     }
   }
   function sheriffBattle(sheriff) {
@@ -379,7 +381,7 @@ function App() {
         <button
           onClick={() => {
             addLog(issues[407]);
-            dealMoney(-10);
+            setMoney((x) => x - 10);
           }}
         >
           用十份资金贿赂
@@ -414,6 +416,24 @@ function App() {
     );
   });
 
+  //effects:
+  useEffect(() => {
+    if (logList.length > maxLogs) logList.pop();
+  }, [logList]);
+  useEffect(() => {
+    if (money < 0) setInsertIssueID(2);
+  }, [money]);
+  useEffect(() => {
+    if (time <= 0) {
+      setTime((x) => x + actionPerYear);
+      setMoney((x) => x - 5);
+      setAge((x) => x + 1);
+    }
+  }, [time]);
+  useEffect(() => {
+    if (dark >= 10) setInsertIssueID(3);
+    else if (dark < 0) setDark(0);
+  }, [dark]);
   //App:
   return (
     <div className="App">

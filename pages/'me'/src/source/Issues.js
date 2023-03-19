@@ -1045,7 +1045,7 @@ const issues = [
     stateID: 201,
     logText: "我决定外出取材",
     nextStates: [{ possibility: 2.0, stateID: 199 }],
-    time: 1,
+    time: -1,
   },
   {
     stateID: 202,
@@ -1119,31 +1119,31 @@ const issues = [
       { possibility: 0.25, stateID: 230 },
       { possibility: 2.0, stateID: 233 },
     ],
-    time: 1,
+    time: -1,
   },
   {
     stateID: 212,
     logText: "我决定去其他城市旅游 ",
     nextStates: [{ possibility: 2.0, stateID: 241 }],
-    time: 1,
+    time: -1,
   },
   {
     stateID: 213,
     logText: "我决定去乡下看看",
     nextStates: [{ possibility: 2.0, stateID: 0 }],
-    time: 1,
+    time: -1,
   },
   {
     stateID: 214,
     logText: "我决定去森林野营",
     nextStates: [{ possibility: 2.0, stateID: 0 }],
-    time: 1,
+    time: -1,
   },
   {
     stateID: 215,
     logText: "我决定去山脉深处探险",
     nextStates: [{ possibility: 2.0, stateID: 0 }],
-    time: 1,
+    time: -1,
   },
   //城里探险结果：
   {
@@ -2631,7 +2631,7 @@ const issues = [
   },
   {
     stateID: 472,
-    logText: "我在恋爱中被伴侣出轨，让我感到很伤心和失落。",
+    logText: "我被伴侣出轨，让我感到很伤心和失落。",
     nextStates: [{ possibility: 2.0, stateID: 207 }],
     dark: 1,
   },
