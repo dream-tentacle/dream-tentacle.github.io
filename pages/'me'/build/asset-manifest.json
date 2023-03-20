@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "./static/css/main.cca2fff5.css",
+    "main.js": "./static/js/main.0b400fda.js",
+    "static/media/dark.png": "./static/media/dark.3287aef6942e1c5119b6.png",
+    "static/media/bowl.png": "./static/media/bowl.d1edad7b9b0da2b09e92.png",
+    "static/media/prison.jpg": "./static/media/prison.2837b8e042d05ab0760a.jpg",
+    "index.html": "./index.html",
+    "main.cca2fff5.css.map": "./static/css/main.cca2fff5.css.map",
+    "main.0b400fda.js.map": "./static/js/main.0b400fda.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cca2fff5.css",
+    "static/js/main.0b400fda.js"
+  ]
+}
