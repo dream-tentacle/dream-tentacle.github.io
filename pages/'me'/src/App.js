@@ -14,6 +14,13 @@ const write = "写作",
 const writer = "作家",
   athlete = "运动员";
 
+//物品
+const treasure3Observe = 600,
+  treasure3Defend = 599,
+  treasure3Technique = 598,
+  treasure3Desire = 597;
+
+//一些定值
 const actionPerYear = 10;
 
 const backgroundColors = [
@@ -39,13 +46,14 @@ function App() {
   const [hobby, setHobby] = useState([]);
   const [career, setCareer] = useState("无");
   const [time, setTime] = useState(actionPerYear);
-  const [reputation, setReputation] = useState(100);
+  const [reputation, setReputation] = useState(0);
   const [occultist, setOccultist] = useState(false);
   const [dark, setDark] = useState(0);
   const [insertIssueID, setInsertIssueID] = useState(0);
   const [usedIssue, setUsedIssue] = useState([]);
   const [sheriff, setSheriff] = useState(0);
   const [achievementsBox, setAchievementsBox] = useState(false);
+  const [treasure, setTreasure] = useState([]);
   const [logList, setLogList] = useState([
     {
       stateID: 0,
@@ -67,12 +75,13 @@ function App() {
     window.location.reload();
   }
   function addAbility(observe, defend, technique, desire) {
-    setAbility({
-      observe: ability.observe + observe,
-      defend: ability.defend + defend,
-      technique: ability.technique + technique,
-      desire: ability.desire + desire,
-    });
+    if (observe || defend || technique || desire)
+      setAbility({
+        observe: ability.observe + observe,
+        defend: ability.defend + defend,
+        technique: ability.technique + technique,
+        desire: ability.desire + desire,
+      });
   }
   /* function dealMoney(moneyGain) {
     if (money < -moneyGain) {
@@ -119,6 +128,7 @@ function App() {
     if (newIssue.stateID === 151) setCareer(writer);
     if (newIssue.stateID === 152) setCareer(athlete);
     if (newIssue.stateID === 360) setOccultist(true);
+
     //结局
     if (newIssue.stateID === 2) localStorage.setItem("告罄", true);
     if (newIssue.stateID === 6) localStorage.setItem("黑暗", true);
@@ -200,13 +210,15 @@ function App() {
     const enemySum =
       enemy.observe + enemy.technique + enemy.defend + enemy.desire;
     if (ability.observe > enemy.technique && yourSum >= enemySum) return 1; //获胜
-    if (ability.desire > enemy.defend && yourSum >= enemySum) return 2;
-    if (ability.technique > enemy.observe && yourSum >= enemySum) return 3;
-    if (ability.defend > enemy.desire && yourSum >= enemySum) return 4;
-
     if (enemy.observe > ability.technique && enemySum >= yourSum) return 0; //失败
-    if (enemy.desire > ability.defend && enemySum >= yourSum) return 0;
+
+    if (ability.technique > enemy.observe && yourSum >= enemySum) return 3;
     if (enemy.technique > ability.observe && enemySum >= yourSum) return 0;
+
+    if (ability.desire > enemy.defend && yourSum >= enemySum) return 2;
+    if (enemy.desire > ability.defend && enemySum >= yourSum) return 0;
+
+    if (ability.defend > enemy.desire && yourSum >= enemySum) return 4;
     if (enemy.defend > ability.desire && enemySum >= yourSum) return 0;
     return 5; //平局
   }
@@ -215,13 +227,24 @@ function App() {
     if ("enemyStateID" in enemy && result > 0 && result < 5) {
       setUsedIssue([...usedIssue, enemy.enemyStateID]);
     }
+    if (
+      "getTreasure" in enemy &&
+      result > 0 &&
+      result < 5 &&
+      !treasure.some((ele) => ele === enemy.getTreasureStateID)
+    ) {
+      setTreasure([...treasure, enemy.getTreasureStateID]);
+      addLog(issues[enemy.getTreasureStateID]);
+    }
+    let gainPoss = enemy.gain;
+    if (career === athlete) gainPoss += 0.2;
     if (result === 1) {
       addLog({
         stateID: 199,
         logText: "我观察到了敌人的弱点，并一击致胜",
         className: "Cornflowerblue",
         nextStates: [
-          { possibility: enemy.gain, stateID: enemy.gainState },
+          { possibility: gainPoss, stateID: enemy.gainState },
           { possibility: 2.0, stateID: 200 },
         ],
       });
@@ -231,7 +254,7 @@ function App() {
         logText: "我激发了敌人的欲望，让他们沉醉于迷惘",
         className: "Blue",
         nextStates: [
-          { possibility: enemy.gain, stateID: enemy.gainState },
+          { possibility: gainPoss, stateID: enemy.gainState },
           { possibility: 2.0, stateID: 200 },
         ],
       });
@@ -241,7 +264,7 @@ function App() {
         logText: "我运用技艺击败了敌人",
         className: "Lightslategray",
         nextStates: [
-          { possibility: enemy.gain, stateID: enemy.gainState },
+          { possibility: gainPoss, stateID: enemy.gainState },
           { possibility: 2.0, stateID: 200 },
         ],
       });
@@ -251,7 +274,7 @@ function App() {
         logText: "我运用力量击败了敌人",
         className: "Tomato",
         nextStates: [
-          { possibility: enemy.gain, stateID: enemy.gainState },
+          { possibility: gainPoss, stateID: enemy.gainState },
           { possibility: 2.0, stateID: 200 },
         ],
       });
@@ -353,6 +376,16 @@ function App() {
       ) : (
         <span>（提示：名声不足，无法前往其他地点）</span>
       )}
+      {usedIssue.some((ele) => ele === 260) ? (
+        <button onClick={() => addLog(issues[213])}>去乡下看看</button>
+      ) : (
+        <span>（提示：需要击败某些敌人）</span>
+      )}
+      {treasure.some((ele) => ele !== 0) ? (
+        <button onClick={() => addLog(issues[213])}>去森林探险</button>
+      ) : (
+        <span>（提示：需要拥有至少一件宝物）</span>
+      )}
     </div>
   );
   const occultButton = (
@@ -445,6 +478,15 @@ function App() {
     if (dark >= 10) setInsertIssueID(3);
     else if (dark < 0) setDark(0);
   }, [dark]);
+  useEffect(() => {
+    if (
+      ability.defend + ability.desire + ability.observe + ability.technique >=
+      20
+    ) {
+      localStorage.setItem("质变", true);
+    }
+  }, [ability]);
+
   //App:
   return (
     <div className="App">

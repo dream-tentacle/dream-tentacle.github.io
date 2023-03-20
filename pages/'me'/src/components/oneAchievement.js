@@ -27,7 +27,7 @@ function OneAchievement(props) {
           已达成
         </p>
       ) : (
-        <p style={{ color: "gray", paddingRight: "8px" }}>未达成</p>
+        <p style={{ color: "black", paddingRight: "8px" }}>未达成</p>
       )}
     </div>
   );

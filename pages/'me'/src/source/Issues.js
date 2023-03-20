@@ -785,22 +785,23 @@ const issues = [
   {
     stateID: 151,
     logText: "我成为了作家",
-    nextStates: [{ possibility: 2.0, stateID: 200 }],
+    nextStates: [{ possibility: 2.0, stateID: 153 }],
   },
   {
     stateID: 152,
-    logText: "我成为了运动员",
-    nextStates: [{ possibility: 2.0, stateID: 200 }],
+    logText: "我成为了运动员。",
+    nextStates: [{ possibility: 2.0, stateID: 154 }],
   },
   {
     stateID: 153,
-    logText: "1111111111111111111111 ",
-    nextStates: [{ possibility: 2.0, stateID: 0 }],
+    logText: "【作家：因对事物的敏感而容易陷入黑暗，但战斗判定优先级高",
+    nextStates: [{ possibility: 2.0, stateID: 200 }],
   },
   {
     stateID: 154,
-    logText: "1111111111111111111111 ",
-    nextStates: [{ possibility: 2.0, stateID: 0 }],
+    logText:
+      "【运动员：阳光开朗，容易从敌人身上吸取经验教训，但战斗判定优先级低】",
+    nextStates: [{ possibility: 2.0, stateID: 200 }],
   },
   {
     stateID: 155,
@@ -1059,6 +1060,7 @@ const issues = [
       { possibility: 0.4, stateID: 195 },
       { possibility: 2.0, stateID: 204 },
     ],
+    time: -1,
   },
   {
     stateID: 204,
@@ -1115,10 +1117,10 @@ const issues = [
     stateID: 211,
     logText: "我决定去城里转转",
     nextStates: [
-      { possibility: 0.25, stateID: 216 },
-      { possibility: 0.25, stateID: 229 },
-      { possibility: 0.25, stateID: 230 },
-      { possibility: 2.0, stateID: 233 },
+      { possibility: 0.1, stateID: 216 }, //钱包
+      { possibility: 0.5, stateID: 229 }, //敌人
+      { possibility: 0.25, stateID: 230 }, //酒馆
+      { possibility: 2.0, stateID: 233 }, //记者
     ],
     time: -1,
   },
@@ -1131,8 +1133,8 @@ const issues = [
   {
     stateID: 213,
     logText: "我决定去乡下看看",
-    nextStates: [{ possibility: 2.0, stateID: 0 }],
-    time: -1,
+    nextStates: [{ possibility: 2.0, stateID: 605 }], //抽取敌人
+    time: -2,
   },
   {
     stateID: 214,
@@ -2864,6 +2866,826 @@ const issues = [
     nextStates: [{ possibility: 2.0, stateID: 200 }],
     className: "Navy",
     reputation: 10,
+  },
+  {
+    stateID: 514,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 515,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 516,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 517,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 518,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 519,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 520,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 521,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 522,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 523,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 524,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 525,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 526,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 527,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 528,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 529,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 530,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 531,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 532,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 533,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 534,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 535,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 536,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 537,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 538,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 539,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 540,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 541,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 542,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 543,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 544,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 545,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 546,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 547,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 548,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 549,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 550,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 551,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 552,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 553,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 554,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 555,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 556,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 557,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 558,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 559,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 560,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 561,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 562,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 563,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 564,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 565,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 566,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 567,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 568,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 569,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 570,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 571,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 572,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 573,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 574,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 575,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 576,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 577,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 578,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 579,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 580,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 581,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 582,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 583,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 584,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 585,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 586,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 587,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 588,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 589,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 590,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 591,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 592,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 593,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 594,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 595,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 596,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 597,
+    logText: "获得3级水属性宝物",
+    nextStates: [{ possibility: 2.0, stateID: 200 }],
+  },
+  {
+    stateID: 598,
+    logText: "获得3级珠属性宝物",
+    nextStates: [{ possibility: 2.0, stateID: 200 }],
+  },
+  {
+    stateID: 599,
+    logText: "获得3级心属性宝物",
+    nextStates: [{ possibility: 2.0, stateID: 200 }],
+  },
+  {
+    stateID: 600,
+    logText: "获得3级目属性宝物",
+    nextStates: [{ possibility: 2.0, stateID: 200 }],
+  },
+  {
+    stateID: 601,
+    logText: "与3级目属性敌人战斗",
+    nextStates: [{ possibility: 2.0, stateID: 199 }],
+    enemy: {
+      observe: 15,
+      defend: 3,
+      technique: 3,
+      desire: 3,
+      gain: 0.5,
+      gainState: 195,
+      getTreasureStateID: 600,
+    },
+  },
+  {
+    stateID: 602,
+    logText: "与3级心属性敌人战斗",
+    nextStates: [{ possibility: 2.0, stateID: 199 }],
+    enemy: {
+      observe: 4,
+      defend: 11,
+      technique: 4,
+      desire: 4,
+      gain: 0.5,
+      gainState: 195,
+      getTreasureStateID: 599,
+    },
+  },
+  {
+    stateID: 603,
+    logText: "与3级珠属性敌人战斗",
+    nextStates: [{ possibility: 2.0, stateID: 199 }],
+    enemy: {
+      observe: 3,
+      defend: 3,
+      technique: 16,
+      desire: 3,
+      gain: 0.5,
+      gainState: 195,
+      getTreasureStateID: 598,
+    },
+  },
+  {
+    stateID: 604,
+    logText: "与3级水属性敌人战斗",
+    nextStates: [{ possibility: 2.0, stateID: 199 }],
+    enemy: {
+      observe: 3,
+      defend: 3,
+      technique: 3,
+      desire: 15,
+      gain: 0.5,
+      gainState: 195,
+      getTreasureStateID: 598,
+    },
+  },
+  {
+    stateID: 605,
+    logText: "抽取3级敌人……（如果出现在文本框请反馈给开发者）",
+    nextStates: [
+      { possibility: 0.25, stateID: 601 },
+      { possibility: 0.25, stateID: 602 },
+      { possibility: 0.25, stateID: 603 },
+      { possibility: 2.0, stateID: 604 },
+    ],
+    hidden: true,
+  },
+  {
+    stateID: 606,
+    logText: "抽取4级敌人……（如果出现在文本框请反馈给开发者）",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+    nextStates: [
+      { possibility: 0.25, stateID: 607 },
+      { possibility: 0.25, stateID: 608 },
+      { possibility: 0.25, stateID: 609 },
+      { possibility: 2.0, stateID: 610 },
+    ],
+    hidden: true,
+  },
+  {
+    stateID: 607,
+    logText: "与4级目属性敌人战斗",
+    nextStates: [{ possibility: 2.0, stateID: 199 }],
+    enemy: {
+      observe: 25,
+      defend: 5,
+      technique: 5,
+      desire: 5,
+      gain: 0.5,
+      gainState: 195,
+      getTreasureStateID: 598,
+    },
+  },
+  {
+    stateID: 608,
+    logText: "与4级心属性敌人战斗",
+    nextStates: [{ possibility: 2.0, stateID: 199 }],
+    enemy: {
+      observe: 5,
+      defend: 25,
+      technique: 5,
+      desire: 5,
+      gain: 0.5,
+      gainState: 195,
+      getTreasureStateID: 598,
+    },
+  },
+  {
+    stateID: 609,
+    logText: "与4级珠属性敌人战斗",
+    nextStates: [{ possibility: 2.0, stateID: 199 }],
+    enemy: {
+      observe: 5,
+      defend: 5,
+      technique: 25,
+      desire: 5,
+      gain: 0.5,
+      gainState: 195,
+      getTreasureStateID: 598,
+    },
+  },
+  {
+    stateID: 610,
+    logText: "与4级水属性敌人战斗",
+    nextStates: [{ possibility: 2.0, stateID: 199 }],
+    enemy: {
+      observe: 5,
+      defend: 5,
+      technique: 5,
+      desire: 25,
+      gain: 0.7,
+      gainState: 195,
+      getTreasureStateID: 598,
+    },
+  },
+  {
+    stateID: 611,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 612,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 613,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 614,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 615,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 616,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 617,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 618,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 619,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 620,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 621,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 622,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 623,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 624,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 625,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 626,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 627,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 628,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 629,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 630,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 631,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 632,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 633,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 634,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 635,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 636,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 637,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 638,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 639,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 640,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 641,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 642,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 643,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 644,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 645,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 646,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 647,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 648,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 649,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 650,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 651,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 652,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 653,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 654,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 655,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 656,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 657,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 658,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 659,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
+  },
+  {
+    stateID: 660,
+    logText: "1111111111111111111111",
+    nextStates: [{ possibility: 2.0, stateID: 0 }],
   },
 ];
 export default issues;

@@ -3,12 +3,13 @@ import "./achievements.css";
 import OneAchievement from "./oneAchievement";
 import dark from "../images/dark.png";
 import bowl from "../images/bowl.png";
+import prison from "../images/prison.jpg";
 
 const achievementList = [
   { name: "黑暗", discription: "沉沦黑暗之中", image: dark },
   { name: "告罄", discription: "花光了所有的钱", image: bowl },
   { name: "平凡即是喜乐", discription: "我满足于平凡的生活" },
-  { name: "入狱", discription: "一失足成千古恨" },
+  { name: "入狱", discription: "一失足成千古恨", image: prison },
   { name: "质变", discription: "属性总和达到20点" },
   { name: "一次抗争", discription: "击杀治安官" },
   {
