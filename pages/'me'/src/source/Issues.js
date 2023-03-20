@@ -1371,11 +1371,13 @@ const issues = [
     logText: "抽取敌人2级（此条若出现在文本框，请反馈给开发者）",
     hidden: true,
     nextStates: [
-      { possibility: 0.1, stateID: 242 },
-      { possibility: 0.1, stateID: 243 },
-      { possibility: 0.1, stateID: 244 },
-      { possibility: 0.1, stateID: 245 },
-      { possibility: 0.15, stateID: 258 },
+      { possibility: 0.15, stateID: 242 },
+      { possibility: 0.15, stateID: 243 },
+      { possibility: 0.15, stateID: 244 },
+      { possibility: 0.15, stateID: 245 },
+      { possibility: 0.1, stateID: 246 },
+      { possibility: 0.1, stateID: 247 },
+      { possibility: 0.1, stateID: 258 },
       { possibility: 2.0, stateID: 260 },
     ],
   },
@@ -1437,7 +1439,7 @@ const issues = [
   },
   {
     stateID: 246,
-    logText: "      ",
+    logText: "与2级目属性敌人战斗",
     nextStates: [{ possibility: 2.0, stateID: 0 }],
     enemy: {
       observe: 10,
@@ -1450,7 +1452,7 @@ const issues = [
   },
   {
     stateID: 247,
-    logText: "1111111111111111111111 ",
+    logText: "与2级心属性敌人战斗 ",
     nextStates: [{ possibility: 2.0, stateID: 0 }],
     enemy: {
       observe: 1,
@@ -3341,7 +3343,7 @@ const issues = [
       desire: 3,
       gain: 0.5,
       gainState: 195,
-      getTreasureStateID: 598,
+      getTreasureStateID: 599,
     },
   },
   {
@@ -3391,7 +3393,7 @@ const issues = [
       desire: 5,
       gain: 0.5,
       gainState: 195,
-      getTreasureStateID: 598,
+      getTreasureStateID: 593,
     },
   },
   {
@@ -3405,7 +3407,7 @@ const issues = [
       desire: 5,
       gain: 0.5,
       gainState: 195,
-      getTreasureStateID: 598,
+      getTreasureStateID: 594,
     },
   },
   {
@@ -3419,7 +3421,7 @@ const issues = [
       desire: 5,
       gain: 0.5,
       gainState: 195,
-      getTreasureStateID: 598,
+      getTreasureStateID: 595,
     },
   },
   {
@@ -3433,7 +3435,7 @@ const issues = [
       desire: 25,
       gain: 0.7,
       gainState: 195,
-      getTreasureStateID: 598,
+      getTreasureStateID: 596,
     },
   },
   {

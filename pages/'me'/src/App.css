@@ -10,17 +10,13 @@ button {
   box-shadow: 0 6px #999;
   border-radius: 8px;
   padding: 12px 8px;
-  margin: 8px;
-  max-width: 300px;
+  margin: 1%;
+  min-width: 80px;
+  max-width: 240px;
   width: 45%;
-  height: 60px;
+  min-height: 70px;
 }
-@media screen and (max-width: 480px) {
-  button {
-    max-width: 480px;
-    width: 95%;
-  }
-}
+
 button:hover {
   color: white;
   background-color: indianred;

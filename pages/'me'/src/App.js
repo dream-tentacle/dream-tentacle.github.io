@@ -15,9 +15,10 @@ const writer = "作家",
   athlete = "运动员";
 
 //物品
-const treasure3Observe = 597,
-  treasure3Defend = 598,
-  treasure3Technique = 599,
+// eslint-disable-next-line
+const treasure3Observe = 597, // eslint-disable-next-line
+  treasure3Defend = 598, // eslint-disable-next-line
+  treasure3Technique = 599, // eslint-disable-next-line
   treasure3Desire = 600;
 
 //一些定值
@@ -53,7 +54,7 @@ function App() {
   const [usedIssue, setUsedIssue] = useState([]);
   const [sheriff, setSheriff] = useState(0);
   const [achievementsBox, setAchievementsBox] = useState(false);
-  const [treasure, setTreasure] = useState([]);
+  const [treasure, setTreasure] = useState([]); // eslint-disable-next-line
   const [usingTreasure, setUsingTreasure] = useState(0);
   const [treasureListOpen, setTreasureListOpen] = useState(false);
   const [logList, setLogList] = useState([
@@ -198,10 +199,7 @@ function App() {
       const possibleIssue = nowState.nextStates[i];
       if (poss <= possibleIssue.possibility) {
         newIssue = issues[possibleIssue.stateID];
-        if (newIssue.stateID === 0) {
-          originate();
-          return;
-        } else addLog(newIssue);
+        addLog(newIssue);
         break;
       } else poss -= possibleIssue.possibility;
     }
@@ -237,6 +235,10 @@ function App() {
     ) {
       setTreasure([...treasure, enemy.getTreasureStateID]);
       addLog(issues[enemy.getTreasureStateID]);
+    }
+    if (result > 0 && result < 5 && "level" in enemy) {
+      if (enemy.level >= 3) localStorage.setItem("实力", true);
+      if (enemy.level >= 4) localStorage.setItem("无可匹敌", true);
     }
     let gainPoss = enemy.gain;
     if (career === athlete) gainPoss += 0.2;
@@ -329,9 +331,6 @@ function App() {
       } else addLog(issues[202]);
     } else addLog(issues[202]);
   }
-  function useMyTreasure(treasureID) {
-    setUsingTreasure(treasureID);
-  }
   //UI:
   //background-color:
   function backgroundColor() {
@@ -417,20 +416,35 @@ function App() {
       <button onClick={() => addLog(issues[219])}>将钱包交给警察</button>
     </div>
   );
-  const battleButton = (
-    <div className="battleButton">
-      <button onClick={() => enemyBattle(issues[logList[0].stateID].enemy)}>
-        战斗！
-      </button>
-      <button onClick={() => setTreasureListOpen(!treasureListOpen)}>
-        使用宝物
-      </button>
-    </div>
-  );
+  function battleButton() {
+    if (!treasureList.some((ele) => true))
+      return (
+        <div className="battleButton">
+          <button onClick={() => enemyBattle(issues[logList[0].stateID].enemy)}>
+            战斗！
+          </button>
+        </div>
+      );
+    else
+      return (
+        <div className="battleButton">
+          <button onClick={() => enemyBattle(issues[logList[0].stateID].enemy)}>
+            战斗！
+          </button>
+          <button onClick={() => setTreasureListOpen(!treasureListOpen)}>
+            使用宝物
+          </button>
+        </div>
+      );
+  }
   const treasureList = treasure.map((ele) => {
     return (
-      <button style={{}} id={`id-${nanoid}`}>
-        ele
+      <button
+        style={{}}
+        key={`id-${nanoid}`}
+        onClick={() => setUsingTreasure(ele)}
+      >
+        {ele}
       </button>
     );
   });
@@ -453,6 +467,7 @@ function App() {
       </button>
     </div>
   );
+  const remakeButton = <button onClick={() => originate()}>重新开始</button>;
   const buttonCondition = () => {
     if (logList[0].stateID === 150) return careerChooseButton;
     if (logList[0].stateID === 200) return spareButton();
@@ -460,9 +475,11 @@ function App() {
     if (logList[0].stateID === 216) return walletButton;
     if (logList[0].stateID === 352) return occultButton;
     if (logList[0].stateID === 509) return sheriffOneButton;
-    if ("enemy" in issues[logList[0].stateID]) return battleButton;
+    if ("enemy" in issues[logList[0].stateID]) return battleButton();
+    if (logList[0].stateID === 355) return remakeButton;
     return nextButton;
   };
+
   //all logs:
   const logs = logList.map((oneLog) => {
     return (
@@ -499,6 +516,11 @@ function App() {
       20
     ) {
       localStorage.setItem("质变", true);
+      if (
+        ability.defend + ability.desire + ability.observe + ability.technique >=
+        40
+      )
+        localStorage.setItem("升华", true);
     }
   }, [ability]);
 
@@ -535,6 +557,7 @@ function App() {
         ""
       )}
       {buttonCondition()}
+      {treasureListOpen ? treasureList : ""}
       {logs}
     </div>
   );
