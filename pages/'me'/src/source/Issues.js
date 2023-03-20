@@ -3316,6 +3316,7 @@ const issues = [
       gain: 0.5,
       gainState: 195,
       getTreasureStateID: 597,
+      level: 3,
     },
   },
   {
@@ -3330,6 +3331,7 @@ const issues = [
       gain: 0.5,
       gainState: 195,
       getTreasureStateID: 598,
+      level: 3,
     },
   },
   {
@@ -3344,6 +3346,7 @@ const issues = [
       gain: 0.5,
       gainState: 195,
       getTreasureStateID: 599,
+      level: 3,
     },
   },
   {
@@ -3358,6 +3361,7 @@ const issues = [
       gain: 0.5,
       gainState: 195,
       getTreasureStateID: 600,
+      level: 3,
     },
   },
   {
@@ -3394,6 +3398,7 @@ const issues = [
       gain: 0.5,
       gainState: 195,
       getTreasureStateID: 593,
+      level: 4,
     },
   },
   {
@@ -3408,6 +3413,7 @@ const issues = [
       gain: 0.5,
       gainState: 195,
       getTreasureStateID: 594,
+      level: 4,
     },
   },
   {
@@ -3422,6 +3428,7 @@ const issues = [
       gain: 0.5,
       gainState: 195,
       getTreasureStateID: 595,
+      level: 4,
     },
   },
   {
@@ -3436,6 +3443,7 @@ const issues = [
       gain: 0.7,
       gainState: 195,
       getTreasureStateID: 596,
+      level: 4,
     },
   },
   {

@@ -237,7 +237,10 @@ function App() {
       addLog(issues[enemy.getTreasureStateID]);
     }
     if (result > 0 && result < 5 && "level" in enemy) {
-      if (enemy.level >= 3) localStorage.setItem("实力", true);
+      if (enemy.level >= 3) {
+        localStorage.setItem("实力", true);
+        setReputation((x) => x + 1);
+      }
       if (enemy.level >= 4) localStorage.setItem("无可匹敌", true);
     }
     let gainPoss = enemy.gain;
