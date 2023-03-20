@@ -18,7 +18,7 @@ const achievementList = [
   { name: "质变", discription: "属性总和达到20点" },
   { name: "一次抗争", discription: "击杀治安官" },
 
-  { name: "力量", discription: "击败一个至少3级的敌人" },
+  { name: "实力", discription: "击败一个至少3级的敌人" },
   { name: "升华", discription: "属性总和达到40点" },
   { name: "无可匹敌", discription: "击败一个至少4级的敌人" },
 ];
@@ -47,7 +47,7 @@ function Achievements(props) {
         className="AchievementsButton"
         style={{ display: "block", margin: "10px auto" }}
       >
-        关闭成就
+        关闭
       </button>
     </div>
   );

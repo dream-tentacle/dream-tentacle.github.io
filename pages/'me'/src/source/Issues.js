@@ -794,13 +794,12 @@ const issues = [
   },
   {
     stateID: 153,
-    logText: "【作家：因对事物的敏感而容易陷入黑暗，但战斗判定优先级高",
+    logText: "【作家：因对事物的敏感而容易陷入黑暗，但战斗判定优先级高】",
     nextStates: [{ possibility: 2.0, stateID: 200 }],
   },
   {
     stateID: 154,
-    logText:
-      "【运动员：阳光开朗，容易从敌人身上吸取经验教训，但战斗判定优先级低】",
+    logText: "【运动员：容易从敌人身上吸取经验教训，但战斗判定优先级低】",
     nextStates: [{ possibility: 2.0, stateID: 200 }],
   },
   {
@@ -1044,7 +1043,7 @@ const issues = [
   //闲下来的操作：
   {
     stateID: 201,
-    logText: "我决定外出取材",
+    logText: "我决定外出取材（时间-1）",
     nextStates: [{ possibility: 2.0, stateID: 199 }],
     time: -1,
   },
@@ -1055,7 +1054,7 @@ const issues = [
   },
   {
     stateID: 203,
-    logText: "我决定磨练我的目之力量",
+    logText: "我决定磨练我的目之力量（时间-1）",
     nextStates: [
       { possibility: 0.4, stateID: 195 },
       { possibility: 2.0, stateID: 204 },
@@ -1078,7 +1077,7 @@ const issues = [
   },
   {
     stateID: 206,
-    logText: "我决定参加比赛",
+    logText: "我决定参加比赛（时间-1）",
     nextStates: [
       { possibility: 0.2, stateID: 311 }, //判断兴趣
       { possibility: 0.3, stateID: 316 }, //没获得
@@ -1115,7 +1114,7 @@ const issues = [
   //探险的选择：
   {
     stateID: 211,
-    logText: "我决定去城里转转",
+    logText: "我决定去城里转转（时间-1）",
     nextStates: [
       { possibility: 0.1, stateID: 216 }, //钱包
       { possibility: 0.5, stateID: 229 }, //敌人
@@ -1126,27 +1125,27 @@ const issues = [
   },
   {
     stateID: 212,
-    logText: "我决定去其他城市旅游 ",
+    logText: "我决定去其他城市旅游（时间-1）",
     nextStates: [{ possibility: 2.0, stateID: 241 }],
     time: -1,
   },
   {
     stateID: 213,
-    logText: "我决定去乡下看看",
+    logText: "我决定去乡下看看（时间-2）",
     nextStates: [{ possibility: 2.0, stateID: 605 }], //抽取敌人
     time: -2,
   },
   {
     stateID: 214,
-    logText: "我决定去森林野营",
+    logText: "我决定去森林野营（时间-2）",
     nextStates: [{ possibility: 2.0, stateID: 0 }],
-    time: -1,
+    time: -2,
   },
   {
     stateID: 215,
-    logText: "我决定去山脉深处探险",
+    logText: "我决定去山脉深处探险（时间-3）",
     nextStates: [{ possibility: 2.0, stateID: 0 }],
-    time: -1,
+    time: -3,
   },
   //城里探险结果：
   {
@@ -1156,7 +1155,7 @@ const issues = [
   },
   {
     stateID: 217,
-    logText: "我打开了钱包。钱包里有很多钱，好耶！",
+    logText: "我打开了钱包。钱包里有很多钱，好耶！（金钱+4）",
     nextStates: [
       { possibility: 0.6, stateID: 220 },
       { possibility: 2.0, stateID: 200 },
@@ -1165,7 +1164,7 @@ const issues = [
   },
   {
     stateID: 218,
-    logText: "我打开了钱包。钱包里没多少钱",
+    logText: "我打开了钱包。钱包里没多少钱（金钱+1）",
     nextStates: [
       { possibility: 0.2, stateID: 220 },
       { possibility: 2.0, stateID: 200 },
@@ -1756,7 +1755,7 @@ const issues = [
   },
   {
     stateID: 302,
-    logText: "我的作品卖得还行",
+    logText: "我的作品卖得还行（金钱+1）",
     nextStates: [
       { possibility: 0.05, stateID: 195 },
       { possibility: 2.0, stateID: 200 },
@@ -1765,7 +1764,7 @@ const issues = [
   },
   {
     stateID: 303,
-    logText: "不错，我的书获得了大卖",
+    logText: "不错，我的书获得了大卖（金钱+2）",
     nextStates: [
       { possibility: 0.5, stateID: 195 },
       { possibility: 2.0, stateID: 200 },
@@ -1797,13 +1796,13 @@ const issues = [
   },
   {
     stateID: 308,
-    logText: "我获得了一些奖金",
+    logText: "我获得了一些奖金（金钱+1）",
     nextStates: [{ possibility: 2.0, stateID: 200 }],
     money: 1,
   },
   {
     stateID: 309,
-    logText: "我获得了很多奖金",
+    logText: "我获得了很多奖金（金钱+2）",
     nextStates: [{ possibility: 2.0, stateID: 200 }],
     money: 2,
   },
@@ -1830,7 +1829,7 @@ const issues = [
   },
   {
     stateID: 314,
-    logText: "我决定磨练我的心之力量",
+    logText: "我决定磨练我的心之力量（时间-1）",
     nextStates: [
       { possibility: 0.3, stateID: 196 },
       { possibility: 2.0, stateID: 315 },

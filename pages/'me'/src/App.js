@@ -4,6 +4,8 @@ import Log from "./components/log";
 import issues from "./source/issues";
 import Ability from "./components/ability";
 import Achievements from "./components/achievements";
+import clockPicture from "./images/clockPicture.png";
+import moneyPicture from "./images/moneyPicture.png";
 import "./App.css";
 
 //hobbies
@@ -16,13 +18,19 @@ const writer = "作家",
 
 //物品
 // eslint-disable-next-line
-const treasure3Observe = 597, // eslint-disable-next-line
-  treasure3Defend = 598, // eslint-disable-next-line
-  treasure3Technique = 599, // eslint-disable-next-line
-  treasure3Desire = 600;
+const treasureID = {
+  593: "4级目之诡物",
+  594: "4级心之诡物",
+  595: "4级珠之诡物",
+  596: "4级水之诡物",
+  597: "3级目之诡物",
+  598: "3级心之诡物",
+  599: "3级珠之诡物",
+  600: "3级水之诡物",
+};
 
-//一些定值
-const actionPerYear = 10;
+let actionPerYear = 10;
+let moneyPerYear = 5;
 
 const backgroundColors = [
   "#F8F9F9",
@@ -86,27 +94,6 @@ function App() {
         desire: ability.desire + desire,
       });
   }
-  /* function dealMoney(moneyGain) {
-    if (money < -moneyGain) {
-      setInsertIssueID(2); //花光了钱
-    }
-    setMoney(money + moneyGain);
-  }
-  function dealTime(timeFly) {
-    if (time <= timeFly) {
-      dealMoney(-5); //每年花5份资金
-      setTime(time + actionPerYear - timeFly);
-      setAge(age + 1);
-    } else setTime(time - timeFly);
-  }
-  function dealDark(darkGain) {
-    if (dark + darkGain >= 10) {
-      //过于黑暗
-      setInsertIssueID(3);
-    }
-    if (dark + darkGain < 0) setDark(0);
-    else setDark(dark + darkGain);
-  } */
   function specialIssueConsequence(newIssue) {
     let a = 0,
       b = 0,
@@ -228,13 +215,13 @@ function App() {
       setUsedIssue([...usedIssue, enemy.enemyStateID]);
     }
     if (
-      "getTreasure" in enemy &&
+      "getTreasureStateID" in enemy &&
       result > 0 &&
       result < 5 &&
       !treasure.some((ele) => ele === enemy.getTreasureStateID)
     ) {
       setTreasure([...treasure, enemy.getTreasureStateID]);
-      addLog(issues[enemy.getTreasureStateID]);
+      setInsertIssueID(enemy.getTreasureStateID);
     }
     if (result > 0 && result < 5 && "level" in enemy) {
       if (enemy.level >= 3) {
@@ -391,7 +378,7 @@ function App() {
       {treasure.some((ele) => ele !== 0) ? (
         <button onClick={() => addLog(issues[213])}>去森林探险</button>
       ) : (
-        <span>（提示：需要拥有至少一件宝物）</span>
+        <span>（提示：需要拥有至少一件诡物）</span>
       )}
     </div>
   );
@@ -431,11 +418,16 @@ function App() {
     else
       return (
         <div className="battleButton">
-          <button onClick={() => enemyBattle(issues[logList[0].stateID].enemy)}>
+          <button
+            onClick={() => {
+              enemyBattle(issues[logList[0].stateID].enemy);
+              setTreasureListOpen(!treasureListOpen);
+            }}
+          >
             战斗！
           </button>
           <button onClick={() => setTreasureListOpen(!treasureListOpen)}>
-            使用宝物
+            使用诡物
           </button>
         </div>
       );
@@ -447,7 +439,7 @@ function App() {
         key={`id-${nanoid}`}
         onClick={() => setUsingTreasure(ele)}
       >
-        {ele}
+        {treasureID[ele]}
       </button>
     );
   });
@@ -505,7 +497,7 @@ function App() {
   useEffect(() => {
     if (time <= 0) {
       setTime((x) => x + actionPerYear);
-      setMoney((x) => x - 5);
+      setMoney((x) => x - moneyPerYear);
       setAge((x) => x + 1);
     }
   }, [time]);
@@ -526,7 +518,20 @@ function App() {
         localStorage.setItem("升华", true);
     }
   }, [ability]);
-
+  useEffect(() => {
+    if (age === 60) {
+      actionPerYear -= 1;
+      alert("60岁了，此后每年行动次数减少1");
+    }
+    if (age === 70) {
+      moneyPerYear += 1;
+      alert("70岁了，此后每年消耗金钱增加1");
+    }
+    if (age === 80) {
+      moneyPerYear += 1;
+      alert("70岁了，此后每年消耗金钱增加1");
+    }
+  }, [age]);
   //App:
   return (
     <div className="App">
@@ -541,7 +546,7 @@ function App() {
         className="AchievementsButton"
         onClick={() => setAchievementsBox(true)}
       >
-        打开成就
+        成就
       </button>
       <br />
       {backgroundColor()}
@@ -549,8 +554,15 @@ function App() {
       {age >= 18 ? (
         <div className="AdultCondition">
           <p>
-            <span style={{ color: "#007d93" }}>时间：{time}</span>,{" "}
-            <span style={{ color: "#ccac00" }}>金钱：{money}</span>
+            <span style={{ color: "#007d93", backgroundColor: "#c3f6ff" }}>
+              <img style={{ maxWidth: "30px" }} src={clockPicture} />
+              时间：{time}
+            </span>
+            ,{" "}
+            <span style={{ color: "#ccac00", backgroundColor: "#fffdf4" }}>
+              <img style={{ maxWidth: "25px" }} src={moneyPicture} />
+              金钱：{money}
+            </span>
           </p>
           <p>兴趣：{hobby.length > 0 ? hobby : "无"}</p>
           <p>职业：{career}</p>
