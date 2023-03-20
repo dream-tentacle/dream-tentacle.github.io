@@ -15,10 +15,10 @@ const writer = "作家",
   athlete = "运动员";
 
 //物品
-const treasure3Observe = 600,
-  treasure3Defend = 599,
-  treasure3Technique = 598,
-  treasure3Desire = 597;
+const treasure3Observe = 597,
+  treasure3Defend = 598,
+  treasure3Technique = 599,
+  treasure3Desire = 600;
 
 //一些定值
 const actionPerYear = 10;
@@ -54,6 +54,8 @@ function App() {
   const [sheriff, setSheriff] = useState(0);
   const [achievementsBox, setAchievementsBox] = useState(false);
   const [treasure, setTreasure] = useState([]);
+  const [usingTreasure, setUsingTreasure] = useState(0);
+  const [treasureListOpen, setTreasureListOpen] = useState(false);
   const [logList, setLogList] = useState([
     {
       stateID: 0,
@@ -327,6 +329,9 @@ function App() {
       } else addLog(issues[202]);
     } else addLog(issues[202]);
   }
+  function useMyTreasure(treasureID) {
+    setUsingTreasure(treasureID);
+  }
   //UI:
   //background-color:
   function backgroundColor() {
@@ -417,8 +422,18 @@ function App() {
       <button onClick={() => enemyBattle(issues[logList[0].stateID].enemy)}>
         战斗！
       </button>
+      <button onClick={() => setTreasureListOpen(!treasureListOpen)}>
+        使用宝物
+      </button>
     </div>
   );
+  const treasureList = treasure.map((ele) => {
+    return (
+      <button style={{}} id={`id-${nanoid}`}>
+        ele
+      </button>
+    );
+  });
   const sheriffOneButton = (
     <div className="sheriffOneButton">
       {money >= 10 ? (

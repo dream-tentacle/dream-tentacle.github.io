@@ -2851,7 +2851,7 @@ const issues = [
   {
     stateID: 511,
     logText: "治安官迎来了他的末日。",
-    nextStates: [{ possibility: 2.0, stateID: 510 }],
+    nextStates: [{ possibility: 2.0, stateID: 512 }],
     className: "Darkred",
   },
   {
@@ -3264,42 +3264,42 @@ const issues = [
   },
   {
     stateID: 593,
-    logText: "1111111111111111111111",
-    nextStates: [{ possibility: 2.0, stateID: 0 }],
+    logText: "获得4级目属性宝物",
+    nextStates: [{ possibility: 2.0, stateID: 200 }],
   },
   {
     stateID: 594,
-    logText: "1111111111111111111111",
-    nextStates: [{ possibility: 2.0, stateID: 0 }],
+    logText: "获得4级心属性宝物",
+    nextStates: [{ possibility: 2.0, stateID: 200 }],
   },
   {
     stateID: 595,
-    logText: "1111111111111111111111",
-    nextStates: [{ possibility: 2.0, stateID: 0 }],
+    logText: "获得4级珠属性宝物",
+    nextStates: [{ possibility: 2.0, stateID: 200 }],
   },
   {
     stateID: 596,
-    logText: "1111111111111111111111",
-    nextStates: [{ possibility: 2.0, stateID: 0 }],
+    logText: "获得4级水属性宝物",
+    nextStates: [{ possibility: 2.0, stateID: 200 }],
   },
   {
     stateID: 597,
-    logText: "获得3级水属性宝物",
+    logText: "获得3级目属性宝物",
     nextStates: [{ possibility: 2.0, stateID: 200 }],
   },
   {
     stateID: 598,
-    logText: "获得3级珠属性宝物",
-    nextStates: [{ possibility: 2.0, stateID: 200 }],
-  },
-  {
-    stateID: 599,
     logText: "获得3级心属性宝物",
     nextStates: [{ possibility: 2.0, stateID: 200 }],
   },
   {
+    stateID: 599,
+    logText: "获得3级珠属性宝物",
+    nextStates: [{ possibility: 2.0, stateID: 200 }],
+  },
+  {
     stateID: 600,
-    logText: "获得3级目属性宝物",
+    logText: "获得3级水属性宝物",
     nextStates: [{ possibility: 2.0, stateID: 200 }],
   },
   {
@@ -3313,7 +3313,7 @@ const issues = [
       desire: 3,
       gain: 0.5,
       gainState: 195,
-      getTreasureStateID: 600,
+      getTreasureStateID: 597,
     },
   },
   {
@@ -3327,7 +3327,7 @@ const issues = [
       desire: 4,
       gain: 0.5,
       gainState: 195,
-      getTreasureStateID: 599,
+      getTreasureStateID: 598,
     },
   },
   {
@@ -3355,7 +3355,7 @@ const issues = [
       desire: 15,
       gain: 0.5,
       gainState: 195,
-      getTreasureStateID: 598,
+      getTreasureStateID: 600,
     },
   },
   {
