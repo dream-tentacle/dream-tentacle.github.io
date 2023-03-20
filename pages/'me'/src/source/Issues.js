@@ -3372,7 +3372,6 @@ const issues = [
   {
     stateID: 606,
     logText: "抽取4级敌人……（如果出现在文本框请反馈给开发者）",
-    nextStates: [{ possibility: 2.0, stateID: 0 }],
     nextStates: [
       { possibility: 0.25, stateID: 607 },
       { possibility: 0.25, stateID: 608 },
