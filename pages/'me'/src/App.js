@@ -51,11 +51,11 @@ const maxLogs = 1000;
 function App() {
   //States:
   const [age, setAge] = useState(0);
-  const [money, setMoney] = useState(220);
+  const [money, setMoney] = useState(0);
   const [hobby, setHobby] = useState([]);
   const [career, setCareer] = useState("无");
   const [time, setTime] = useState(actionPerYear);
-  const [reputation, setReputation] = useState(210);
+  const [reputation, setReputation] = useState(0);
   const [occultist, setOccultist] = useState(false);
   const [dark, setDark] = useState(0);
   const [insertIssueID, setInsertIssueID] = useState(0);
@@ -75,7 +75,7 @@ function App() {
     },
   ]);
   const [ability, setAbility] = useState({
-    observe: 111,
+    observe: 1,
     defend: 1,
     technique: 1,
     desire: 1,
