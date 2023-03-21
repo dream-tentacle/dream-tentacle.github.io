@@ -51,7 +51,7 @@ const maxLogs = 1000;
 function App() {
   //States:
   const [age, setAge] = useState(0);
-  const [money, setMoney] = useState(0);
+  const [money, setMoney] = useState(4);
   const [hobby, setHobby] = useState([]);
   const [career, setCareer] = useState("无");
   const [time, setTime] = useState(actionPerYear);
@@ -161,7 +161,7 @@ function App() {
   function specialIssue(nowState) {
     if (nowState.stateID === 211 && !occultist) {
       let poss = Math.random();
-      if (poss <= 0.4) {
+      if (poss <= 0.6) {
         addLog(issues[351]);
         return true;
       }
