@@ -254,6 +254,9 @@ function App() {
         }
         if (enemy.level >= 4) localStorage.setItem("无可匹敌", true);
         if (enemy.level >= 5) localStorage.setItem("支配", true);
+      } else {
+        let poss = Math.random();
+        if (poss >= 0.5) setReputation((x) => x + 1);
       }
       if ("winPlotState" in enemy) {
         setInsertIssueID(enemy.winPlotState);
@@ -608,7 +611,7 @@ function App() {
     }
   }, [age]);
   useEffect(() => {
-    if (treasure.some((ele) => true)) localStorage.setItem("奇诡！");
+    if (treasure.some((ele) => true)) localStorage.setItem("奇诡！", true);
   }, [treasure]);
   //App:
   return (

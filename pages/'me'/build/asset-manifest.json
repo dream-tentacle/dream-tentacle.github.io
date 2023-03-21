@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "./static/css/main.1ba140aa.css",
-    "main.js": "./static/js/main.6f24dc38.js",
+    "main.js": "./static/js/main.c8787f3c.js",
     "static/media/occultismPicture.png": "./static/media/occultismPicture.c7e61feca5e8dda1257f.png",
     "static/media/crystalBallPicture.png": "./static/media/crystalBallPicture.ceee52a0c437df6e56ba.png",
     "static/media/prison.png": "./static/media/prison.981a25437036450ee57d.png",
@@ -17,10 +17,10 @@
     "static/media/moneyPicture.png": "./static/media/moneyPicture.980589a26bc081fb1d45.png",
     "index.html": "./index.html",
     "main.1ba140aa.css.map": "./static/css/main.1ba140aa.css.map",
-    "main.6f24dc38.js.map": "./static/js/main.6f24dc38.js.map"
+    "main.c8787f3c.js.map": "./static/js/main.c8787f3c.js.map"
   },
   "entrypoints": [
     "static/css/main.1ba140aa.css",
-    "static/js/main.6f24dc38.js"
+    "static/js/main.c8787f3c.js"
   ]
 }
