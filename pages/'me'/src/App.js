@@ -400,7 +400,7 @@ function App() {
       {occultist ? (
         <>
           <button onClick={() => addLog(issues[203])}>磨练</button>
-          <button onClick={() => addLog(issues[700])}>翻开书籍（不消耗时间）</button>
+          <button onClick={() => addLog(issues[700])}>翻开书籍</button>
         </>
       ) : (
         ""
@@ -424,7 +424,7 @@ function App() {
   const expeditionButton = (
     <div className="expeditionButton">
       <button onClick={() => addLog(issues[211])}>就在城里转转</button>
-      {reputation >= 5 ? (
+      {reputation >= 2 ? (
         <span>
           <button onClick={() => addLog(issues[212])}>去别的城市旅游</button>
           {usedIssue.some((ele) => ele === 260) ? (

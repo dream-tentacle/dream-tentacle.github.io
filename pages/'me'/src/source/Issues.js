@@ -1484,7 +1484,6 @@ const issues = [
       gain: 1,
       gainState: 197,
       enemyStateID: 260,
-      winPlotState: 253,
     },
   },
   {
