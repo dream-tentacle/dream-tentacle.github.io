@@ -46,7 +46,7 @@ const backgroundColors = [
   "#424949",
 ];
 
-const maxLogs = 100;
+const maxLogs = 1000;
 
 function App() {
   //States:
@@ -127,6 +127,7 @@ function App() {
     if (newIssue.stateID === 510)
       localStorage.setItem("钱不是万能的，但没有钱是万万不能的", true);
     if (newIssue.stateID === 511) localStorage.setItem("一次抗争", true);
+    if (newIssue.stateID === 257) localStorage.setItem("真理", true);
   }
   function addLog(newIssue) {
     if (
@@ -219,25 +220,35 @@ function App() {
   }
   function enemyBattle(enemy) {
     const result = battleResult(enemy);
-    if ("enemyStateID" in enemy && result > 0 && result < 5) {
-      setUsedIssue([...usedIssue, enemy.enemyStateID]);
-    }
-    if (
-      "getTreasureStateID" in enemy &&
-      result > 0 &&
-      result < 5 &&
-      !treasure.some((ele) => ele === enemy.getTreasureStateID)
-    ) {
-      setTreasure([...treasure, enemy.getTreasureStateID]);
-      setInsertIssueID(enemy.getTreasureStateID);
-    }
-    if (result > 0 && result < 5 && "level" in enemy) {
-      if (enemy.level >= 3) {
-        localStorage.setItem("实力", true);
-        setReputation((x) => x + 1);
+    if (result === 0 || result === 5) {
+      if ("failPlotState" in enemy) {
+        addLog(issues[enemy.failPlotState]);
+        return;
       }
-      if (enemy.level >= 4) localStorage.setItem("无可匹敌", true);
     }
+    if (result > 0 && result < 5) {
+      if ("enemyStateID" in enemy) {
+        setUsedIssue([...usedIssue, enemy.enemyStateID]);
+      }
+      if (
+        "getTreasureStateID" in enemy &&
+        !treasure.some((ele) => ele === enemy.getTreasureStateID)
+      ) {
+        setTreasure([...treasure, enemy.getTreasureStateID]);
+        setInsertIssueID(enemy.getTreasureStateID);
+      }
+      if ("level" in enemy) {
+        if (enemy.level >= 3) {
+          localStorage.setItem("实力", true);
+          setReputation((x) => x + 1);
+        }
+        if (enemy.level >= 4) localStorage.setItem("无可匹敌", true);
+      }
+      if ("winPlotState" in enemy) {
+        setInsertIssueID(enemy.winPlotState);
+      }
+    }
+
     let gainPoss = enemy.gain;
     if (career === athlete) gainPoss += 0.2;
     if (result === 1) {
@@ -567,12 +578,12 @@ function App() {
         <div className="AdultCondition">
           <p>
             <span style={{ color: "#007d93", backgroundColor: "#c3f6ff" }}>
-              <img style={{ maxWidth: "30px" }} src={clockPicture} />
+              <img style={{ maxWidth: "30px" }} src={clockPicture} alt="icon" />
               时间：{time}
             </span>
-            ,{" "}
+            ,
             <span style={{ color: "#ccac00", backgroundColor: "#fffdf4" }}>
-              <img style={{ maxWidth: "25px" }} src={moneyPicture} />
+              <img style={{ maxWidth: "25px" }} src={moneyPicture} alt="icon" />
               金钱：{money}
             </span>
           </p>

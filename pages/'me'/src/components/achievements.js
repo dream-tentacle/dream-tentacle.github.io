@@ -10,6 +10,8 @@ const achievementList = [
   { name: "黑暗", discription: "沉沦黑暗之中", image: dark },
   { name: "告罄", discription: "花光了所有的钱", image: bowl },
   { name: "平凡即是喜乐", discription: "我满足于平凡的生活" },
+  { name: "真理", discription: "我逐渐理解一切" },
+  { name: "儿歌", discription: "击败儿歌中的诡异歌手" },
   { name: "入狱", discription: "一失足成千古恨", image: prison },
   {
     name: "钱不是万能的，但没有钱是万万不能的",
