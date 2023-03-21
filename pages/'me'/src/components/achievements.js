@@ -3,27 +3,42 @@ import "./achievements.css";
 import OneAchievement from "./oneAchievement";
 import dark from "../images/dark.png";
 import bowl from "../images/bowl.png";
-import prison from "../images/prison.jpg";
+import prison from "../images/prison.png";
+import normalLifePicture from "../images/normalLifePicture.png";
+import eggPicture from "../images/eggPicture.png";
+import singerPicture from "../images/singerPicture.png";
+import bribePicture from "../images/bribePicture.png";
+import wolfPicture from "../images/wolfPicture.png";
+import crystalBallPicture from "../images/crystalBallPicture.png";
+import knifePicture from "../images/knifePicture.png";
+import occultismPicture from "../images/occultismPicture.png";
 
 const achievementList = [
-  { name: "不幸", discription: "即刻重开，好耶" },
+  { name: "不幸", discription: "即刻重开，好耶", image: eggPicture },
   { name: "黑暗", discription: "沉沦黑暗之中", image: dark },
   { name: "告罄", discription: "花光了所有的钱", image: bowl },
-  { name: "平凡即是喜乐", discription: "我满足于平凡的生活" },
-  { name: "真理", discription: "我逐渐理解一切" },
-  { name: "儿歌", discription: "击败儿歌中的诡异歌手" },
+  {
+    name: "平凡即是喜乐",
+    discription: "我满足于平凡的生活",
+    image: normalLifePicture,
+  },
+  { name: "真理", discription: "我逐渐理解一切", image: occultismPicture },
+  { name: "一首童谣", discription: "击败童谣中的诡异歌手", image: singerPicture },
   { name: "入狱", discription: "一失足成千古恨", image: prison },
   {
     name: "钱不是万能的，但没有钱是万万不能的",
     discription: "花点钱贿赂治安官",
+    image: bribePicture,
   },
-  { name: "质变", discription: "属性总和达到20点" },
-  { name: "一次抗争", discription: "击杀治安官" },
+  { name: "质变", discription: "我的实力发生了质变。（属性总和达到20点）" },
+  { name: "一次抗争", discription: "击杀治安官", image: wolfPicture },
 
-  { name: "实力", discription: "击败一个至少3级的敌人" },
-  { name: "奇诡！", discription: "获得一件诡物" },
-  { name: "升华", discription: "属性总和达到40点" },
+  { name: "实力", discription: "击败一个至少3级的敌人", image: knifePicture },
+  { name: "奇诡！", discription: "获得一件诡物", image: crystalBallPicture },
+  { name: "升华", discription: "我的本质已得到升华。（属性总和达到40点）" },
   { name: "无可匹敌", discription: "击败一个至少4级的敌人" },
+  { name: "异化", discription: "我几乎不再是人类。（属性总和达到60点）" },
+  { name: "支配", discription: "击败一个至少5级的敌人" },
 ];
 
 function Achievements(props) {

@@ -51,11 +51,11 @@ const maxLogs = 1000;
 function App() {
   //States:
   const [age, setAge] = useState(0);
-  const [money, setMoney] = useState(0);
+  const [money, setMoney] = useState(220);
   const [hobby, setHobby] = useState([]);
   const [career, setCareer] = useState("无");
   const [time, setTime] = useState(actionPerYear);
-  const [reputation, setReputation] = useState(0);
+  const [reputation, setReputation] = useState(210);
   const [occultist, setOccultist] = useState(false);
   const [dark, setDark] = useState(0);
   const [insertIssueID, setInsertIssueID] = useState(0);
@@ -75,7 +75,7 @@ function App() {
     },
   ]);
   const [ability, setAbility] = useState({
-    observe: 1,
+    observe: 111,
     defend: 1,
     technique: 1,
     desire: 1,
@@ -132,7 +132,7 @@ function App() {
   function addLog(newIssue) {
     if (
       "hidden" in newIssue ||
-      (!occultist && newIssue.stateID <= 198 && newIssue.stateID >= 195)
+      (!occultist && newIssue.stateID <= 198 && newIssue.stateID >= 191)
     ) {
       if (newIssue.stateID === 305) {
         if (hobby.some((onehobby) => onehobby === write)) addLog(issues[306]);
@@ -202,6 +202,16 @@ function App() {
       if (enemy.desire >= 10 && usingTreasure !== 598 && usingTreasure !== 594)
         return -1;
     }
+    if (enemy.level === 5) {
+      if (enemy.observe >= 20 && usingTreasure !== 590 && usingTreasure !== 595)
+        return -1;
+      if (enemy.technique >= 20 && usingTreasure !== 588 && usingTreasure !== 593)
+        return -1;
+      if (enemy.defend >= 20 && usingTreasure !== 591 && usingTreasure !== 596)
+        return -1;
+      if (enemy.desire >= 20 && usingTreasure !== 589 && usingTreasure !== 594)
+        return -1;
+    }
     const yourSum =
       ability.observe + ability.technique + ability.defend + ability.desire;
     const enemySum = enemy.observe + enemy.technique + enemy.defend + enemy.desire;
@@ -243,10 +253,12 @@ function App() {
           setReputation((x) => x + 1);
         }
         if (enemy.level >= 4) localStorage.setItem("无可匹敌", true);
+        if (enemy.level >= 5) localStorage.setItem("支配", true);
       }
       if ("winPlotState" in enemy) {
         setInsertIssueID(enemy.winPlotState);
       }
+      if (enemy.enemyStateID === 260) localStorage.setItem("一首童谣", true);
     }
 
     let gainPoss = enemy.gain;
@@ -318,10 +330,11 @@ function App() {
   }
   function sheriffBattle(sheriff) {
     const result = battleResult(sheriff);
-    if (result === 0 || result === 5) {
-      addLog(issues[503]);
-    } else {
+    if (result > 0 && result < 5) {
       addLog(issues[sheriff.winNextStateID]);
+      setSheriff(sheriff.nextSheriff);
+    } else {
+      addLog(issues[503]);
     }
   }
   function expeditionConsequence() {
@@ -333,15 +346,33 @@ function App() {
       if (sheriff === 1 && poss <= reputation * 0.01) {
         addLog(issues[505]);
         setSheriff(2);
-      } else if (sheriff === 2 && poss <= reputation * 0.015) {
+      } else if (sheriff === 2 && poss <= reputation * 0.02) {
         addLog(issues[506]);
         setSheriff(3);
-      } else if (sheriff === 3 && poss <= reputation * 0.02) {
+      } else if (sheriff === 3 && poss <= reputation * 0.03) {
         addLog(issues[507]);
         setSheriff(4);
       } else if (sheriff === 4 && reputation >= 15 && poss <= reputation * 0.04) {
         addLog(issues[508]);
         setSheriff(5);
+      } else if (sheriff === 5 && reputation >= 15 && poss <= reputation * 0.04) {
+        addLog(issues[520]);
+        setSheriff(6);
+      } else if (sheriff === 6 && reputation >= 15 && poss <= reputation * 0.05) {
+        addLog(issues[514]);
+        setSheriff(7);
+      } else if (sheriff === 7 && poss <= reputation * 0.05) {
+        addLog(issues[515]);
+        setSheriff(8);
+      } else if (sheriff === 8 && poss <= reputation * 0.05) {
+        addLog(issues[516]);
+        setSheriff(9);
+      } else if (sheriff === 9 && poss <= reputation * 0.05) {
+        addLog(issues[517]);
+        setSheriff(10);
+      } else if (sheriff === 10 && poss <= reputation * 0.05) {
+        addLog(issues[518]);
+        setSheriff(11);
       } else addLog(issues[202]);
     } else addLog(issues[202]);
   }
@@ -366,14 +397,28 @@ function App() {
     <div className="writerActionButton">
       <button onClick={() => addLog(issues[201])}>外出取材</button>
       <button onClick={() => expeditionConsequence()}>出去转转</button>
-      {occultist ? <button onClick={() => addLog(issues[203])}>磨练</button> : ""}
+      {occultist ? (
+        <>
+          <button onClick={() => addLog(issues[203])}>磨练</button>
+          <button onClick={() => addLog(issues[700])}>翻开书籍（不消耗时间）</button>
+        </>
+      ) : (
+        ""
+      )}
     </div>
   );
   const athleteActionButton = (
     <div className="athleteActionButton">
       <button onClick={() => addLog(issues[206])}>参加比赛</button>
       <button onClick={() => expeditionConsequence()}>出去转转</button>
-      {occultist ? <button onClick={() => addLog(issues[314])}>磨练</button> : ""}
+      {occultist ? (
+        <>
+          <button onClick={() => addLog(issues[314])}>磨练</button>
+          <button onClick={() => addLog(issues[700])}>翻开书籍</button>
+        </>
+      ) : (
+        ""
+      )}
     </div>
   );
   const expeditionButton = (
@@ -465,17 +510,21 @@ function App() {
   });
   const sheriffOneButton = (
     <div className="sheriffOneButton">
-      {money >= 10 ? (
-        <button
-          onClick={() => {
-            addLog(issues[407]);
-            setMoney((x) => x - 10);
-          }}
-        >
-          用十份资金贿赂
-        </button>
+      {logList[0].stateID === 509 ? (
+        money >= 10 ? (
+          <button
+            onClick={() => {
+              addLog(issues[510]);
+              setMoney((x) => x - 10);
+            }}
+          >
+            用十份资金贿赂
+          </button>
+        ) : (
+          <button>我的资金不够（需要十份）</button>
+        )
       ) : (
-        <button>我的资金不够（需要十份）</button>
+        ""
       )}
       <button onClick={() => sheriffBattle(issues[logList[0].stateID].sheriff)}>
         战斗！
@@ -489,7 +538,8 @@ function App() {
     if (logList[0].stateID === 202) return expeditionButton;
     if (logList[0].stateID === 216) return walletButton;
     if (logList[0].stateID === 352) return occultButton;
-    if (logList[0].stateID === 509) return sheriffOneButton; //此判断必须在下一行前面
+    if (logList[0].stateID === 509 || logList[0].stateID === 519)
+      return sheriffOneButton; //此判断必须在下一行前面
     if ("enemy" in issues[logList[0].stateID]) return battleButton();
     if (logList[0].stateID === 355) return remakeButton;
     return nextButton;
@@ -536,6 +586,11 @@ function App() {
         40
       )
         localStorage.setItem("升华", true);
+      if (
+        ability.defend + ability.desire + ability.observe + ability.technique >=
+        60
+      )
+        localStorage.setItem("异化", true);
     }
   }, [ability]);
   useEffect(() => {
