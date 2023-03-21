@@ -30,7 +30,7 @@ const treasureID = {
 };
 
 let actionPerYear = 10;
-let moneyPerYear = 5;
+let moneyPerYear = 4;
 
 const backgroundColors = [
   "#F8F9F9",
@@ -51,7 +51,7 @@ const maxLogs = 100;
 function App() {
   //States:
   const [age, setAge] = useState(0);
-  const [money, setMoney] = useState(3);
+  const [money, setMoney] = useState(0);
   const [hobby, setHobby] = useState([]);
   const [career, setCareer] = useState("无");
   const [time, setTime] = useState(actionPerYear);
@@ -62,7 +62,7 @@ function App() {
   const [usedIssue, setUsedIssue] = useState([]);
   const [sheriff, setSheriff] = useState(0);
   const [achievementsBox, setAchievementsBox] = useState(false);
-  const [treasure, setTreasure] = useState([]); // eslint-disable-next-line
+  const [treasure, setTreasure] = useState([]);
   const [usingTreasure, setUsingTreasure] = useState(0);
   const [treasureListOpen, setTreasureListOpen] = useState(false);
   const [logList, setLogList] = useState([
@@ -105,8 +105,7 @@ function App() {
     if ("technique" in newIssue) c = newIssue.technique;
     if ("desire" in newIssue) d = newIssue.desire;
     addAbility(a, b, c, d);
-    if ("reputation" in newIssue)
-      setReputation(reputation + newIssue.reputation);
+    if ("reputation" in newIssue) setReputation(reputation + newIssue.reputation);
     if ("age" in newIssue) setAge(newIssue.age);
     //三种失败途径
     if ("dark" in newIssue) setDark((x) => x + newIssue.dark);
@@ -192,10 +191,19 @@ function App() {
     }
   }
   function battleResult(enemy) {
+    if (enemy.level === 4) {
+      if (enemy.observe >= 10 && usingTreasure !== 599 && usingTreasure !== 595)
+        return -1;
+      if (enemy.technique >= 10 && usingTreasure !== 597 && usingTreasure !== 593)
+        return -1;
+      if (enemy.defend >= 10 && usingTreasure !== 600 && usingTreasure !== 596)
+        return -1;
+      if (enemy.desire >= 10 && usingTreasure !== 598 && usingTreasure !== 594)
+        return -1;
+    }
     const yourSum =
       ability.observe + ability.technique + ability.defend + ability.desire;
-    const enemySum =
-      enemy.observe + enemy.technique + enemy.defend + enemy.desire;
+    const enemySum = enemy.observe + enemy.technique + enemy.defend + enemy.desire;
     if (ability.observe > enemy.technique && yourSum >= enemySum) return 1; //获胜
     if (enemy.observe > ability.technique && enemySum >= yourSum) return 0; //失败
 
@@ -281,11 +289,20 @@ function App() {
     } else if (result === 0) {
       addLog({
         stateID: 199,
-        logText: "我不敌对手，受了重伤。我住院了",
+        logText: "我不敌对手，受了重伤。我住院了（时间-3，金钱-2）",
         nextStates: [{ possibility: 2.0, stateID: 200 }],
       });
+      setTime((x) => x - 3);
       setMoney((x) => x - 2);
-      setTime((x) => x - 2);
+    } else if (result === -1) {
+      addLog({
+        stateID: 199,
+        logText:
+          "敌人太过强大，死亡几乎攀上肩膀。我住院了整整半年（时间-5，金钱-3）",
+        nextStates: [{ possibility: 2.0, stateID: 592 }], //提示玩家使用诡物
+      });
+      setTime((x) => x - 5);
+      setMoney((x) => x - 3);
     }
   }
   function sheriffBattle(sheriff) {
@@ -311,11 +328,7 @@ function App() {
       } else if (sheriff === 3 && poss <= reputation * 0.02) {
         addLog(issues[507]);
         setSheriff(4);
-      } else if (
-        sheriff === 4 &&
-        reputation >= 15 &&
-        poss <= reputation * 0.04
-      ) {
+      } else if (sheriff === 4 && reputation >= 15 && poss <= reputation * 0.04) {
         addLog(issues[508]);
         setSheriff(5);
       } else addLog(issues[202]);
@@ -327,9 +340,7 @@ function App() {
     document.body.style.backgroundColor = backgroundColors[dark];
   }
   //button:
-  const nextButton = (
-    <button onClick={() => nextLog(logList[0])}>下一步</button>
-  );
+  const nextButton = <button onClick={() => nextLog(logList[0])}>下一步</button>;
   const careerChooseButton = (
     <div className="careerChooseButton">
       <button onClick={() => addLog(issues[151])}>写作</button>
@@ -344,52 +355,44 @@ function App() {
     <div className="writerActionButton">
       <button onClick={() => addLog(issues[201])}>外出取材</button>
       <button onClick={() => expeditionConsequence()}>出去转转</button>
-      {occultist ? (
-        <button onClick={() => addLog(issues[203])}>磨练</button>
-      ) : (
-        ""
-      )}
+      {occultist ? <button onClick={() => addLog(issues[203])}>磨练</button> : ""}
     </div>
   );
   const athleteActionButton = (
     <div className="athleteActionButton">
       <button onClick={() => addLog(issues[206])}>参加比赛</button>
       <button onClick={() => expeditionConsequence()}>出去转转</button>
-      {occultist ? (
-        <button onClick={() => addLog(issues[314])}>磨练</button>
-      ) : (
-        ""
-      )}
+      {occultist ? <button onClick={() => addLog(issues[314])}>磨练</button> : ""}
     </div>
   );
   const expeditionButton = (
     <div className="expeditionButton">
       <button onClick={() => addLog(issues[211])}>就在城里转转</button>
       {reputation >= 5 ? (
-        <button onClick={() => addLog(issues[212])}>去别的城市旅游</button>
+        <span>
+          <button onClick={() => addLog(issues[212])}>去别的城市旅游</button>
+          {usedIssue.some((ele) => ele === 260) ? (
+            <span>
+              <button onClick={() => addLog(issues[213])}>去乡下看看</button>
+              {treasure.some((ele) => ele !== 0) ? (
+                <button onClick={() => addLog(issues[213])}>去森林探险</button>
+              ) : (
+                <div>（提示：需要拥有至少一件诡物，才能前往下一地点）</div>
+              )}
+            </span>
+          ) : (
+            <div>（提示：需要击败某些敌人，才能前往下一地点）</div>
+          )}
+        </span>
       ) : (
-        <span>（提示：名声不足，无法前往其他地点）</span>
-      )}
-      {usedIssue.some((ele) => ele === 260) ? (
-        <button onClick={() => addLog(issues[213])}>去乡下看看</button>
-      ) : (
-        <span>（提示：需要击败某些敌人）</span>
-      )}
-      {treasure.some((ele) => ele !== 0) ? (
-        <button onClick={() => addLog(issues[213])}>去森林探险</button>
-      ) : (
-        <span>（提示：需要拥有至少一件诡物）</span>
+        <div>（提示：名声不足，无法前往其他地点）</div>
       )}
     </div>
   );
   const occultButton = (
     <div className="occultButton">
-      <button onClick={() => addLog(issues[356])}>
-        是的，我希望有非凡的人生
-      </button>
-      <button onClick={() => addLog(issues[353])}>
-        并没有，我对生活很满足
-      </button>
+      <button onClick={() => addLog(issues[356])}>是的，我希望有非凡的人生</button>
+      <button onClick={() => addLog(issues[353])}>并没有，我对生活很满足</button>
     </div>
   );
   const walletButton = (
@@ -421,21 +424,27 @@ function App() {
           <button
             onClick={() => {
               enemyBattle(issues[logList[0].stateID].enemy);
-              setTreasureListOpen(!treasureListOpen);
+              setTreasureListOpen(false);
             }}
           >
             战斗！
           </button>
-          <button onClick={() => setTreasureListOpen(!treasureListOpen)}>
-            使用诡物
-          </button>
+          {usingTreasure ? (
+            <button onClick={() => setTreasureListOpen(!treasureListOpen)}>
+              选择中：{treasureID[usingTreasure]}
+            </button>
+          ) : (
+            <button onClick={() => setTreasureListOpen(!treasureListOpen)}>
+              使用诡物
+            </button>
+          )}
         </div>
       );
   }
   const treasureList = treasure.map((ele) => {
     return (
       <button
-        style={{}}
+        className="treasureChoose"
         key={`id-${nanoid}`}
         onClick={() => setUsingTreasure(ele)}
       >
@@ -455,7 +464,7 @@ function App() {
           用十份资金贿赂
         </button>
       ) : (
-        <span>我的资金不够（需要十份）</span>
+        <button>我的资金不够（需要十份）</button>
       )}
       <button onClick={() => sheriffBattle(issues[logList[0].stateID].sheriff)}>
         战斗！
@@ -469,7 +478,7 @@ function App() {
     if (logList[0].stateID === 202) return expeditionButton;
     if (logList[0].stateID === 216) return walletButton;
     if (logList[0].stateID === 352) return occultButton;
-    if (logList[0].stateID === 509) return sheriffOneButton;
+    if (logList[0].stateID === 509) return sheriffOneButton; //此判断必须在下一行前面
     if ("enemy" in issues[logList[0].stateID]) return battleButton();
     if (logList[0].stateID === 355) return remakeButton;
     return nextButton;
@@ -532,6 +541,9 @@ function App() {
       alert("70岁了，此后每年消耗金钱增加1");
     }
   }, [age]);
+  useEffect(() => {
+    if (treasure.some((ele) => true)) localStorage.setItem("奇诡！");
+  }, [treasure]);
   //App:
   return (
     <div className="App">

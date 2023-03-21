@@ -22,8 +22,6 @@ button:hover {
   background-color: indianred;
 }
 button:active {
-  color: white;
-  background-color: indianred;
   transform: translateY(3px);
   box-shadow: 0 3px #666;
 }
@@ -80,4 +78,11 @@ li,
   overflow: auto;
   background-color: rgb(0, 0, 0);
   background-color: rgba(0, 0, 0, 0.4);
+}
+.treasureChoose {
+  color: black;
+  border-color: black;
+}
+.treasureChoose:hover {
+  background-color: black;
 }

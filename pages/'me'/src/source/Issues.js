@@ -3260,8 +3260,8 @@ const issues = [
   },
   {
     stateID: 592,
-    logText: "1111111111111111111111",
-    nextStates: [{ possibility: 2.0, stateID: 0 }],
+    logText: "【我需要相应诡物来对付敌人】",
+    nextStates: [{ possibility: 2.0, stateID: 200 }],
   },
   {
     stateID: 593,
@@ -3323,10 +3323,10 @@ const issues = [
     logText: "与3级心属性敌人战斗",
     nextStates: [{ possibility: 2.0, stateID: 199 }],
     enemy: {
-      observe: 4,
-      defend: 11,
-      technique: 4,
-      desire: 4,
+      observe: 3,
+      defend: 15,
+      technique: 3,
+      desire: 3,
       gain: 0.5,
       gainState: 195,
       getTreasureStateID: 598,
@@ -3340,7 +3340,7 @@ const issues = [
     enemy: {
       observe: 3,
       defend: 3,
-      technique: 16,
+      technique: 15,
       desire: 3,
       gain: 0.5,
       gainState: 195,

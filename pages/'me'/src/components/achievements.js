@@ -19,6 +19,7 @@ const achievementList = [
   { name: "一次抗争", discription: "击杀治安官" },
 
   { name: "实力", discription: "击败一个至少3级的敌人" },
+  { name: "奇诡！", discription: "获得一件诡物" },
   { name: "升华", discription: "属性总和达到40点" },
   { name: "无可匹敌", discription: "击败一个至少4级的敌人" },
 ];
@@ -41,7 +42,9 @@ function Achievements(props) {
   return (
     <div className="Achievements">
       <div className="AchievementTextBox">{allachievements}</div>
-      <p style={{ textAlign: "center" }}>{achieved + " / " + total}</p>
+      <p style={{ textAlign: "center", fontFamily: "fantasy" }}>
+        {achieved + " / " + total}
+      </p>
       <button
         onClick={() => props.setAchievementsBox(false)}
         className="AchievementsButton"
