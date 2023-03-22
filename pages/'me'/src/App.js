@@ -285,7 +285,7 @@ function App() {
     }
 
     let gainPoss = enemy.gain;
-    if (career === athlete) gainPoss += 0.2;
+    if (career === athlete) gainPoss += 0.1;
     if (result === 1) {
       addLog({
         stateID: 199,
