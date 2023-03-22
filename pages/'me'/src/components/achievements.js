@@ -90,7 +90,7 @@ function Achievements(props) {
       >
         关闭
       </button>
-      <span>ver: 0.2.1</span>
+      <span>ver: 0.2.2</span>
     </div>
   );
 }

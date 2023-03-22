@@ -1089,7 +1089,7 @@ const issues = [
     nextStates: [
       { possibility: 0.2, stateID: 311 }, //判断兴趣
       { possibility: 0.1, stateID: 316 }, //没获得
-      { possibility: 0.2, stateID: 316 }, //受伤了
+      { possibility: 0.2, stateID: 317 }, //受伤了
       { possibility: 0.4, stateID: 308 }, //一些
       { possibility: 2.0, stateID: 309 }, //很多
     ],
@@ -1823,9 +1823,10 @@ const issues = [
   },
   {
     stateID: 309,
-    logText: "我获得了很多奖金（金钱+2）",
+    logText: "我获得了很多奖金（金钱+2，名声+1）",
     nextStates: [{ possibility: 2.0, stateID: 200 }],
     money: 2,
+    reputation: 1,
   },
   {
     stateID: 310,
