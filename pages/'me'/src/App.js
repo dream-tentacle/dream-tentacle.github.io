@@ -51,7 +51,7 @@ const maxLogs = 1000;
 function App() {
   //States:
   const [age, setAge] = useState(0);
-  const [money, setMoney] = useState(400);
+  const [money, setMoney] = useState(4);
   const [hobby, setHobby] = useState([]);
   const [career, setCareer] = useState("无");
   const [time, setTime] = useState(actionPerYear);
@@ -76,7 +76,7 @@ function App() {
     },
   ]);
   const [ability, setAbility] = useState({
-    observe: 100,
+    observe: 1,
     defend: 1,
     technique: 1,
     desire: 1,
