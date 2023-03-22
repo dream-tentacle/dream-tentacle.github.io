@@ -1484,6 +1484,7 @@ const issues = [
       gain: 1,
       gainState: 197,
       enemyStateID: 260,
+      winPlotState: 253,
     },
   },
   {
@@ -1517,7 +1518,8 @@ const issues = [
   {
     stateID: 253,
     logText: "我最终回到了家里",
-    nextStates: [{ possibility: 2.0, stateID: 200 }],
+    nextStates: [{ possibility: 2.0, stateID: 199 }],
+    insertEnd: true,
   },
   {
     stateID: 254,
@@ -1531,7 +1533,7 @@ const issues = [
   },
   {
     stateID: 256,
-    logText: "我也明白了世界的真理",
+    logText: "很好，我终于明白了世界的真理",
     nextStates: [{ possibility: 2.0, stateID: 257 }],
   },
   {
@@ -2801,7 +2803,7 @@ const issues = [
   },
   {
     stateID: 501,
-    logText: "结局：入狱",
+    logText: "达成结局：入狱",
     nextStates: [{ possibility: 2.0, stateID: end }],
   },
   {
@@ -2898,7 +2900,7 @@ const issues = [
   },
   {
     stateID: 516,
-    logText: "警长找到了我的住处，幸好我早已搬家",
+    logText: "据说警长找到了我的旧住处，幸好我早已搬家",
     nextStates: [{ possibility: 2.0, stateID: 202 }],
     className: "Navy",
   },
@@ -2955,67 +2957,76 @@ const issues = [
   },
   {
     stateID: 524,
-    logText: "1111111111111111111111",
-    nextStates: [{ possibility: 2.0, stateID: 0 }],
+    logText: "我的线人告诉我，审查局那帮家伙盯上我了！",
+    nextStates: [{ possibility: 2.0, stateID: 525 }],
+    className: "Navy",
   },
   {
     stateID: 525,
-    logText: "1111111111111111111111",
-    nextStates: [{ possibility: 2.0, stateID: 0 }],
+    logText: "可恶，怎么是这帮疯狗！",
+    nextStates: [{ possibility: 2.0, stateID: 202 }],
+    className: "Navy",
   },
   {
     stateID: 526,
-    logText: "1111111111111111111111",
-    nextStates: [{ possibility: 2.0, stateID: 0 }],
+    logText: "我直觉这几天会有不好的事情发生",
+    nextStates: [{ possibility: 2.0, stateID: 527 }],
+    className: "Navy",
   },
   {
     stateID: 527,
-    logText: "1111111111111111111111",
-    nextStates: [{ possibility: 2.0, stateID: 0 }],
+    logText: "如果是审查局的话，我想我没可能对付",
+    nextStates: [{ possibility: 2.0, stateID: 202 }],
+    className: "Navy",
   },
   {
     stateID: 528,
-    logText: "1111111111111111111111",
-    nextStates: [{ possibility: 2.0, stateID: 0 }],
+    logText: "我想我应该考虑是否换个城市生活",
+    nextStates: [{ possibility: 2.0, stateID: 202 }],
+    className: "Navy",
   },
   {
     stateID: 529,
-    logText: "1111111111111111111111",
+    logText: "审查局找到我了！",
     nextStates: [{ possibility: 2.0, stateID: 0 }],
+    className: "Navy",
   },
   {
     stateID: 530,
-    logText: "1111111111111111111111",
+    logText: "一群人，奇装异服，将我的住所团团包围",
     nextStates: [{ possibility: 2.0, stateID: 0 }],
+    className: "Navy",
   },
   {
     stateID: 531,
-    logText: "1111111111111111111111",
+    logText: "我当然不愿束手就擒，然而我在围攻之下很快败北",
     nextStates: [{ possibility: 2.0, stateID: 0 }],
+    className: "Navy",
   },
   {
     stateID: 532,
-    logText: "1111111111111111111111",
+    logText: "“你被‘征用’了。”",
     nextStates: [{ possibility: 2.0, stateID: 0 }],
+    className: "Navy",
   },
   {
     stateID: 533,
-    logText: "1111111111111111111111",
+    logText: "我没有入狱，",
     nextStates: [{ possibility: 2.0, stateID: 0 }],
   },
   {
     stateID: 534,
-    logText: "1111111111111111111111",
+    logText: "相反，我成为了，",
     nextStates: [{ possibility: 2.0, stateID: 0 }],
   },
   {
     stateID: 535,
-    logText: "1111111111111111111111",
+    logText: "成为了他人的燃料。",
     nextStates: [{ possibility: 2.0, stateID: 0 }],
   },
   {
     stateID: 536,
-    logText: "1111111111111111111111",
+    logText: "达成结局：燃料",
     nextStates: [{ possibility: 2.0, stateID: 0 }],
   },
   {
@@ -3277,21 +3288,25 @@ const issues = [
     stateID: 588,
     logText: "获得5级目属性宝物",
     nextStates: [{ possibility: 2.0, stateID: 200 }],
+    insertEnd: true,
   },
   {
     stateID: 589,
     logText: "获得5级心属性宝物",
     nextStates: [{ possibility: 2.0, stateID: 200 }],
+    insertEnd: true,
   },
   {
     stateID: 590,
     logText: "获得5级珠属性宝物",
     nextStates: [{ possibility: 2.0, stateID: 200 }],
+    insertEnd: true,
   },
   {
     stateID: 591,
     logText: "获得5级水属性宝物",
     nextStates: [{ possibility: 2.0, stateID: 200 }],
+    insertEnd: true,
   },
   {
     stateID: 592,
@@ -3302,41 +3317,49 @@ const issues = [
     stateID: 593,
     logText: "获得4级目属性宝物",
     nextStates: [{ possibility: 2.0, stateID: 200 }],
+    insertEnd: true,
   },
   {
     stateID: 594,
     logText: "获得4级心属性宝物",
     nextStates: [{ possibility: 2.0, stateID: 200 }],
+    insertEnd: true,
   },
   {
     stateID: 595,
     logText: "获得4级珠属性宝物",
     nextStates: [{ possibility: 2.0, stateID: 200 }],
+    insertEnd: true,
   },
   {
     stateID: 596,
     logText: "获得4级水属性宝物",
     nextStates: [{ possibility: 2.0, stateID: 200 }],
+    insertEnd: true,
   },
   {
     stateID: 597,
     logText: "获得3级目属性宝物",
     nextStates: [{ possibility: 2.0, stateID: 200 }],
+    insertEnd: true,
   },
   {
     stateID: 598,
     logText: "获得3级心属性宝物",
     nextStates: [{ possibility: 2.0, stateID: 200 }],
+    insertEnd: true,
   },
   {
     stateID: 599,
     logText: "获得3级珠属性宝物",
     nextStates: [{ possibility: 2.0, stateID: 200 }],
+    insertEnd: true,
   },
   {
     stateID: 600,
     logText: "获得3级水属性宝物",
     nextStates: [{ possibility: 2.0, stateID: 200 }],
+    insertEnd: true,
   },
   {
     stateID: 601,
@@ -4472,4 +4495,5 @@ const issues = [
     nextStates: [{ possibility: 2.0, stateID: 199 }],
   },
 ];
+
 export default issues;

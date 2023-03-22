@@ -51,7 +51,7 @@ const maxLogs = 1000;
 function App() {
   //States:
   const [age, setAge] = useState(0);
-  const [money, setMoney] = useState(4);
+  const [money, setMoney] = useState(400);
   const [hobby, setHobby] = useState([]);
   const [career, setCareer] = useState("无");
   const [time, setTime] = useState(actionPerYear);
@@ -59,6 +59,7 @@ function App() {
   const [occultist, setOccultist] = useState(false);
   const [dark, setDark] = useState(0);
   const [insertIssueID, setInsertIssueID] = useState(0);
+  const [storeState, setStoreState] = useState(0);
   const [usedIssue, setUsedIssue] = useState([]);
   const [sheriff, setSheriff] = useState(0);
   const [achievementsBox, setAchievementsBox] = useState(false);
@@ -75,7 +76,7 @@ function App() {
     },
   ]);
   const [ability, setAbility] = useState({
-    observe: 1,
+    observe: 100,
     defend: 1,
     technique: 1,
     desire: 1,
@@ -177,8 +178,19 @@ function App() {
     if (specialIssue(nowState)) return;
     if (insertIssueID !== 0) {
       const tmp = insertIssueID;
+      setStoreState(nowState);
       setInsertIssueID(0);
       addLog(issues[tmp]);
+      console.log("inserted issue: ");
+      console.log(nowState);
+      return;
+    }
+    if ("insertEnd" in issues[nowState.stateID]) {
+      console.log("jump from issue:");
+      console.log(nowState);
+      console.log("jump to issue: ");
+      console.log(storeState);
+      nextLog(storeState);
       return;
     }
     let newIssue;
