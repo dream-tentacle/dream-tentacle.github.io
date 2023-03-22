@@ -18,6 +18,7 @@
   filter: alpha(opacity=30); /*  IE8 及其更早版本 */
 }
 .achievementPicture {
+  min-width: 100px;
   width: 100px;
   height: 100px;
   max-width: 40%;
@@ -44,7 +45,7 @@
   margin: 4px 2px;
   padding-left: 8px;
   padding-top: 8px;
-  height: 60px;
+  min-height: 60px;
   background-color: #6fbbd3;
   border-radius: 4px;
 }

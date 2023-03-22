@@ -16,7 +16,7 @@ button {
   cursor: pointer; /* 指针/手形图标 */
   box-shadow: 0 6px #999;
   border-radius: 8px;
-  padding: 12px 8px;
+  padding: 24px 8px;
   margin: 1%;
   min-width: 80px;
   max-width: 240px;
@@ -88,7 +88,20 @@ li,
 .treasureChoose {
   color: black;
   border-color: black;
+  box-shadow: 0 0 #999;
+  font-size: 16px;
+  border-radius: 4px;
+  padding: 6px 4px;
+  margin: 1%;
+  min-width: 80px;
+  max-width: 120px;
+  width: 25%;
+  min-height: 40px;
 }
 .treasureChoose:hover {
   background-color: black;
+}
+.treasureChoose:active {
+  transform: translateY(0px);
+  box-shadow: 0 0 #666;
 }

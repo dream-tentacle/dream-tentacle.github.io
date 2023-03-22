@@ -15,8 +15,10 @@ import knife2Picture from "../images/knife2Picture.png";
 import occultismPicture from "../images/occultismPicture.png";
 import wandPicture from "../images/wandPicture.png";
 import wolf2Picture from "../images/wolf2Picture.png";
-import changePicture from "../images/changePicture.png";
+import change3Picture from "../images/change3Picture.png";
 import change2Picture from "../images/change2Picture.png";
+import change1Picture from "../images/change1Picture.png";
+import harbourPicture from "../images/harbourPicture.png";
 
 const achievementList = [
   { name: "不幸", discription: "即刻重开，好耶", image: eggPicture },
@@ -35,7 +37,11 @@ const achievementList = [
     discription: "花点钱贿赂治安官",
     image: bribePicture,
   },
-  { name: "质变", discription: "我的实力发生了质变。（属性总和达到20点）" },
+  {
+    name: "质变",
+    discription: "我的实力发生了质变。（属性总和达到20点）",
+    image: change1Picture,
+  },
   { name: "一次抗争", discription: "击杀治安官", image: wolfPicture },
   { name: "不屈", discription: "击杀警长", image: wolf2Picture },
 
@@ -44,15 +50,16 @@ const achievementList = [
   {
     name: "升华",
     discription: "我的本质已得到升华。（属性总和达到40点）",
-    image: changePicture,
+    image: change2Picture,
   },
   { name: "无可匹敌", discription: "击败一个至少4级的敌人", image: knife2Picture },
   {
     name: "异化",
     discription: "我几乎不再是人类。（属性总和达到60点）",
-    image: change2Picture,
+    image: change3Picture,
   },
   { name: "支配", discription: "击败一个至少5级的敌人", image: wandPicture },
+  { name: "港湾", discription: "达成“港湾”胜利结局", image: harbourPicture },
 ];
 
 function Achievements(props) {
@@ -83,7 +90,7 @@ function Achievements(props) {
       >
         关闭
       </button>
-      <span>ver: 0.1.2</span>
+      <span>ver: 0.2.1</span>
     </div>
   );
 }

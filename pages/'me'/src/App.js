@@ -134,6 +134,7 @@ function App() {
     if (newIssue.stateID === 511) localStorage.setItem("一次抗争", true);
     if (newIssue.stateID === 521) localStorage.setItem("不屈", true);
     if (newIssue.stateID === 257) localStorage.setItem("真理", true);
+    if (newIssue.stateID === 731) localStorage.setItem("港湾", true);
   }
   function addLog(newIssue) {
     if (
@@ -398,12 +399,41 @@ function App() {
       } else addLog(issues[202]);
     } else addLog(issues[202]);
   }
+  function win() {
+    if (
+      career === writer &&
+      treasure.some((x) => x === 588) &&
+      treasure.some((x) => x === 593) &&
+      treasure.some((x) => x === 597)
+    ) {
+      if (ability.observe >= 40) return 1;
+      else return 2;
+    }
+    if (
+      career === athlete &&
+      treasure.some((x) => x === 589) &&
+      treasure.some((x) => x === 594) &&
+      treasure.some((x) => x === 598)
+    ) {
+      if (ability.defend >= 40) return 1;
+      else return 2;
+    }
+    return 0;
+  }
   //UI:
   //background-color:
   function backgroundColor() {
     document.body.style.backgroundColor = backgroundColors[dark];
   }
   //button:
+  function winButton() {
+    const result = win();
+    if (result === 0)
+      return <button onClick={() => addLog(issues[700])}>翻开书籍</button>;
+    if (result === 1)
+      return <button onClick={() => addLog(issues[720])}>我已做好准备</button>;
+    return <button>心之力量不足以升变</button>;
+  }
   const nextButton = <button onClick={() => nextLog(logList[0])}>下一步</button>;
   const careerChooseButton = (
     <div className="careerChooseButton">
@@ -422,7 +452,7 @@ function App() {
       {occultist ? (
         <>
           <button onClick={() => addLog(issues[203])}>磨练</button>
-          <button onClick={() => addLog(issues[700])}>翻开书籍</button>
+          {winButton()}
         </>
       ) : (
         ""
@@ -436,7 +466,7 @@ function App() {
       {occultist ? (
         <>
           <button onClick={() => addLog(issues[314])}>磨练</button>
-          <button onClick={() => addLog(issues[700])}>翻开书籍</button>
+          {winButton()}
         </>
       ) : (
         ""
