@@ -123,7 +123,7 @@ function App() {
     if (newIssue.stateID === 152) setCareer(athlete);
     if (newIssue.stateID === 360) setOccultist(true);
 
-    //结局
+    //成就
     if (newIssue.stateID === 2) localStorage.setItem("告罄", true);
     if (newIssue.stateID === 6) localStorage.setItem("黑暗", true);
     if (newIssue.stateID === 7) localStorage.setItem("不幸", true);
@@ -132,6 +132,7 @@ function App() {
     if (newIssue.stateID === 510)
       localStorage.setItem("钱不是万能的，但没有钱是万万不能的", true);
     if (newIssue.stateID === 511) localStorage.setItem("一次抗争", true);
+    if (newIssue.stateID === 521) localStorage.setItem("不屈", true);
     if (newIssue.stateID === 257) localStorage.setItem("真理", true);
   }
   function addLog(newIssue) {

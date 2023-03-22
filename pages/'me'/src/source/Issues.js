@@ -2814,7 +2814,7 @@ const issues = [
   },
   {
     stateID: 503,
-    logText: "这名治安官比以往敌人强得多。我败了，无力地瘫倒在墙角。",
+    logText: "这名捕手比以往敌人强得多。我败了，无力地瘫倒在墙角。",
     nextStates: [{ possibility: 2.0, stateID: 502 }],
   },
   {
