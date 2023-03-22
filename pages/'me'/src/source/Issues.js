@@ -1088,7 +1088,8 @@ const issues = [
     logText: "我决定参加比赛（时间-1）",
     nextStates: [
       { possibility: 0.2, stateID: 311 }, //判断兴趣
-      { possibility: 0.3, stateID: 316 }, //没获得
+      { possibility: 0.1, stateID: 316 }, //没获得
+      { possibility: 0.2, stateID: 316 }, //受伤了
       { possibility: 0.4, stateID: 308 }, //一些
       { possibility: 2.0, stateID: 309 }, //很多
     ],
@@ -1868,8 +1869,9 @@ const issues = [
   },
   {
     stateID: 317,
-    logText: "1111111111111111111111",
-    nextStates: [{ possibility: 2.0, stateID: 0 }],
+    logText: "我在比赛中受伤了（心属性-1）",
+    nextStates: [{ possibility: 2.0, stateID: 200 }],
+    defend: -1,
   },
   {
     stateID: 318,
