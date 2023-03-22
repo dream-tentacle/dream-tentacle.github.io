@@ -1146,13 +1146,13 @@ const issues = [
   {
     stateID: 214,
     logText: "我决定去森林野营（时间-2）",
-    nextStates: [{ possibility: 2.0, stateID: 0 }],
+    nextStates: [{ possibility: 2.0, stateID: 606 }],
     time: -2,
   },
   {
     stateID: 215,
     logText: "我决定去山脉深处探险（时间-3）",
-    nextStates: [{ possibility: 2.0, stateID: 0 }],
+    nextStates: [{ possibility: 2.0, stateID: 615 }],
     time: -3,
   },
   //城里探险结果：
@@ -1469,6 +1469,7 @@ const issues = [
       gain: 0.5,
       gainState: 196,
       failPlotState: 254,
+      enemyStateID: 269,
       winPlotState: 250,
     },
   },
@@ -3565,8 +3566,14 @@ const issues = [
   },
   {
     stateID: 615,
-    logText: "1111111111111111111111",
-    nextStates: [{ possibility: 2.0, stateID: 0 }],
+    logText: "抽取5级敌人……（若出现在消息框请反馈给开发者）",
+    nextStates: [
+      { possibility: 0.25, stateID: 611 },
+      { possibility: 0.25, stateID: 612 },
+      { possibility: 0.25, stateID: 613 },
+      { possibility: 2.0, stateID: 614 },
+    ],
+    hidden: true,
   },
   {
     stateID: 616,
@@ -4017,12 +4024,12 @@ const issues = [
   {
     stateID: 705,
     logText: "【我可以从某些敌人那里获取“诡物”】",
-    nextStates: [{ possibility: 2.0, stateID: 200 }],
+    nextStates: [{ possibility: 2.0, stateID: 706 }],
   },
   {
     stateID: 706,
-    logText: "1111111111111111111111",
-    nextStates: [{ possibility: 2.0, stateID: 199 }],
+    logText: "游戏内容尚不完善，故提示——【珠：技艺；水：诱惑】",
+    nextStates: [{ possibility: 2.0, stateID: 200 }],
   },
   {
     stateID: 707,

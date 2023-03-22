@@ -1,7 +1,14 @@
-@import url("https://fonts.googleapis.com/css2?family=ZCOOL+XiaoWei&display=swap");
+@font-face {
+  font-family: "ZCOOLXW";
+  src: url("./fonts/ZCOOLXiaoWei-Regular.ttf");
+}
+
+.App {
+  font-family: "ZCOOLXW", sans-serif;
+}
 button {
+  font-family: "ZCOOLXW", sans-serif;
   font-size: 20px;
-  font-family: "ZCOOL XiaoWei", sans-serif;
   font-weight: bold;
   color: indianred;
   background-color: white;
@@ -28,7 +35,6 @@ button:active {
 p,
 li,
 .Ability {
-  font-family: "ZCOOL XiaoWei", sans-serif;
   font-size: 18px;
 }
 .Ability span {

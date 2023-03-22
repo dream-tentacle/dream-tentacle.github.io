@@ -19,6 +19,10 @@ const writer = "作家",
 //物品
 // eslint-disable-next-line
 const treasureID = {
+  588: "5级目之诡物",
+  589: "5级心之诡物",
+  590: "5级珠之诡物",
+  591: "5级水之诡物",
   593: "4级目之诡物",
   594: "4级心之诡物",
   595: "4级珠之诡物",
@@ -143,7 +147,9 @@ function App() {
         else addLog(issues[312]);
       } else nextLog(newIssue);
     } else if (newIssue.stateID === 260 && usedIssue.some((ele) => ele === 260))
-      nextLog(issues[241]);
+      nextLog(issues[241]); //假如打过了歌手
+    else if (newIssue.stateID === 269 && usedIssue.some((ele) => ele === 269))
+      nextLog(issues[241]); //假如逃离了邪教派对
     else {
       setLogList([
         {
@@ -446,7 +452,10 @@ function App() {
             <span>
               <button onClick={() => addLog(issues[213])}>去乡下看看</button>
               {treasure.some((ele) => ele !== 0) ? (
-                <button onClick={() => addLog(issues[213])}>去森林探险</button>
+                <>
+                  <button onClick={() => addLog(issues[214])}>去森林探险</button>
+                  <button onClick={() => addLog(issues[215])}>去山脉身处</button>
+                </>
               ) : (
                 <div>（提示：需要拥有至少一件诡物，才能前往下一地点）</div>
               )}
@@ -516,7 +525,7 @@ function App() {
     return (
       <button
         className="treasureChoose"
-        key={`id-${nanoid}`}
+        key={`id-${nanoid()}`}
         onClick={() => setUsingTreasure(ele)}
       >
         {treasureID[ele]}
@@ -641,6 +650,13 @@ function App() {
   useEffect(() => {
     if (treasure.some((ele) => true)) localStorage.setItem("奇诡！", true);
   }, [treasure]);
+  /* useEffect(() => {
+    setMoney(200);
+    setReputation(4);
+    setTreasure([593, 594, 595, 596, 597, 598, 599, 600]);
+    setAbility({ ...ability, observe: 100 });
+  }, []); */
+
   //App:
   return (
     <div className="App">
