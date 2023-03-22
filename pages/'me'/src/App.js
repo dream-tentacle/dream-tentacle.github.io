@@ -276,7 +276,7 @@ function App() {
         if (enemy.level >= 5) localStorage.setItem("支配", true);
       } else {
         let poss = Math.random();
-        if (poss >= 0.5) setReputation((x) => x + 1);
+        if (poss >= 0.6) setReputation((x) => x + 1);
       }
       if ("winPlotState" in enemy) {
         setInsertIssueID(enemy.winPlotState);
@@ -375,22 +375,22 @@ function App() {
       } else if (sheriff === 3 && poss <= reputation * 0.03) {
         addLog(issues[507]);
         setSheriff(4);
-      } else if (sheriff === 4 && reputation >= 15 && poss <= reputation * 0.04) {
+      } else if (sheriff === 4 && Math.min(reputation * 0.03, 0.8)) {
         addLog(issues[508]);
         setSheriff(5);
-      } else if (sheriff === 5 && reputation >= 15 && poss <= reputation * 0.04) {
+      } else if (sheriff === 5 && Math.min(reputation * 0.03, 0.8)) {
         addLog(issues[520]);
         setSheriff(6);
-      } else if (sheriff === 6 && reputation >= 15 && poss <= reputation * 0.05) {
+      } else if (sheriff === 6 && Math.min(reputation * 0.03, 0.8)) {
         addLog(issues[514]);
         setSheriff(7);
-      } else if (sheriff === 7 && poss <= reputation * 0.05) {
+      } else if (sheriff === 7 && poss <= Math.min(reputation * 0.03, 0.8)) {
         addLog(issues[515]);
         setSheriff(8);
-      } else if (sheriff === 8 && poss <= reputation * 0.05) {
+      } else if (sheriff === 8 && poss <= Math.min(reputation * 0.03, 0.8)) {
         addLog(issues[516]);
         setSheriff(9);
-      } else if (sheriff === 9 && poss <= reputation * 0.05) {
+      } else if (sheriff === 9 && poss <= Math.min(reputation * 0.03, 0.8)) {
         addLog(issues[517]);
         setSheriff(10);
       } else if (sheriff === 10 && poss <= reputation * 0.05) {
@@ -476,7 +476,7 @@ function App() {
   const expeditionButton = (
     <div className="expeditionButton">
       <button onClick={() => addLog(issues[211])}>就在城里转转</button>
-      {reputation >= 2 ? (
+      {reputation >= 5 ? (
         <span>
           <button onClick={() => addLog(issues[212])}>去别的城市旅游</button>
           {usedIssue.some((ele) => ele === 260) ? (

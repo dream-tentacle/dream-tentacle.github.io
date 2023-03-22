@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "./static/css/main.174b92b1.css",
-    "main.js": "./static/js/main.3fa4b685.js",
+    "main.js": "./static/js/main.5ffc7f6f.js",
     "static/media/ZCOOLXiaoWei-Regular.ttf": "./static/media/ZCOOLXiaoWei-Regular.94e5f3e17ec2184f303d.ttf",
     "static/media/occultismPicture.png": "./static/media/occultismPicture.c7e61feca5e8dda1257f.png",
     "static/media/harbourPicture.png": "./static/media/harbourPicture.46922d7689ef1b96412f.png",
@@ -25,10 +25,10 @@
     "static/media/moneyPicture.png": "./static/media/moneyPicture.980589a26bc081fb1d45.png",
     "index.html": "./index.html",
     "main.174b92b1.css.map": "./static/css/main.174b92b1.css.map",
-    "main.3fa4b685.js.map": "./static/js/main.3fa4b685.js.map"
+    "main.5ffc7f6f.js.map": "./static/js/main.5ffc7f6f.js.map"
   },
   "entrypoints": [
     "static/css/main.174b92b1.css",
-    "static/js/main.3fa4b685.js"
+    "static/js/main.5ffc7f6f.js"
   ]
 }
