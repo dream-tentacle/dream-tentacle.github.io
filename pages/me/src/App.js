@@ -6,7 +6,7 @@ import Ability from "./components/ability";
 import Achievements from "./components/achievements";
 import clockPicture from "./images/clockPicture.png";
 import moneyPicture from "./images/moneyPicture.png";
-import Bulletin from "./me-bulletin";
+import Bulletin from "./bulletin";
 import "./App.css";
 
 //hobbies
@@ -68,6 +68,7 @@ function App() {
   const [usedIssue, setUsedIssue] = useState([]);
   const [sheriff, setSheriff] = useState(0);
   const [achievementsBox, setAchievementsBox] = useState(false);
+  const [bulletinBox, setBulletinBox] = useState(false);
   const [treasure, setTreasure] = useState([]);
   const [usingTreasure, setUsingTreasure] = useState(0);
   const [treasureListOpen, setTreasureListOpen] = useState(false);
@@ -726,7 +727,6 @@ function App() {
   //App:
   return (
     <div className="App">
-      <Bulletin />
       {achievementsBox ? (
         <div className="achievementsBackground">
           <Achievements setAchievementsBox={setAchievementsBox} />
@@ -739,6 +739,16 @@ function App() {
         onClick={() => setAchievementsBox(true)}
       >
         成就
+      </button>
+      {bulletinBox ? (
+        <div className="achievementsBackground">
+          <Bulletin setBulletinBox={setBulletinBox} />
+        </div>
+      ) : (
+        ""
+      )}
+      <button className="AchievementsButton" onClick={() => setBulletinBox(true)}>
+        公告
       </button>
       <br />
       {backgroundColor()}
