@@ -52,7 +52,7 @@ const achievementList = [
     discription: "我的本质已得到升华。（属性总和达到40点）",
     image: change2Picture,
   },
-  { name: "不屈", discription: "击杀警长", image: wolf2Picture },
+  { name: "不屈", discription: "击杀猎魔人", image: wolf2Picture },
   { name: "无可匹敌", discription: "击败一个至少4级的敌人", image: knife2Picture },
   {
     name: "异化",

@@ -1125,10 +1125,9 @@ const issues = [
     stateID: 211,
     logText: "我决定去城里转转（时间-1）",
     nextStates: [
-      { possibility: 0.1, stateID: 216 }, //钱包
-      { possibility: 0.25, stateID: 229 }, //敌人
-      { possibility: 0.4, stateID: 230 }, //酒馆
-      { possibility: 2.0, stateID: 233 }, //记者
+      { possibility: 0.3, stateID: 216 }, //钱包
+      { possibility: 0.4, stateID: 229 }, //敌人
+      { possibility: 2.0, stateID: 230 }, //酒馆
     ],
     time: -1,
   },
@@ -1164,9 +1163,9 @@ const issues = [
   },
   {
     stateID: 217,
-    logText: "我打开了钱包。钱包里有很多钱，好耶！（金钱+4）",
+    logText: "我打开了钱包。钱包里有很多钱，好耶！（金钱+3）",
     nextStates: [
-      { possibility: 0.6, stateID: 220 },
+      { possibility: 0.8, stateID: 220 },
       { possibility: 2.0, stateID: 200 },
     ],
     money: 4,
@@ -1175,7 +1174,7 @@ const issues = [
     stateID: 218,
     logText: "我打开了钱包。钱包里没多少钱（金钱+1）",
     nextStates: [
-      { possibility: 0.2, stateID: 220 },
+      { possibility: 0.4, stateID: 220 },
       { possibility: 2.0, stateID: 200 },
     ],
     money: 1,
@@ -1317,7 +1316,7 @@ const issues = [
     stateID: 230,
     logText: "我不知不觉就走进了一间酒馆。干脆喝点酒好了",
     nextStates: [
-      { possibility: 0.8, stateID: 231 },
+      { possibility: 0.7, stateID: 231 },
       { possibility: 2.0, stateID: 232 },
     ],
   },
@@ -1470,7 +1469,6 @@ const issues = [
       gain: 0.5,
       gainState: 196,
       failPlotState: 254,
-      enemyStateID: 269,
       winPlotState: 250,
     },
   },
@@ -1547,6 +1545,7 @@ const issues = [
     stateID: 258,
     logText: "我住在一家旅馆。据说这里曾经闹鬼，管他呢",
     nextStates: [{ possibility: 2.0, stateID: 259 }],
+    skipStateID: 249,
   },
   {
     stateID: 259,
@@ -1557,6 +1556,7 @@ const issues = [
     stateID: 260,
     logText: "我前往当地一家知名酒馆。当地有一首关于这家酒馆的童谣：",
     nextStates: [{ possibility: 2.0, stateID: 261 }],
+    skipStateID: 248,
   },
   {
     stateID: 261,
@@ -1603,6 +1603,7 @@ const issues = [
     stateID: 269,
     logText: "在旅游的过程中，我结识了一些朋友。 ",
     nextStates: [{ possibility: 2.0, stateID: 270 }],
+    skipStateID: 247,
   },
   {
     stateID: 270,
@@ -1770,7 +1771,7 @@ const issues = [
     stateID: 301,
     logText: "可恶！什么思路都没有。左脑装满了水，右脑装满了面粉，一晃全是浆糊",
     nextStates: [
-      { possibility: 0.8, stateID: 304 },
+      { possibility: 0.5, stateID: 304 },
       { possibility: 2.0, stateID: 200 },
     ],
   },
@@ -1853,7 +1854,7 @@ const issues = [
     stateID: 314,
     logText: "我决定磨练我的心之力量（时间-1）",
     nextStates: [
-      { possibility: 0.5, stateID: 196 },
+      { possibility: 0.4, stateID: 196 },
       { possibility: 2.0, stateID: 315 },
     ],
     time: -1,
@@ -1891,18 +1892,21 @@ const issues = [
   },
   {
     stateID: 321,
-    logText: "1111111111111111111111",
+    logText: "我已完成质变（每年消耗金钱-1）（若二次出现请反馈给开发者）",
     nextStates: [{ possibility: 2.0, stateID: 0 }],
+    insertEnd: true,
   },
   {
     stateID: 322,
-    logText: "1111111111111111111111",
+    logText: "我已升华（每年消耗金钱-1）（若二次出现请反馈给开发者）",
     nextStates: [{ possibility: 2.0, stateID: 0 }],
+    insertEnd: true,
   },
   {
     stateID: 323,
-    logText: "1111111111111111111111",
+    logText: "我几乎不在是人类（每年消耗金钱-1）（若二次出现请反馈给开发者）",
     nextStates: [{ possibility: 2.0, stateID: 0 }],
+    insertEnd: true,
   },
   {
     stateID: 324,
@@ -2092,7 +2096,7 @@ const issues = [
   },
   {
     stateID: 361,
-    logText: "【你可以提升自己的能力了】",
+    logText: "几天后，我在报纸上看到那名老人死在街头的新闻，据说是自杀",
     nextStates: [{ possibility: 2.0, stateID: 200 }],
   },
 
@@ -2892,37 +2896,37 @@ const issues = [
   },
   {
     stateID: 514,
-    logText: "我被警长盯上了",
+    logText: "我被一名官方猎魔人盯上了",
     nextStates: [{ possibility: 2.0, stateID: 202 }],
     className: "Navy",
   },
   {
     stateID: 515,
-    logText: "警长整理了我过往的证据",
+    logText: "猎魔人整理了我过往的证据",
     nextStates: [{ possibility: 2.0, stateID: 202 }],
     className: "Navy",
   },
   {
     stateID: 516,
-    logText: "据说警长找到了我的旧住处，幸好我早已搬家",
+    logText: "据说猎魔人找到了我的旧住处，幸好我早已搬家",
     nextStates: [{ possibility: 2.0, stateID: 202 }],
     className: "Navy",
   },
   {
     stateID: 517,
-    logText: "警长跟踪了我，不过被我甩掉了",
+    logText: "猎魔人跟踪了我，不过被我甩掉了",
     nextStates: [{ possibility: 2.0, stateID: 202 }],
     className: "Navy",
   },
   {
     stateID: 518,
-    logText: "警长找到我了！",
+    logText: "猎魔人找到我了！",
     nextStates: [{ possibility: 2.0, stateID: 519 }],
     className: "Navy",
   },
   {
     stateID: 519,
-    logText: "警长的意志坚定，我不能贿赂他",
+    logText: "猎魔人的意志坚定，我不能贿赂他",
     nextStates: [{ possibility: 2.0, stateID: 199 }],
     sheriff: {
       observe: 9,
@@ -2942,7 +2946,7 @@ const issues = [
   },
   {
     stateID: 521,
-    logText: "警长迎来了他的末日",
+    logText: "猎魔人迎来了他的末日",
     nextStates: [{ possibility: 2.0, stateID: 522 }],
     className: "Darkred",
   },

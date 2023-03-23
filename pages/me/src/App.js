@@ -36,6 +36,9 @@ const treasureID = {
 
 let actionPerYear = 10;
 let moneyPerYear = 4;
+let change1Flag = false,
+  change2Flag = false,
+  change3Flag = false;
 
 const backgroundColors = [
   "#F8F9F9",
@@ -150,11 +153,7 @@ function App() {
         if (hobby.some((onehobby) => onehobby === sport)) addLog(issues[313]);
         else addLog(issues[312]);
       } else nextLog(newIssue);
-    } else if (newIssue.stateID === 260 && usedIssue.some((ele) => ele === 260))
-      nextLog(issues[241]); //假如打过了歌手
-    else if (newIssue.stateID === 269 && usedIssue.some((ele) => ele === 269))
-      nextLog(issues[241]); //假如逃离了邪教派对
-    else {
+    } else {
       setLogList([
         {
           stateID: newIssue.stateID,
@@ -191,8 +190,10 @@ function App() {
       setStoreState(nowState);
       setInsertIssueID(0);
       addLog(issues[tmp]);
-      console.log("inserted issue: ");
+      console.log("stored issue: ");
       console.log(nowState);
+      console.log("inserted issue: ");
+      console.log(insertIssueID);
       return;
     }
     if ("insertEnd" in issues[nowState.stateID]) {
@@ -280,6 +281,33 @@ function App() {
       setMoney((x) => x - 2);
     }
   }
+  function enemyBattleWin(enemy) {
+    if ("enemyStateID" in enemy) {
+      setUsedIssue([...usedIssue, enemy.enemyStateID]);
+    }
+    if (
+      "getTreasureStateID" in enemy &&
+      !treasure.some((ele) => ele === enemy.getTreasureStateID)
+    ) {
+      setTreasure([...treasure, enemy.getTreasureStateID]);
+      setInsertIssueID(enemy.getTreasureStateID);
+    }
+    if ("level" in enemy) {
+      if (enemy.level >= 3) {
+        localStorage.setItem("实力", true);
+        setReputation((x) => x + 1);
+      }
+      if (enemy.level >= 4) localStorage.setItem("无可匹敌", true);
+      if (enemy.level >= 5) localStorage.setItem("支配", true);
+    } else {
+      let poss = Math.random();
+      if (poss >= 0.6) setReputation((x) => x + 1);
+    }
+    if ("winPlotState" in enemy) {
+      setInsertIssueID(enemy.winPlotState);
+    }
+    if (enemy.enemyStateID === 260) localStorage.setItem("一首童谣", true);
+  }
   function enemyBattle(enemy) {
     const result = battleResult(enemy);
     if (result === 0 || result === 5) {
@@ -289,33 +317,8 @@ function App() {
       }
     }
     if (result > 0 && result < 5) {
-      if ("enemyStateID" in enemy) {
-        setUsedIssue([...usedIssue, enemy.enemyStateID]);
-      }
-      if (
-        "getTreasureStateID" in enemy &&
-        !treasure.some((ele) => ele === enemy.getTreasureStateID)
-      ) {
-        setTreasure([...treasure, enemy.getTreasureStateID]);
-        setInsertIssueID(enemy.getTreasureStateID);
-      }
-      if ("level" in enemy) {
-        if (enemy.level >= 3) {
-          localStorage.setItem("实力", true);
-          setReputation((x) => x + 1);
-        }
-        if (enemy.level >= 4) localStorage.setItem("无可匹敌", true);
-        if (enemy.level >= 5) localStorage.setItem("支配", true);
-      } else {
-        let poss = Math.random();
-        if (poss >= 0.6) setReputation((x) => x + 1);
-      }
-      if ("winPlotState" in enemy) {
-        setInsertIssueID(enemy.winPlotState);
-      }
-      if (enemy.enemyStateID === 260) localStorage.setItem("一首童谣", true);
+      enemyBattleWin(enemy);
     }
-
     let gainPoss = enemy.gain;
     if (career === athlete) gainPoss += 0.1;
     if (result === 1) {
@@ -396,28 +399,28 @@ function App() {
       if (sheriff === 1 && poss <= reputation * 0.01) {
         addLog(issues[505]);
         setSheriff(2);
-      } else if (sheriff === 2 && poss <= reputation * 0.02) {
+      } else if (sheriff === 2 && Math.min(reputation * 0.01, 0.3)) {
         addLog(issues[506]);
         setSheriff(3);
-      } else if (sheriff === 3 && poss <= reputation * 0.03) {
+      } else if (sheriff === 3 && Math.min(reputation * 0.01, 0.3)) {
         addLog(issues[507]);
         setSheriff(4);
-      } else if (sheriff === 4 && Math.min(reputation * 0.03, 0.8)) {
+      } else if (sheriff === 4 && Math.min(reputation * 0.01, 0.3)) {
         addLog(issues[508]);
         setSheriff(5);
-      } else if (sheriff === 5 && Math.min(reputation * 0.03, 0.8)) {
+      } else if (sheriff === 5 && Math.min(reputation * 0.02, 0.5)) {
         addLog(issues[520]);
         setSheriff(6);
-      } else if (sheriff === 6 && Math.min(reputation * 0.03, 0.8)) {
+      } else if (sheriff === 6 && Math.min(reputation * 0.02, 0.5)) {
         addLog(issues[514]);
         setSheriff(7);
-      } else if (sheriff === 7 && poss <= Math.min(reputation * 0.03, 0.8)) {
+      } else if (sheriff === 7 && poss <= Math.min(reputation * 0.02, 0.5)) {
         addLog(issues[515]);
         setSheriff(8);
-      } else if (sheriff === 8 && poss <= Math.min(reputation * 0.03, 0.8)) {
+      } else if (sheriff === 8 && poss <= Math.min(reputation * 0.02, 0.8)) {
         addLog(issues[516]);
         setSheriff(9);
-      } else if (sheriff === 9 && poss <= Math.min(reputation * 0.03, 0.8)) {
+      } else if (sheriff === 9 && poss <= Math.min(reputation * 0.02, 0.8)) {
         addLog(issues[517]);
         setSheriff(10);
       } else if (sheriff === 10 && poss <= reputation * 0.05) {
@@ -538,7 +541,7 @@ function App() {
       <button
         onClick={() => {
           let poss = Math.random();
-          if (poss < 0.5) addLog(issues[217]);
+          if (poss <= 0.3) addLog(issues[217]);
           else addLog(issues[218]);
         }}
       >
@@ -624,6 +627,17 @@ function App() {
       return sheriffOneButton; //此判断必须在下一行前面
     if ("enemy" in issues[logList[0].stateID]) return battleButton();
     if (logList[0].stateID === 355) return remakeButton;
+    if ("skipStateID" in issues[logList[0].stateID])
+      return (
+        <>
+          {nextButton}
+          <button
+            onClick={() => addLog(issues[issues[logList[0].stateID].skipStateID])}
+          >
+            跳过
+          </button>
+        </>
+      );
     return nextButton;
   };
 
@@ -668,20 +682,32 @@ function App() {
       localStorage.setItem("虚弱", true);
     }
     if (
-      ability.defend + ability.desire + ability.observe + ability.technique >=
-      20
+      ability.defend + ability.desire + ability.observe + ability.technique >= 20 &&
+      !change1Flag
     ) {
       localStorage.setItem("质变", true);
-      if (
-        ability.defend + ability.desire + ability.observe + ability.technique >=
-        40
-      )
-        localStorage.setItem("升华", true);
-      if (
-        ability.defend + ability.desire + ability.observe + ability.technique >=
-        60
-      )
-        localStorage.setItem("异化", true);
+      moneyPerYear--;
+      change1Flag = true;
+      setInsertIssueID(321);
+      console.log(change1Flag);
+    }
+    if (
+      ability.defend + ability.desire + ability.observe + ability.technique >= 40 &&
+      !change2Flag
+    ) {
+      localStorage.setItem("升华", true);
+      moneyPerYear--;
+      change2Flag = true;
+      setInsertIssueID(322);
+    }
+    if (
+      ability.defend + ability.desire + ability.observe + ability.technique >= 60 &&
+      !change3Flag
+    ) {
+      localStorage.setItem("异化", true);
+      moneyPerYear--;
+      change3Flag = true;
+      setInsertIssueID(323);
     }
   }, [ability]);
   useEffect(() => {
@@ -748,7 +774,7 @@ function App() {
         ""
       )}
       <button className="AchievementsButton" onClick={() => setBulletinBox(true)}>
-        公告
+        版本：0.2.7
       </button>
       <br />
       {backgroundColor()}

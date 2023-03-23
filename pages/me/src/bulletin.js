@@ -7,6 +7,13 @@ function Bulletin(props) {
         关闭
       </button>
       <div>
+        <h2>版本：0.2.7</h2>
+        <ul>
+          <li>优化版本公告界面</li>
+          <li>新增跳过剧情功能</li>
+          <li>参数平衡性调整</li>
+          <li>新增效果：20/40/60属性时减少消耗1金钱/年</li>
+        </ul>
         <h2>版本：0.2.6</h2>
         <ul>
           <li>修改错误文本</li>
@@ -29,7 +36,7 @@ function Bulletin(props) {
         </ul>
         <h2>版本：0.2.2</h2>
         <ul>
-          <li>优化参数</li>
+          <li>调整目系列诡物名称与介绍</li>
         </ul>
         <h2>版本：0.2.1</h2>
         <ul>
