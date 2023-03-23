@@ -91,12 +91,12 @@ li,
   box-shadow: 0 0 #999;
   font-size: 16px;
   border-radius: 4px;
-  padding: 6px 4px;
+  padding: 4px 4px;
   margin: 1%;
   min-width: 80px;
   max-width: 120px;
   width: 25%;
-  min-height: 40px;
+  min-height: 20px;
 }
 .treasureChoose:hover {
   background-color: black;

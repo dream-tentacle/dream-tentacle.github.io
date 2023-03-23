@@ -43,7 +43,6 @@ const achievementList = [
     image: change1Picture,
   },
   { name: "一次抗争", discription: "击杀治安官", image: wolfPicture },
-  { name: "不屈", discription: "击杀警长", image: wolf2Picture },
 
   { name: "实力", discription: "击败一个至少3级的敌人", image: knifePicture },
   { name: "奇诡！", discription: "获得一件诡物", image: crystalBallPicture },
@@ -52,6 +51,7 @@ const achievementList = [
     discription: "我的本质已得到升华。（属性总和达到40点）",
     image: change2Picture,
   },
+  { name: "不屈", discription: "击杀警长", image: wolf2Picture },
   { name: "无可匹敌", discription: "击败一个至少4级的敌人", image: knife2Picture },
   {
     name: "异化",
@@ -90,7 +90,7 @@ function Achievements(props) {
       >
         关闭
       </button>
-      <span>ver: 0.2.3</span>
+      <span>ver: 0.2.4</span>
     </div>
   );
 }

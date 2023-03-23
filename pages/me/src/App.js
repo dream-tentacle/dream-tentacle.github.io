@@ -6,6 +6,7 @@ import Ability from "./components/ability";
 import Achievements from "./components/achievements";
 import clockPicture from "./images/clockPicture.png";
 import moneyPicture from "./images/moneyPicture.png";
+import Bulletin from "./me-bulletin";
 import "./App.css";
 
 //hobbies
@@ -19,15 +20,15 @@ const writer = "作家",
 //物品
 // eslint-disable-next-line
 const treasureID = {
-  588: "5级目之诡物",
+  588: "古神人偶(5目)",
   589: "5级心之诡物",
   590: "5级珠之诡物",
   591: "5级水之诡物",
-  593: "4级目之诡物",
+  593: "眼怪的黑色晶状体(4目)",
   594: "4级心之诡物",
   595: "4级珠之诡物",
   596: "4级水之诡物",
-  597: "3级目之诡物",
+  597: "古老的单片眼镜(3目)",
   598: "3级心之诡物",
   599: "3级珠之诡物",
   600: "3级水之诡物",
@@ -248,6 +249,36 @@ function App() {
     if (enemy.defend > ability.desire && enemySum >= yourSum) return 0;
     return 5; //平局
   }
+  function fialResult(enemy) {
+    const yourSum =
+      ability.observe + ability.technique + ability.defend + ability.desire;
+    const enemySum = enemy.observe + enemy.technique + enemy.defend + enemy.desire;
+    if (enemySum - yourSum <= 5) {
+      addLog({
+        stateID: 199,
+        logText: "就差，一点……我受伤了（时间-1，金钱-1）",
+        nextStates: [{ possibility: 2.0, stateID: 200 }],
+      });
+      setTime((x) => x - 1);
+      setMoney((x) => x - 1);
+    } else if (enemy - yourSum <= 10) {
+      addLog({
+        stateID: 199,
+        logText: "我比不过敌人。我受到不少伤害（时间-1，金钱-2）",
+        nextStates: [{ possibility: 2.0, stateID: 200 }],
+      });
+      setTime((x) => x - 2);
+      setMoney((x) => x - 1);
+    } else {
+      addLog({
+        stateID: 199,
+        logText: "我完全不是对手。我住院了（时间-2，金钱-2）",
+        nextStates: [{ possibility: 2.0, stateID: 200 }],
+      });
+      setTime((x) => x - 3);
+      setMoney((x) => x - 2);
+    }
+  }
   function enemyBattle(enemy) {
     const result = battleResult(enemy);
     if (result === 0 || result === 5) {
@@ -333,21 +364,15 @@ function App() {
         nextStates: [{ possibility: 2.0, stateID: 200 }],
       });
     } else if (result === 0) {
-      addLog({
-        stateID: 199,
-        logText: "我不敌对手，受了重伤。我住院了（时间-3，金钱-2）",
-        nextStates: [{ possibility: 2.0, stateID: 200 }],
-      });
-      setTime((x) => x - 3);
-      setMoney((x) => x - 2);
+      fialResult(enemy);
     } else if (result === -1) {
       addLog({
         stateID: 199,
         logText:
-          "敌人太过强大，死亡几乎攀上肩膀。我住院了整整半年（时间-5，金钱-3）",
+          "敌人太过强大，死亡几乎攀上肩膀。我住院了很长时间（时间-3，金钱-3）",
         nextStates: [{ possibility: 2.0, stateID: 592 }], //提示玩家使用诡物
       });
-      setTime((x) => x - 5);
+      setTime((x) => x - 4);
       setMoney((x) => x - 3);
     }
   }
@@ -357,7 +382,8 @@ function App() {
       addLog(issues[sheriff.winNextStateID]);
       setSheriff(sheriff.nextSheriff);
     } else {
-      addLog(issues[503]);
+      fialResult(sheriff);
+      setInsertIssueID(503);
     }
   }
   function expeditionConsequence() {
@@ -683,14 +709,15 @@ function App() {
   }, [treasure]);
   /* useEffect(() => {
     setMoney(200);
-    setReputation(4);
-    setTreasure([593, 594, 595, 596, 597, 598, 599, 600]);
+    setReputation(5);
+    // setTreasure([593, 594, 595, 596, 597, 598, 599, 600]);
     setAbility({ ...ability, observe: 100 });
   }, []); */
 
   //App:
   return (
     <div className="App">
+      <Bulletin />
       {achievementsBox ? (
         <div className="achievementsBackground">
           <Achievements setAchievementsBox={setAchievementsBox} />

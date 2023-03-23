@@ -1126,8 +1126,8 @@ const issues = [
     logText: "我决定去城里转转（时间-1）",
     nextStates: [
       { possibility: 0.1, stateID: 216 }, //钱包
-      { possibility: 0.4, stateID: 229 }, //敌人
-      { possibility: 0.25, stateID: 230 }, //酒馆
+      { possibility: 0.25, stateID: 229 }, //敌人
+      { possibility: 0.4, stateID: 230 }, //酒馆
       { possibility: 2.0, stateID: 233 }, //记者
     ],
     time: -1,
@@ -3275,24 +3275,27 @@ const issues = [
   },
   {
     stateID: 585,
-    logText: "1111111111111111111111",
+    logText: "据说目盲之神曾为洞察之神，这是其曾经信徒用于祭拜的人偶",
     nextStates: [{ possibility: 2.0, stateID: 0 }],
+    insertEnd: true,
   },
   {
     stateID: 586,
-    logText: "1111111111111111111111",
+    logText: "眼怪竟然变异出了黑色的晶状体，可它分明不透光啊！",
     nextStates: [{ possibility: 2.0, stateID: 0 }],
+    insertEnd: true,
   },
   {
     stateID: 587,
-    logText: "1111111111111111111111",
+    logText:
+      "欧维古国的镜片可以用于勘破伪装，一名国王却以此发现自己的子嗣并非自己的子嗣",
     nextStates: [{ possibility: 2.0, stateID: 0 }],
+    insertEnd: true,
   },
   {
     stateID: 588,
-    logText: "获得5级目属性宝物",
+    logText: "获得宝物：古神人偶(5目)",
     nextStates: [{ possibility: 2.0, stateID: 200 }],
-    insertEnd: true,
   },
   {
     stateID: 589,
@@ -3319,9 +3322,8 @@ const issues = [
   },
   {
     stateID: 593,
-    logText: "获得4级目属性宝物",
-    nextStates: [{ possibility: 2.0, stateID: 200 }],
-    insertEnd: true,
+    logText: "获得宝物：眼怪的黑色晶状体(4目)",
+    nextStates: [{ possibility: 2.0, stateID: 586 }],
   },
   {
     stateID: 594,
@@ -3343,9 +3345,8 @@ const issues = [
   },
   {
     stateID: 597,
-    logText: "获得3级目属性宝物",
-    nextStates: [{ possibility: 2.0, stateID: 200 }],
-    insertEnd: true,
+    logText: "获得宝物：古老的单片眼镜(3目)",
+    nextStates: [{ possibility: 2.0, stateID: 587 }],
   },
   {
     stateID: 598,
