@@ -658,6 +658,15 @@ function App() {
   }, [dark]);
   useEffect(() => {
     if (
+      ability.defend <= 0 ||
+      ability.desire <= 0 ||
+      ability.observe <= 0 ||
+      ability.technique <= 0
+    ) {
+      setInsertIssueID(318);
+      localStorage.setItem("虚弱", true);
+    }
+    if (
       ability.defend + ability.desire + ability.observe + ability.technique >=
       20
     ) {
@@ -689,19 +698,19 @@ function App() {
       alert("80岁了，此后每年消耗金钱增加1,每年行动次数减少1");
     }
     if (age === 90) {
-      moneyPerYear += 2;
-      actionPerYear -= 2;
-      alert("90岁了，此后每年消耗金钱增加2,每年行动次数减少2");
+      moneyPerYear += 1;
+      actionPerYear -= 1;
+      alert("90岁了，此后每年消耗金钱增加1,每年行动次数减少1");
     }
     if (age === 100) {
-      moneyPerYear += 3;
-      actionPerYear -= 2;
-      alert("100岁了，此后每年消耗金钱增加3,每年行动次数减少2");
+      moneyPerYear += 1;
+      actionPerYear -= 1;
+      alert("100岁了，此后每年消耗金钱增加1,每年行动次数减少1");
     }
     if (age === 110) {
-      moneyPerYear += 3;
-      actionPerYear -= 2;
-      alert("110岁了，此后每年消耗金钱增加3,每年行动次数减少2");
+      moneyPerYear += 1;
+      actionPerYear -= 1;
+      alert("110岁了，此后每年消耗金钱增加1,每年行动次数减少1");
     }
   }, [age]);
   useEffect(() => {

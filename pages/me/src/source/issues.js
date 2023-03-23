@@ -1089,7 +1089,7 @@ const issues = [
     nextStates: [
       { possibility: 0.2, stateID: 311 }, //判断兴趣
       { possibility: 0.1, stateID: 316 }, //没获得
-      { possibility: 0.2, stateID: 317 }, //受伤了
+      { possibility: 0.1, stateID: 317 }, //受伤了
       { possibility: 0.4, stateID: 308 }, //一些
       { possibility: 2.0, stateID: 309 }, //很多
     ],
@@ -1853,7 +1853,7 @@ const issues = [
     stateID: 314,
     logText: "我决定磨练我的心之力量（时间-1）",
     nextStates: [
-      { possibility: 0.3, stateID: 196 },
+      { possibility: 0.5, stateID: 196 },
       { possibility: 2.0, stateID: 315 },
     ],
     time: -1,
@@ -1876,18 +1876,18 @@ const issues = [
   },
   {
     stateID: 318,
-    logText: "1111111111111111111111",
-    nextStates: [{ possibility: 2.0, stateID: 0 }],
+    logText: "我的身体太差了", //某属性小于等于0
+    nextStates: [{ possibility: 2.0, stateID: 319 }],
   },
   {
     stateID: 319,
-    logText: "1111111111111111111111",
-    nextStates: [{ possibility: 2.0, stateID: 0 }],
+    logText: "我在一次疾病中离世",
+    nextStates: [{ possibility: 2.0, stateID: 320 }],
   },
   {
     stateID: 320,
-    logText: "1111111111111111111111",
-    nextStates: [{ possibility: 2.0, stateID: 0 }],
+    logText: "达成结局：虚弱",
+    nextStates: [{ possibility: 2.0, stateID: end }],
   },
   {
     stateID: 321,

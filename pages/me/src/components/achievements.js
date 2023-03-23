@@ -29,6 +29,7 @@ const achievementList = [
     discription: "我满足于平凡的生活",
     image: normalLifePicture,
   },
+  { name: "虚弱", discription: "…………", image: bowl },
   { name: "真理", discription: "我逐渐理解一切", image: occultismPicture },
   { name: "一首童谣", discription: "击败童谣中的诡异歌手", image: singerPicture },
   { name: "入狱", discription: "一失足成千古恨", image: prison },
@@ -90,7 +91,6 @@ function Achievements(props) {
       >
         关闭
       </button>
-      <span>ver: 0.2.4</span>
     </div>
   );
 }
