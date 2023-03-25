@@ -85,7 +85,7 @@ li,
   background-color: rgb(0, 0, 0);
   background-color: rgba(0, 0, 0, 0.4);
 }
-.treasureChoose {
+.item {
   color: black;
   border-color: black;
   box-shadow: 0 0 #999;
@@ -98,10 +98,10 @@ li,
   width: 25%;
   min-height: 20px;
 }
-.treasureChoose:hover {
+.item:hover {
   background-color: black;
 }
-.treasureChoose:active {
+.item:active {
   transform: translateY(0px);
   box-shadow: 0 0 #666;
 }

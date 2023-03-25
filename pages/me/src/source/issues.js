@@ -1107,18 +1107,19 @@ const issues = [
   },
   {
     stateID: 208,
-    logText: "1111111111111111111111 ",
-    nextStates: [{ possibility: 2.0, stateID: 0 }],
+    logText: "我买了一本神秘学书籍（金钱-1） ",
+    nextStates: [{ possibility: 2.0, stateID: 200 }],
+    money: -1,
   },
   {
     stateID: 209,
-    logText: "1111111111111111111111 ",
-    nextStates: [{ possibility: 2.0, stateID: 0 }],
+    logText: "书店门口写着几个大字：旺铺招租",
+    nextStates: [{ possibility: 2.0, stateID: 200 }],
   },
   {
     stateID: 210,
-    logText: "1111111111111111111111 ",
-    nextStates: [{ possibility: 2.0, stateID: 0 }],
+    logText: "我决定去书店买书",
+    nextStates: [{ possibility: 2.0, stateID: 208 }],
   },
   //探险的选择：
   {
@@ -1446,7 +1447,7 @@ const issues = [
   },
   {
     stateID: 246,
-    logText: "与2级目属性敌人战斗",
+    logText: "与2级目性相敌人战斗",
     nextStates: [{ possibility: 2.0, stateID: 0 }],
     enemy: {
       observe: 10,
@@ -1871,13 +1872,13 @@ const issues = [
   },
   {
     stateID: 317,
-    logText: "我在比赛中受伤了（心属性-1）",
+    logText: "我在比赛中受伤了（心性相-1）",
     nextStates: [{ possibility: 2.0, stateID: 200 }],
     defend: -1,
   },
   {
     stateID: 318,
-    logText: "我的身体太差了", //某属性小于等于0
+    logText: "我的身体太差了", //某性相小于等于0
     nextStates: [{ possibility: 2.0, stateID: 319 }],
   },
   {
@@ -2078,6 +2079,7 @@ const issues = [
     stateID: 357,
     logText: "他留下一本破破烂烂的书便离开了",
     nextStates: [{ possibility: 2.0, stateID: 358 }],
+    bookStateID: 701,
   },
   {
     stateID: 358,
@@ -2091,7 +2093,7 @@ const issues = [
   },
   {
     stateID: 360,
-    logText: "【解锁：属性界面】【解锁：磨练】",
+    logText: "【解锁：性相界面】【解锁：磨练】",
     nextStates: [{ possibility: 2.0, stateID: 361 }],
   },
   {
@@ -3274,8 +3276,9 @@ const issues = [
   },
   {
     stateID: 584,
-    logText: "1111111111111111111111",
+    logText: "这是一枚小巧的心形吊坠，戴上后你感到躁动不安",
     nextStates: [{ possibility: 2.0, stateID: 0 }],
+    insertEnd: true,
   },
   {
     stateID: 585,
@@ -3303,25 +3306,25 @@ const issues = [
   },
   {
     stateID: 589,
-    logText: "获得5级心属性诡物",
+    logText: "获得5级心性相诡物",
     nextStates: [{ possibility: 2.0, stateID: 200 }],
     insertEnd: true,
   },
   {
     stateID: 590,
-    logText: "获得5级珠属性诡物",
+    logText: "获得5级珠性相诡物",
     nextStates: [{ possibility: 2.0, stateID: 200 }],
     insertEnd: true,
   },
   {
     stateID: 591,
-    logText: "获得5级水属性诡物",
+    logText: "获得5级水性相诡物",
     nextStates: [{ possibility: 2.0, stateID: 200 }],
     insertEnd: true,
   },
   {
     stateID: 592,
-    logText: "【我需要相应诡物来对付敌人】",
+    logText: "【我需要适当性相的诡物来压制敌人】",
     nextStates: [{ possibility: 2.0, stateID: 200 }],
   },
   {
@@ -3331,19 +3334,19 @@ const issues = [
   },
   {
     stateID: 594,
-    logText: "获得4级心属性诡物",
+    logText: "获得4级心性相诡物",
     nextStates: [{ possibility: 2.0, stateID: 200 }],
     insertEnd: true,
   },
   {
     stateID: 595,
-    logText: "获得4级珠属性诡物",
+    logText: "获得4级珠性相诡物",
     nextStates: [{ possibility: 2.0, stateID: 200 }],
     insertEnd: true,
   },
   {
     stateID: 596,
-    logText: "获得4级水属性诡物",
+    logText: "获得4级水性相诡物",
     nextStates: [{ possibility: 2.0, stateID: 200 }],
     insertEnd: true,
   },
@@ -3354,25 +3357,24 @@ const issues = [
   },
   {
     stateID: 598,
-    logText: "获得3级心属性诡物",
-    nextStates: [{ possibility: 2.0, stateID: 200 }],
-    insertEnd: true,
+    logText: "获得诡物：躁动的纪念品(3心)",
+    nextStates: [{ possibility: 2.0, stateID: 584 }],
   },
   {
     stateID: 599,
-    logText: "获得3级珠属性诡物",
+    logText: "获得3级珠性相诡物",
     nextStates: [{ possibility: 2.0, stateID: 200 }],
     insertEnd: true,
   },
   {
     stateID: 600,
-    logText: "获得3级水属性诡物",
+    logText: "获得3级水性相诡物",
     nextStates: [{ possibility: 2.0, stateID: 200 }],
     insertEnd: true,
   },
   {
     stateID: 601,
-    logText: "与3级目属性敌人战斗",
+    logText: "与3级目性相敌人战斗",
     nextStates: [{ possibility: 2.0, stateID: 199 }],
     enemy: {
       observe: 12,
@@ -3387,7 +3389,7 @@ const issues = [
   },
   {
     stateID: 602,
-    logText: "与3级心属性敌人战斗",
+    logText: "与3级心性相敌人战斗",
     nextStates: [{ possibility: 2.0, stateID: 199 }],
     enemy: {
       observe: 3,
@@ -3402,7 +3404,7 @@ const issues = [
   },
   {
     stateID: 603,
-    logText: "与3级珠属性敌人战斗",
+    logText: "与3级珠性相敌人战斗",
     nextStates: [{ possibility: 2.0, stateID: 199 }],
     enemy: {
       observe: 3,
@@ -3417,7 +3419,7 @@ const issues = [
   },
   {
     stateID: 604,
-    logText: "与3级水属性敌人战斗",
+    logText: "与3级水性相敌人战斗",
     nextStates: [{ possibility: 2.0, stateID: 199 }],
     enemy: {
       observe: 2,
@@ -3445,7 +3447,7 @@ const issues = [
     stateID: 606,
     logText: "抽取4级敌人……（如果出现在文本框请反馈给开发者）",
     nextStates: [
-      { possibility: 0.25, stateID: 607 },
+      { possibility: 0.25, stateID: 616 },
       { possibility: 0.25, stateID: 608 },
       { possibility: 0.25, stateID: 609 },
       { possibility: 2.0, stateID: 610 },
@@ -3454,7 +3456,7 @@ const issues = [
   },
   {
     stateID: 607,
-    logText: "与4级目属性敌人战斗",
+    logText: "眼魔达到某个了临界点，突然变得狂暴",
     nextStates: [{ possibility: 2.0, stateID: 199 }],
     enemy: {
       observe: 25,
@@ -3469,7 +3471,7 @@ const issues = [
   },
   {
     stateID: 608,
-    logText: "与4级心属性敌人战斗",
+    logText: "与4级心性相敌人战斗",
     nextStates: [{ possibility: 2.0, stateID: 199 }],
     enemy: {
       observe: 5,
@@ -3484,7 +3486,7 @@ const issues = [
   },
   {
     stateID: 609,
-    logText: "与4级珠属性敌人战斗",
+    logText: "与4级珠性相敌人战斗",
     nextStates: [{ possibility: 2.0, stateID: 199 }],
     enemy: {
       observe: 5,
@@ -3499,7 +3501,7 @@ const issues = [
   },
   {
     stateID: 610,
-    logText: "与4级水属性敌人战斗",
+    logText: "与4级水性相敌人战斗",
     nextStates: [{ possibility: 2.0, stateID: 199 }],
     enemy: {
       observe: 5,
@@ -3514,7 +3516,7 @@ const issues = [
   },
   {
     stateID: 611,
-    logText: "与5级目属性敌人战斗",
+    logText: "与5级目性相敌人战斗",
     nextStates: [{ possibility: 2.0, stateID: 199 }],
     enemy: {
       observe: 30,
@@ -3529,7 +3531,7 @@ const issues = [
   },
   {
     stateID: 612,
-    logText: "与5级心属性敌人战斗",
+    logText: "与5级心性相敌人战斗",
     nextStates: [{ possibility: 2.0, stateID: 199 }],
     enemy: {
       observe: 10,
@@ -3544,7 +3546,7 @@ const issues = [
   },
   {
     stateID: 613,
-    logText: "与5级珠属性敌人战斗",
+    logText: "与5级珠性相敌人战斗",
     nextStates: [{ possibility: 2.0, stateID: 199 }],
     enemy: {
       observe: 10,
@@ -3559,7 +3561,7 @@ const issues = [
   },
   {
     stateID: 614,
-    logText: "与5级水属性敌人战斗",
+    logText: "与5级水性相敌人战斗",
     nextStates: [{ possibility: 2.0, stateID: 199 }],
     enemy: {
       observe: 10,
@@ -3585,53 +3587,55 @@ const issues = [
   },
   {
     stateID: 616,
-    logText: "1111111111111111111111",
-    nextStates: [{ possibility: 2.0, stateID: 0 }],
+    logText: "我深入森林，希望找到隐藏的秘密，提升对世界的理解。",
+    nextStates: [{ possibility: 2.0, stateID: 617 }],
+    skipStateID: 607,
   },
   {
     stateID: 617,
-    logText: "1111111111111111111111",
-    nextStates: [{ possibility: 2.0, stateID: 0 }],
+    logText: "当我穿过交织着的灌木丛时，我感到一股不安的情绪在心中蔓延开来。",
+    nextStates: [{ possibility: 2.0, stateID: 618 }],
   },
   {
     stateID: 618,
-    logText: "1111111111111111111111",
-    nextStates: [{ possibility: 2.0, stateID: 0 }],
+    logText: "整个森林似乎都活了起来，树叶的摩擦声和树枝的嘎吱声在周围回响着。",
+    nextStates: [{ possibility: 2.0, stateID: 619 }],
   },
   {
     stateID: 619,
-    logText: "1111111111111111111111",
-    nextStates: [{ possibility: 2.0, stateID: 0 }],
+    logText: "突然间，我听到了一声低沉的咆哮声，一双闪烁的眼睛出现在黑暗中。",
+    nextStates: [{ possibility: 2.0, stateID: 620 }],
   },
   {
     stateID: 620,
-    logText: "1111111111111111111111",
-    nextStates: [{ possibility: 2.0, stateID: 0 }],
+    logText: "我拔出了仪式刀，准备战斗",
+    nextStates: [{ possibility: 2.0, stateID: 621 }],
   },
   {
     stateID: 621,
-    logText: "1111111111111111111111",
-    nextStates: [{ possibility: 2.0, stateID: 0 }],
+    logText:
+      "当怪物向前迈步时，我看到这是一种眼魔，它的球形身体上布满了蠕动的触手。",
+    nextStates: [{ possibility: 2.0, stateID: 622 }],
   },
   {
     stateID: 622,
-    logText: "1111111111111111111111",
-    nextStates: [{ possibility: 2.0, stateID: 0 }],
+    logText: "我大喊一声，冲了上去，准备进行战斗。",
+    nextStates: [{ possibility: 2.0, stateID: 623 }],
   },
   {
     stateID: 623,
-    logText: "1111111111111111111111",
-    nextStates: [{ possibility: 2.0, stateID: 0 }],
+    logText: "战斗激烈而惨烈。眼魔用触手猛烈地冲击，瞄准我防守的薄弱之处",
+    nextStates: [{ possibility: 2.0, stateID: 624 }],
   },
   {
     stateID: 624,
-    logText: "1111111111111111111111",
-    nextStates: [{ possibility: 2.0, stateID: 0 }],
+    logText: "我不断闪避和绕开，每次都在机会来临时用刀反击。",
+    nextStates: [{ possibility: 2.0, stateID: 625 }],
   },
   {
     stateID: 625,
-    logText: "1111111111111111111111",
-    nextStates: [{ possibility: 2.0, stateID: 0 }],
+    logText: "战斗持续了许久，双方都精疲力竭",
+    nextStates: [{ possibility: 2.0, stateID: 607 }],
   },
   {
     stateID: 626,
@@ -4005,9 +4009,8 @@ const issues = [
   },
   {
     stateID: 700,
-    logText: "1111111111111111111111",
-    nextStates: [{ possibility: 2, stateID: 701 }],
-    hidden: true,
+    logText: "我要看哪本书？",
+    nextStates: [{ possibility: 2.0, stateID: 199 }],
   },
   {
     stateID: 701,
@@ -4026,83 +4029,92 @@ const issues = [
   },
   {
     stateID: 704,
-    logText: "【如果我能找到与我对应属性的三个诡物，就有机会进入港湾】",
+    logText: "【如果我能找到与我对应性相的三个诡物，就有机会进入港湾】",
     nextStates: [{ possibility: 2.0, stateID: 705 }],
   },
   {
     stateID: 705,
     logText: "【“港湾”是一切升变者最终归宿】",
-    nextStates: [{ possibility: 2.0, stateID: 706 }],
-  },
-  {
-    stateID: 706,
-    logText: "游戏内容尚不完善，故提示——【珠：技艺；水：诱惑】",
     nextStates: [{ possibility: 2.0, stateID: 200 }],
   },
   {
-    stateID: 707,
-    logText: "1111111111111111111111",
+    stateID: 706,
+    logText: "出现bug了！",
     nextStates: [{ possibility: 2.0, stateID: 199 }],
+  },
+  {
+    stateID: 707,
+    logText:
+      "目之性相体现了感知、视觉和理解的概念，它的力量被认为与神秘的眼魔生物有关。",
+    nextStates: [{ possibility: 2.0, stateID: 708 }],
   },
   {
     stateID: 708,
-    logText: "1111111111111111111111",
-    nextStates: [{ possibility: 2.0, stateID: 199 }],
+    logText:
+      "追求目之性相的人寻求从那些存在于“无相世界”中的生物中获得知识和洞见，并以一种超越凡人的方式运用它们的力量",
+    nextStates: [{ possibility: 2.0, stateID: 709 }],
   },
   {
     stateID: 709,
-    logText: "1111111111111111111111",
-    nextStates: [{ possibility: 2.0, stateID: 199 }],
+    logText:
+      "他们相信眼睛是灵魂的窗口，通过利用这种力量，他们可以揭示隐藏的秘密，获得更深层次的宇宙理解。",
+    nextStates: [{ possibility: 2.0, stateID: 710 }],
   },
   {
     stateID: 710,
-    logText: "1111111111111111111111",
-    nextStates: [{ possibility: 2.0, stateID: 199 }],
+    logText: "然而，追求目之性相的代价巨大",
+    nextStates: [{ possibility: 2.0, stateID: 711 }],
   },
   {
     stateID: 711,
-    logText: "1111111111111111111111",
-    nextStates: [{ possibility: 2.0, stateID: 199 }],
+    logText:
+      "“无相世界”的生物神秘莫测且危险，而那些试图了解它们的人常常会被自己所观察之物所吞噬",
+    nextStates: [{ possibility: 2.0, stateID: 712 }],
   },
   {
     stateID: 712,
-    logText: "1111111111111111111111",
-    nextStates: [{ possibility: 2.0, stateID: 199 }],
+    logText:
+      "目之性相不容小觑，那些敢于深入研究它的神秘学者必须做好付出巨大代价的准备。",
+    nextStates: [{ possibility: 2.0, stateID: 713 }],
   },
   {
     stateID: 713,
-    logText: "1111111111111111111111",
-    nextStates: [{ possibility: 2.0, stateID: 199 }],
+    logText: "——你会追求目之性相，揭示它的秘密，",
+    nextStates: [{ possibility: 2.0, stateID: 714 }],
   },
   {
     stateID: 714,
-    logText: "1111111111111111111111",
-    nextStates: [{ possibility: 2.0, stateID: 199 }],
+    logText: "——还是会远离它诱人的凝视，选择其他通向港湾之路？",
+    nextStates: [{ possibility: 2.0, stateID: 715 }],
   },
   {
     stateID: 715,
-    logText: "1111111111111111111111",
-    nextStates: [{ possibility: 2.0, stateID: 199 }],
+    logText: "选择权在你手中，但要小心——你始终被注视着。",
+    nextStates: [{ possibility: 2.0, stateID: 200 }],
   },
   {
     stateID: 716,
-    logText: "1111111111111111111111",
-    nextStates: [{ possibility: 2.0, stateID: 199 }],
+    logText: "我购买了书籍：《高谈阔论：何为洞察》",
+    nextStates: [{ possibility: 2.0, stateID: 200 }],
+    bookStateID: 707,
   },
   {
     stateID: 717,
-    logText: "1111111111111111111111",
-    nextStates: [{ possibility: 2.0, stateID: 199 }],
+    logText: "我购买了书籍：《深渊之力：运动的奥义》",
+    nextStates: [{ possibility: 2.0, stateID: 200 }],
+    bookStateID: 751,
   },
   {
     stateID: 718,
-    logText: "1111111111111111111111",
-    nextStates: [{ possibility: 2.0, stateID: 199 }],
+    logText: "我购买了书籍：《欲望、诱惑、沉溺》",
+    nextStates: [{ possibility: 2.0, stateID: 200 }],
+    bookStateID: 760,
   },
   {
     stateID: 719,
-    logText: "1111111111111111111111",
-    nextStates: [{ possibility: 2.0, stateID: 199 }],
+    logText: "我购买了书籍：《珠之性相：危险与机遇》",
+    nextStates: [{ possibility: 2.0, stateID: 200 }],
+    bookStateID: 770,
   },
   {
     stateID: 720,
@@ -4262,158 +4274,166 @@ const issues = [
   },
   {
     stateID: 751,
-    logText: "1111111111111111111111",
-    nextStates: [{ possibility: 2.0, stateID: 199 }],
+    logText:
+      "心之性相是一种强大的力量，存在于所有生命体中，但只有少数人能够充分利用其潜力。",
+    nextStates: [{ possibility: 2.0, stateID: 752 }],
   },
   {
     stateID: 752,
-    logText: "1111111111111111111111",
-    nextStates: [{ possibility: 2.0, stateID: 199 }],
+    logText: "它涉及力量、抵抗与坚韧意志。",
+    nextStates: [{ possibility: 2.0, stateID: 753 }],
   },
   {
     stateID: 753,
-    logText: "1111111111111111111111",
-    nextStates: [{ possibility: 2.0, stateID: 199 }],
+    logText: "它是一种与身体密切相关的力量，通过严格的锻炼和训练而得以增强。",
+    nextStates: [{ possibility: 2.0, stateID: 754 }],
   },
   {
     stateID: 754,
-    logText: "1111111111111111111111",
-    nextStates: [{ possibility: 2.0, stateID: 199 }],
+    logText: "但它也是一种与心灵和精神紧密关联的力量，",
+    nextStates: [{ possibility: 2.0, stateID: 755 }],
   },
   {
     stateID: 755,
-    logText: "1111111111111111111111",
-    nextStates: [{ possibility: 2.0, stateID: 199 }],
+    logText:
+      "那些能够抵制住基本欲望的诱惑并培养内在力量的人，将更好地掌握心之性相的全部力量。",
+    nextStates: [{ possibility: 2.0, stateID: 756 }],
   },
   {
     stateID: 756,
-    logText: "1111111111111111111111",
-    nextStates: [{ possibility: 2.0, stateID: 199 }],
+    logText: "从本质上讲，心之性相代表着所有生命内在的力量，",
+    nextStates: [{ possibility: 2.0, stateID: 757 }],
   },
   {
     stateID: 757,
-    logText: "1111111111111111111111",
-    nextStates: [{ possibility: 2.0, stateID: 199 }],
+    logText:
+      "它是一种可以被引导和用于实现自己目标的力量，不论这些目标是身体的、精神的还是心理的。",
+    nextStates: [{ possibility: 2.0, stateID: 758 }],
   },
   {
     stateID: 758,
-    logText: "1111111111111111111111",
-    nextStates: [{ possibility: 2.0, stateID: 199 }],
+    logText: "但它并不是一个可以轻率地使用的力量，因为它起源于未知深渊，",
+    nextStates: [{ possibility: 2.0, stateID: 759 }],
   },
   {
     stateID: 759,
-    logText: "1111111111111111111111",
-    nextStates: [{ possibility: 2.0, stateID: 199 }],
+    logText: "那些驾驭心之性相的人必须准备好面对这种古老力量的黑暗一面",
+    nextStates: [{ possibility: 2.0, stateID: 200 }],
   },
   {
     stateID: 760,
-    logText: "1111111111111111111111",
-    nextStates: [{ possibility: 2.0, stateID: 199 }],
+    logText: "水之性相是与水元素相关联的原则，代表着驱动人类行为的深层欲望和渴望。",
+    nextStates: [{ possibility: 2.0, stateID: 761 }],
   },
   {
     stateID: 761,
-    logText: "1111111111111111111111",
-    nextStates: [{ possibility: 2.0, stateID: 199 }],
+    logText: "它是一种既诱人又危险的力量，吸引个体沉溺于它的潮流之中。",
+    nextStates: [{ possibility: 2.0, stateID: 762 }],
   },
   {
     stateID: 762,
-    logText: "1111111111111111111111",
-    nextStates: [{ possibility: 2.0, stateID: 199 }],
+    logText:
+      "水之性相的追随者们往往能激发他人的欲望，有时他们却也会沉溺于自己的欲望",
+    nextStates: [{ possibility: 2.0, stateID: 763 }],
   },
   {
     stateID: 763,
-    logText: "1111111111111111111111",
-    nextStates: [{ possibility: 2.0, stateID: 199 }],
+    logText:
+      "因此，水之性相也可能是危险或腐败的源头，因为它可能导致个体走向黑暗之路，",
+    nextStates: [{ possibility: 2.0, stateID: 764 }],
   },
   {
     stateID: 764,
-    logText: "1111111111111111111111",
-    nextStates: [{ possibility: 2.0, stateID: 199 }],
+    logText: "引诱他们违背自己的良知，或是沉沦于纵情享乐之中",
+    nextStates: [{ possibility: 2.0, stateID: 765 }],
   },
   {
     stateID: 765,
-    logText: "1111111111111111111111",
-    nextStates: [{ possibility: 2.0, stateID: 199 }],
+    logText: "在某些情况下，使用水之性相甚至可能会吸引邪恶实体或力量的注意，",
+    nextStates: [{ possibility: 2.0, stateID: 766 }],
   },
   {
     stateID: 766,
-    logText: "1111111111111111111111",
-    nextStates: [{ possibility: 2.0, stateID: 199 }],
+    logText: "这些邪恶存在以欲望与沉沦为食，常常诱惑人们走向不归路",
+    nextStates: [{ possibility: 2.0, stateID: 767 }],
   },
   {
     stateID: 767,
-    logText: "1111111111111111111111",
-    nextStates: [{ possibility: 2.0, stateID: 199 }],
+    logText: "总的来说，水之性相是一种强大而诱人的力量，代表了人类本质中的原始一面",
+    nextStates: [{ possibility: 2.0, stateID: 768 }],
   },
   {
     stateID: 768,
-    logText: "1111111111111111111111",
-    nextStates: [{ possibility: 2.0, stateID: 199 }],
+    logText: "学会谨慎使用并掌握其力量者，可能开启新的秘密",
+    nextStates: [{ possibility: 2.0, stateID: 769 }],
   },
   {
     stateID: 769,
-    logText: "1111111111111111111111",
-    nextStates: [{ possibility: 2.0, stateID: 199 }],
+    logText: "而陷入诱惑者，则必然走向毁灭和腐败。",
+    nextStates: [{ possibility: 2.0, stateID: 200 }],
   },
   {
     stateID: 770,
-    logText: "1111111111111111111111",
-    nextStates: [{ possibility: 2.0, stateID: 199 }],
+    logText: "追随珠之性相可能会带来利益和危险",
+    nextStates: [{ possibility: 2.0, stateID: 771 }],
   },
   {
     stateID: 771,
-    logText: "1111111111111111111111",
-    nextStates: [{ possibility: 2.0, stateID: 199 }],
+    logText: "一方面，它可以增强学者各种技能的掌握水平，为实现目标提供强大的工具",
+    nextStates: [{ possibility: 2.0, stateID: 772 }],
   },
   {
     stateID: 772,
-    logText: "1111111111111111111111",
-    nextStates: [{ possibility: 2.0, stateID: 199 }],
+    logText:
+      "另一方面，它与固执和追求完美有关，这可能会让追逐者走上危险而潜在破坏性的道路。",
+    nextStates: [{ possibility: 2.0, stateID: 773 }],
   },
   {
     stateID: 773,
-    logText: "1111111111111111111111",
-    nextStates: [{ possibility: 2.0, stateID: 199 }],
+    logText:
+      "如果一个追逐者过于沉迷于追求技术上的完美和掌握水平，他们可能会与社会隔绝，失去与现实的联系，",
+    nextStates: [{ possibility: 2.0, stateID: 774 }],
   },
   {
     stateID: 774,
-    logText: "1111111111111111111111",
-    nextStates: [{ possibility: 2.0, stateID: 199 }],
+    logText: "他们可能会变得如此痴迷于他们的工艺，以至于忽略了他们的身体和心理健康",
+    nextStates: [{ possibility: 2.0, stateID: 775 }],
   },
   {
     stateID: 775,
-    logText: "1111111111111111111111",
-    nextStates: [{ possibility: 2.0, stateID: 199 }],
+    logText: "甚至彻底断绝灵魂与肉体的联系，然后魂飞魄散",
+    nextStates: [{ possibility: 2.0, stateID: 776 }],
   },
   {
     stateID: 776,
-    logText: "1111111111111111111111",
-    nextStates: [{ possibility: 2.0, stateID: 199 }],
+    logText: "此外，一些相关的神秘存在，可能会利用珠之性相的追随者对知识技艺的追逐",
+    nextStates: [{ possibility: 2.0, stateID: 777 }],
   },
   {
     stateID: 777,
-    logText: "1111111111111111111111",
-    nextStates: [{ possibility: 2.0, stateID: 199 }],
+    logText: "将一些禁忌知识不加掩饰地传授给他们，而这很可能会导致疯狂与异变",
+    nextStates: [{ possibility: 2.0, stateID: 778 }],
   },
   {
     stateID: 778,
-    logText: "1111111111111111111111",
-    nextStates: [{ possibility: 2.0, stateID: 199 }],
+    logText: "据说曾经有一名督查官意外获得了珠之性相的仪式",
+    nextStates: [{ possibility: 2.0, stateID: 779 }],
   },
   {
     stateID: 779,
-    logText: "1111111111111111111111",
-    nextStates: [{ possibility: 2.0, stateID: 199 }],
+    logText: "最后却因为接受了不该接受的知识，导致当地督查厅全部毁灭",
+    nextStates: [{ possibility: 2.0, stateID: 780 }],
   },
   {
     stateID: 780,
-    logText: "1111111111111111111111",
-    nextStates: [{ possibility: 2.0, stateID: 199 }],
+    logText: "总之，珠之性相可以成为追逐者的强大工具，但同时也带有重大的风险和危险",
+    nextStates: [{ possibility: 2.0, stateID: 781 }],
   },
   {
     stateID: 781,
-    logText: "1111111111111111111111",
-    nextStates: [{ possibility: 2.0, stateID: 199 }],
+    logText:
+      "追逐者必须小心不要过于沉迷于追求技术上的完美，而始终警惕潜伏在阴影中的潜在危险。",
+    nextStates: [{ possibility: 2.0, stateID: 200 }],
   },
   {
     stateID: 782,

@@ -29,10 +29,19 @@ const treasureID = {
   595: "4级珠之诡物",
   596: "4级水之诡物",
   597: "古老的单片眼镜(3目)",
-  598: "3级心之诡物",
+  598: "躁动的纪念品(3心)",
   599: "3级珠之诡物",
   600: "3级水之诡物",
 };
+const bookID = {
+  701: "世间隐匿之物",
+  707: "高谈阔论：何为观察",
+  751: "深渊之力：运动的奥义",
+  760: "欲望、诱惑、沉溺",
+  770: "珠之性相：危险与机遇",
+};
+
+let unbaughtBook = [716, 717, 718, 719];
 
 let actionPerYear = 10;
 let moneyPerYear = 4;
@@ -56,6 +65,10 @@ const backgroundColors = [
 
 const maxLogs = 1000;
 
+let sheriff = 0;
+
+let occultist = false;
+
 function App() {
   //States:
   const [age, setAge] = useState(0);
@@ -64,17 +77,16 @@ function App() {
   const [career, setCareer] = useState("无");
   const [time, setTime] = useState(actionPerYear);
   const [reputation, setReputation] = useState(0);
-  const [occultist, setOccultist] = useState(false);
   const [dark, setDark] = useState(0);
   const [insertIssueID, setInsertIssueID] = useState(0);
   const [storeState, setStoreState] = useState(0);
   const [usedIssue, setUsedIssue] = useState([]);
-  const [sheriff, setSheriff] = useState(0);
   const [achievementsBox, setAchievementsBox] = useState(false);
   const [bulletinBox, setBulletinBox] = useState(false);
-  const [treasure, setTreasure] = useState([]);
+  const [treasureOwn, setTreasureOwn] = useState([]);
   const [usingTreasure, setUsingTreasure] = useState(0);
   const [treasureListOpen, setTreasureListOpen] = useState(false);
+  const [bookOwn, setBookOwn] = useState([]);
   const [logList, setLogList] = useState([
     {
       stateID: 0,
@@ -117,6 +129,8 @@ function App() {
     addAbility(a, b, c, d);
     if ("reputation" in newIssue) setReputation(reputation + newIssue.reputation);
     if ("age" in newIssue) setAge(newIssue.age);
+    //书籍
+    if ("bookStateID" in newIssue) setBookOwn([...bookOwn, newIssue.bookStateID]);
     //三种失败途径
     if ("dark" in newIssue) setDark((x) => x + newIssue.dark);
     if ("money" in newIssue) setMoney((x) => x + newIssue.money);
@@ -126,7 +140,7 @@ function App() {
     if (newIssue.stateID === 100) setHobby([...hobby, write]);
     if (newIssue.stateID === 151) setCareer(writer);
     if (newIssue.stateID === 152) setCareer(athlete);
-    if (newIssue.stateID === 360) setOccultist(true);
+    if (newIssue.stateID === 360) occultist = true;
 
     //成就
     if (newIssue.stateID === 2) localStorage.setItem("告罄", true);
@@ -181,6 +195,24 @@ function App() {
       addLog(issues[362 + Math.round(poss * 113)]);
       return true;
     }
+    if (nowState.stateID === 210) {
+      if (unbaughtBook.length === 0) {
+        addLog(issues[209]);
+        return true;
+      }
+    }
+    if (nowState.stateID === 208) {
+      let poss = Math.random() * unbaughtBook.length;
+      for (let i = 0; i < unbaughtBook.length; i++) {
+        if (poss <= 1.0 || i === unbaughtBook.length - 1) {
+          addLog(issues[unbaughtBook[i]]);
+          unbaughtBook.splice(i, 1);
+          return true;
+        }
+        poss -= 1.0;
+      }
+    }
+    return false;
   }
   function nextLog(nowState) {
     let poss = Math.random();
@@ -287,9 +319,9 @@ function App() {
     }
     if (
       "getTreasureStateID" in enemy &&
-      !treasure.some((ele) => ele === enemy.getTreasureStateID)
+      !treasureOwn.some((ele) => ele === enemy.getTreasureStateID)
     ) {
-      setTreasure([...treasure, enemy.getTreasureStateID]);
+      setTreasureOwn([...treasureOwn, enemy.getTreasureStateID]);
       setInsertIssueID(enemy.getTreasureStateID);
     }
     if ("level" in enemy) {
@@ -384,7 +416,7 @@ function App() {
     const result = battleResult(sheriff);
     if (result > 0 && result < 5) {
       addLog(issues[sheriff.winNextStateID]);
-      setSheriff(sheriff.nextSheriff);
+      sheriff = sheriff.nextSheriff;
     } else {
       fialResult(sheriff);
       setInsertIssueID(503);
@@ -393,62 +425,65 @@ function App() {
   function expeditionConsequence() {
     if (sheriff === 0 && reputation >= 10) {
       addLog(issues[504]);
-      setSheriff(1);
+      sheriff = 1;
     } else if (sheriff >= 1) {
       let poss = Math.random();
       if (sheriff === 1 && poss <= reputation * 0.01) {
         addLog(issues[505]);
-        setSheriff(2);
+        sheriff = 2;
       } else if (sheriff === 2 && Math.min(reputation * 0.01, 0.3)) {
         addLog(issues[506]);
-        setSheriff(3);
+        sheriff = 3;
       } else if (sheriff === 3 && Math.min(reputation * 0.01, 0.3)) {
         addLog(issues[507]);
-        setSheriff(4);
+        sheriff = 4;
       } else if (sheriff === 4 && Math.min(reputation * 0.01, 0.3)) {
         addLog(issues[508]);
-        setSheriff(5);
+        sheriff = 5;
       } else if (sheriff === 5 && Math.min(reputation * 0.02, 0.5)) {
         addLog(issues[520]);
-        setSheriff(6);
+        sheriff = 6;
       } else if (sheriff === 6 && Math.min(reputation * 0.02, 0.5)) {
         addLog(issues[514]);
-        setSheriff(7);
+        sheriff = 7;
       } else if (sheriff === 7 && poss <= Math.min(reputation * 0.02, 0.5)) {
         addLog(issues[515]);
-        setSheriff(8);
+        sheriff = 8;
       } else if (sheriff === 8 && poss <= Math.min(reputation * 0.02, 0.8)) {
         addLog(issues[516]);
-        setSheriff(9);
+        sheriff = 9;
       } else if (sheriff === 9 && poss <= Math.min(reputation * 0.02, 0.8)) {
         addLog(issues[517]);
-        setSheriff(10);
+        sheriff = 10;
       } else if (sheriff === 10 && poss <= reputation * 0.05) {
         addLog(issues[518]);
-        setSheriff(11);
+        sheriff = 11;
       } else addLog(issues[202]);
     } else addLog(issues[202]);
   }
   function win() {
     if (
       career === writer &&
-      treasure.some((x) => x === 588) &&
-      treasure.some((x) => x === 593) &&
-      treasure.some((x) => x === 597)
+      treasureOwn.some((x) => x === 588) &&
+      treasureOwn.some((x) => x === 593) &&
+      treasureOwn.some((x) => x === 597)
     ) {
       if (ability.observe >= 40) return 1;
       else return 2;
     }
     if (
       career === athlete &&
-      treasure.some((x) => x === 589) &&
-      treasure.some((x) => x === 594) &&
-      treasure.some((x) => x === 598)
+      treasureOwn.some((x) => x === 589) &&
+      treasureOwn.some((x) => x === 594) &&
+      treasureOwn.some((x) => x === 598)
     ) {
       if (ability.defend >= 40) return 1;
       else return 2;
     }
     return 0;
+  }
+  function readBook(bookStateID) {
+    addLog(issues[bookStateID]);
   }
   //UI:
   //background-color:
@@ -505,6 +540,11 @@ function App() {
   );
   const expeditionButton = (
     <div className="expeditionButton">
+      {occultist ? (
+        <button onClick={() => addLog(issues[210])}>去书店买书</button>
+      ) : (
+        ""
+      )}
       <button onClick={() => addLog(issues[211])}>就在城里转转</button>
       {reputation >= 5 ? (
         <span>
@@ -512,7 +552,7 @@ function App() {
           {usedIssue.some((ele) => ele === 260) ? (
             <span>
               <button onClick={() => addLog(issues[213])}>去乡下看看</button>
-              {treasure.some((ele) => ele !== 0) ? (
+              {treasureOwn.some((ele) => ele !== 0) ? (
                 <>
                   <button onClick={() => addLog(issues[214])}>去森林探险</button>
                   <button onClick={() => addLog(issues[215])}>去山脉身处</button>
@@ -582,19 +622,30 @@ function App() {
         </div>
       );
   }
-  const treasureList = treasure.map((ele) => {
+  const treasureList = treasureOwn.map((ele) => {
     return (
       <button
-        className="treasureChoose"
-        key={`id-${nanoid()}`}
+        className="item"
+        key={`trasure-${nanoid()}`}
         onClick={() => setUsingTreasure(ele)}
       >
         {treasureID[ele]}
       </button>
     );
   });
-  const sheriffOneButton = (
-    <div className="sheriffOneButton">
+  const bookList = bookOwn.map((ele) => {
+    return (
+      <button
+        className="item"
+        key={`book-${nanoid()}`}
+        onClick={() => readBook(ele)}
+      >
+        {bookID[ele]}
+      </button>
+    );
+  });
+  const sheriffButton = (
+    <div className="sheriffButton">
       {logList[0].stateID === 509 ? (
         money >= 10 ? (
           <button
@@ -624,9 +675,10 @@ function App() {
     if (logList[0].stateID === 216) return walletButton;
     if (logList[0].stateID === 352) return occultButton;
     if (logList[0].stateID === 509 || logList[0].stateID === 519)
-      return sheriffOneButton; //此判断必须在下一行前面
+      return sheriffButton; //此判断必须在下一行前面
     if ("enemy" in issues[logList[0].stateID]) return battleButton();
     if (logList[0].stateID === 355) return remakeButton;
+    if (logList[0].stateID === 700) return bookList;
     if ("skipStateID" in issues[logList[0].stateID])
       return (
         <>
@@ -711,6 +763,7 @@ function App() {
     }
   }, [ability]);
   useEffect(() => {
+    setReputation((x) => x - 1);
     if (age === 60) {
       actionPerYear -= 1;
       alert("60岁了，此后每年行动次数减少1");
@@ -741,12 +794,12 @@ function App() {
     }
   }, [age]);
   useEffect(() => {
-    if (treasure.some((ele) => true)) localStorage.setItem("奇诡！", true);
-  }, [treasure]);
+    if (treasureOwn.some((ele) => true)) localStorage.setItem("奇诡！", true);
+  }, [treasureOwn]);
   /* useEffect(() => {
     setMoney(200);
     setReputation(5);
-    // setTreasure([593, 594, 595, 596, 597, 598, 599, 600]);
+    // setTreasureOwn([593, 594, 595, 596, 597, 598, 599, 600]);
     setAbility({ ...ability, observe: 100 });
   }, []); */
 
@@ -774,7 +827,7 @@ function App() {
         ""
       )}
       <button className="AchievementsButton" onClick={() => setBulletinBox(true)}>
-        版本：0.2.7
+        版本：0.3.1
       </button>
       <br />
       {backgroundColor()}
