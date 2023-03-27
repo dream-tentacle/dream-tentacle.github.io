@@ -806,6 +806,17 @@ function App() {
   //App:
   return (
     <div className="App">
+      <iframe
+        title="music"
+        frameborder="no"
+        border="0"
+        marginwidth="0"
+        marginheight="0"
+        width="86"
+        height="86"
+        src="//music.163.com/outchain/player?type=2&id=1899265379&auto=1&height=66"
+      />
+      <br />
       {achievementsBox ? (
         <div className="achievementsBackground">
           <Achievements setAchievementsBox={setAchievementsBox} />
@@ -827,7 +838,7 @@ function App() {
         ""
       )}
       <button className="AchievementsButton" onClick={() => setBulletinBox(true)}>
-        版本：0.3.1
+        版本：0.3.2
       </button>
       <br />
       {backgroundColor()}
