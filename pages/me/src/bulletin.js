@@ -7,6 +7,12 @@ function Bulletin(props) {
         关闭
       </button>
       <div>
+        <h3>版本：0.3.3</h3>
+        <ul>
+          <li>修改了一些书籍文本为文言文</li>
+          <li>添加了目之性相的晋升仪式</li>
+          <li>修改了背景音乐</li>
+        </ul>
         <h3>版本：0.3.2</h3>
         <ul>
           <li>

@@ -8,6 +8,7 @@ import clockPicture from "./images/clockPicture.png";
 import moneyPicture from "./images/moneyPicture.png";
 import Bulletin from "./bulletin";
 import "./App.css";
+import bgm from "./audio/bgm1.mp3";
 
 //hobbies
 const write = "写作",
@@ -38,7 +39,7 @@ const bookID = {
   707: "高谈阔论：何为观察",
   751: "深渊之力：运动的奥义",
   760: "欲望、诱惑、沉溺",
-  770: "珠之性相：危险与机遇",
+  770: "珠性之法",
 };
 
 let unbaughtBook = [716, 717, 718, 719];
@@ -740,8 +741,9 @@ function App() {
       localStorage.setItem("质变", true);
       moneyPerYear--;
       change1Flag = true;
-      setInsertIssueID(321);
-      console.log(change1Flag);
+      if (career === writer) {
+        setInsertIssueID(782);
+      } else setInsertIssueID(321);
     }
     if (
       ability.defend + ability.desire + ability.observe + ability.technique >= 40 &&
@@ -750,7 +752,9 @@ function App() {
       localStorage.setItem("升华", true);
       moneyPerYear--;
       change2Flag = true;
-      setInsertIssueID(322);
+      if (career === writer) {
+        setInsertIssueID(795);
+      } else setInsertIssueID(322);
     }
     if (
       ability.defend + ability.desire + ability.observe + ability.technique >= 60 &&
@@ -759,11 +763,13 @@ function App() {
       localStorage.setItem("异化", true);
       moneyPerYear--;
       change3Flag = true;
-      setInsertIssueID(323);
+      if (career === writer) {
+        setInsertIssueID(813);
+      } else setInsertIssueID(323);
     }
   }, [ability]);
   useEffect(() => {
-    setReputation((x) => x - 1);
+    if (age > 22) setReputation((x) => x - 1);
     if (age === 60) {
       actionPerYear -= 1;
       alert("60岁了，此后每年行动次数减少1");
@@ -800,22 +806,13 @@ function App() {
     setMoney(200);
     setReputation(5);
     // setTreasureOwn([593, 594, 595, 596, 597, 598, 599, 600]);
-    setAbility({ ...ability, observe: 100 });
+    setAbility({ ...ability, observe: 54 });
   }, []); */
 
   //App:
   return (
     <div className="App">
-      <iframe
-        title="music"
-        frameborder="no"
-        border="0"
-        marginwidth="0"
-        marginheight="0"
-        width="86"
-        height="86"
-        src="//music.163.com/outchain/player?type=2&id=1899265379&auto=1&height=66"
-      />
+      <audio src={bgm} autoPlay loop controls />
       <br />
       {achievementsBox ? (
         <div className="achievementsBackground">
@@ -838,7 +835,7 @@ function App() {
         ""
       )}
       <button className="AchievementsButton" onClick={() => setBulletinBox(true)}>
-        版本：0.3.2
+        版本：0.3.3
       </button>
       <br />
       {backgroundColor()}
