@@ -1126,8 +1126,8 @@ const issues = [
     stateID: 211,
     logText: "我决定去城里转转（时间-1）",
     nextStates: [
-      { possibility: 0.3, stateID: 216 }, //钱包
-      { possibility: 0.4, stateID: 229 }, //敌人
+      { possibility: 0.2, stateID: 216 }, //钱包
+      { possibility: 0.3, stateID: 229 }, //敌人
       { possibility: 2.0, stateID: 230 }, //酒馆
     ],
     time: -1,

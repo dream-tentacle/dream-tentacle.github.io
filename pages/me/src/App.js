@@ -812,7 +812,7 @@ function App() {
   //App:
   return (
     <div className="App">
-      <audio src={bgm} autoPlay loop controls />
+      <audio src={bgm} autoPlay loop />
       <br />
       {achievementsBox ? (
         <div className="achievementsBackground">
@@ -835,7 +835,7 @@ function App() {
         ""
       )}
       <button className="AchievementsButton" onClick={() => setBulletinBox(true)}>
-        版本：0.3.3
+        0.3.3
       </button>
       <br />
       {backgroundColor()}
