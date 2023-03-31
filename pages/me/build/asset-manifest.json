@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "./static/css/main.3ecfc65c.css",
-    "main.js": "./static/js/main.3b54927d.js",
+    "main.js": "./static/js/main.1f735b4a.js",
     "static/media/ZCOOLXiaoWei-Regular.ttf": "./static/media/ZCOOLXiaoWei-Regular.94e5f3e17ec2184f303d.ttf",
     "static/media/occultismPicture.png": "./static/media/occultismPicture.c7e61feca5e8dda1257f.png",
     "static/media/harbourPicture.png": "./static/media/harbourPicture.46922d7689ef1b96412f.png",
@@ -10,7 +10,7 @@
     "static/media/knifePicture.png": "./static/media/knifePicture.16fbc356993c258ab365.png",
     "static/media/eggPicture.png": "./static/media/eggPicture.a952578c505fac48a468.png",
     "static/media/change3Picture.png": "./static/media/change3Picture.da1addd1f72ab7a096ca.png",
-    "static/media/bgm1.mp3": "./static/media/bgm1.bbe6f2c5ede6bbe611e9.mp3",
+    "static/media/bgm1.mp3": "./static/media/bgm1.97cca4b9135726b645e8.mp3",
     "static/media/knife2Picture.png": "./static/media/knife2Picture.a057e43a35e79fbf015b.png",
     "static/media/bowl.png": "./static/media/bowl.e6a1769a26064d764fc1.png",
     "static/media/change1Picture.png": "./static/media/change1Picture.ccc6f31d7b67193e0e72.png",
@@ -26,10 +26,10 @@
     "static/media/moneyPicture.png": "./static/media/moneyPicture.980589a26bc081fb1d45.png",
     "index.html": "./index.html",
     "main.3ecfc65c.css.map": "./static/css/main.3ecfc65c.css.map",
-    "main.3b54927d.js.map": "./static/js/main.3b54927d.js.map"
+    "main.1f735b4a.js.map": "./static/js/main.1f735b4a.js.map"
   },
   "entrypoints": [
     "static/css/main.3ecfc65c.css",
-    "static/js/main.3b54927d.js"
+    "static/js/main.1f735b4a.js"
   ]
 }

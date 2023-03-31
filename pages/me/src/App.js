@@ -741,9 +741,9 @@ function App() {
       localStorage.setItem("质变", true);
       moneyPerYear--;
       change1Flag = true;
-      if (career === writer) {
-        setInsertIssueID(782);
-      } else setInsertIssueID(321);
+      if (career === writer) setInsertIssueID(782);
+      else if (career === athlete) setInsertIssueID(833);
+      else setInsertIssueID(321);
     }
     if (
       ability.defend + ability.desire + ability.observe + ability.technique >= 40 &&
@@ -835,7 +835,7 @@ function App() {
         ""
       )}
       <button className="AchievementsButton" onClick={() => setBulletinBox(true)}>
-        0.3.3
+        0.3.4
       </button>
       <br />
       {backgroundColor()}
