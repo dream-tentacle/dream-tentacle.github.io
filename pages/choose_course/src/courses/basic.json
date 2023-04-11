@@ -1,0 +1,44 @@
+{
+  "classes": [
+    {
+      "name": "问题求解(一)",
+      "credit_hours": 4
+    },
+    {
+      "name": "数字逻辑与计算机组成",
+      "credit_hours": 4
+    },
+    {
+      "name": "问题求解(二)",
+      "credit_hours": 4
+    },
+    {
+      "name": "计算机系统基础",
+      "credit_hours": 5
+    },
+    {
+      "name": "数字逻辑与计算机组成实验",
+      "credit_hours": 3
+    },
+    {
+      "name": "问题求解(三)",
+      "credit_hours": 6
+    },
+    {
+      "name": "概率论与数理统计",
+      "credit_hours": 3
+    },
+    {
+      "name": "数理逻辑",
+      "credit_hours": 3
+    },
+    {
+      "name": "问题求解(四)",
+      "credit_hours": 6
+    },
+    {
+      "name": "概率论与数理统计",
+      "credit_hours": 3
+    }
+  ]
+}

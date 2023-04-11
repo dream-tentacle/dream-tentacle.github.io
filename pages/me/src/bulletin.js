@@ -7,6 +7,11 @@ function Bulletin(props) {
         关闭
       </button>
       <div>
+        <h3>版本：0.3.5</h3>
+        <ul>
+          <li>新增更多仪式</li>
+          <li>添加大学中的事件</li>
+        </ul>
         <h3>版本：0.3.4</h3>
         <ul>
           <li>新增更多仪式</li>
