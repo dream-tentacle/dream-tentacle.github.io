@@ -66,9 +66,6 @@ function Cursor(props) {
           transform: "translate3d(-50%, -50%, 0px)",
           left: outerX,
           top: outerY,
-          backgroundColor: `rgba(255, 255, 255, ${props.stage === 0 ? 0 : 0.6})`,
-          width: `${props.stage === 1 ? 20 : 40}px`,
-          height: `${props.stage === 1 ? 20 : 40}px`,
         }}
       ></div>
       <div
@@ -94,6 +91,7 @@ export default Cursor;
     setCursorStage(flag);
   }
   <Cursor stage={cursorStage} />
+
   在APP.css中需要使用的内容:
   html {
   cursor: url("./cursor-inner.png") 3 3, default;
@@ -119,9 +117,9 @@ export default Cursor;
     border: 4px solid #cccccc;
   }
   .ako-cursor-container {
-  position: absolute;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.3s;
+    position: absolute;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s;
   }
 */

@@ -9,6 +9,7 @@ import moneyPicture from "./images/moneyPicture.png";
 import Bulletin from "./bulletin";
 import "./App.css";
 import bgm from "./audio/bgm1.mp3";
+import Cursor from "./components/cursor.js";
 
 //hobbies
 const write = "写作",
@@ -88,6 +89,7 @@ function App() {
   const [usingTreasure, setUsingTreasure] = useState(0);
   const [treasureListOpen, setTreasureListOpen] = useState(false);
   const [bookOwn, setBookOwn] = useState([]);
+  const [cursorStage, setCursorStage] = useState(0);
   const [logList, setLogList] = useState([
     {
       stateID: 0,
@@ -812,6 +814,7 @@ function App() {
   //App:
   return (
     <div className="App">
+      <Cursor />
       <audio src={bgm} autoPlay loop />
       <br />
       {achievementsBox ? (

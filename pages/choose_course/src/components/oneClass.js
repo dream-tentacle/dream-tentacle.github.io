@@ -17,10 +17,10 @@ function OneClass(props) {
     const deltaY = mouseY - buttonY;
 
     const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
-    const intensity = Math.min(1, 100 / distance);
+    const intensity = Math.min(10, 300 / distance / Math.sqrt(distance));
 
-    setTransitionX(deltaX * intensity * -0.2);
-    setTransitionY(deltaY * intensity * -0.2);
+    setTransitionX(deltaX * intensity * -0.5);
+    setTransitionY(deltaY * intensity * -0.5);
   }
   function chooseColor() {
     if (props.item.flag) {
@@ -44,30 +44,36 @@ function OneClass(props) {
   }
 
   return (
-    <button
-      onClick={() => {
-        props.chooseClass(props.item.id);
-      }}
-      className={chooseColor()}
+    <div
+      className="buttonBox"
       ref={buttonRef}
       onMouseMove={handleMouseMove}
-      onMouseEnter={() => {
-        props.changeCursorStage(1);
-      }}
       onMouseLeave={() => {
-        props.changeCursorStage(0);
         setTransitionX(0);
         setTransitionY(0);
       }}
-      style={{
-        transform: `translate3d(${transitionX}px, ${transitionY}px, 0px)`,
-      }}
     >
-      {props.item.name}
-      <br />
-      {props.item.credit_hours}
-      {"学分"}
-    </button>
+      <button
+        onClick={() => {
+          props.chooseClass(props.item.id);
+        }}
+        className={chooseColor()}
+        onMouseEnter={() => {
+          props.changeCursorStage(1);
+        }}
+        onMouseLeave={() => {
+          props.changeCursorStage(0);
+        }}
+        style={{
+          transform: `translate3d(${transitionX}px, ${transitionY}px, 0px)`,
+        }}
+      >
+        {props.item.name}
+        <br />
+        {props.item.credit_hours}
+        {"学分"}
+      </button>
+    </div>
   );
 }
 
