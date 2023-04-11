@@ -1,0 +1,71 @@
+{
+  "least_hours": 18,
+  "classes": [
+    {
+      "name": "微电子与电路基础",
+      "credit_hours": 3,
+      "course_id": "18090030",
+      "time": "1-1"
+    },
+    {
+      "name": "操作系统",
+      "credit_hours": 4,
+      "course_id": "22020230",
+      "time": "2-2"
+    },
+    {
+      "name": "计算机网络",
+      "credit_hours": 3,
+      "course_id": "22020240",
+      "time": "2-2"
+    },
+    {
+      "name": "软件工程",
+      "credit_hours": 3,
+      "course_id": "22010310",
+      "time": "3-1"
+    },
+    {
+      "name": "形式语言与自动机",
+      "credit_hours": 3,
+      "course_id": "22011120",
+      "time": "3-1"
+    },
+    {
+      "name": "密码学原理",
+      "credit_hours": 3,
+      "course_id": "22011140",
+      "time": "3-1"
+    },
+    {
+      "name": "计算机网络",
+      "credit_hours": 4,
+      "course_id": "22020240I",
+      "time": "3-1"
+    },
+    {
+      "name": "数据库概论",
+      "credit_hours": 3,
+      "course_id": "22020250",
+      "time": "3-1"
+    },
+    {
+      "name": "编译原理",
+      "credit_hours": 4,
+      "course_id": "22020260",
+      "time": "3-2"
+    },
+    {
+      "name": "计算机图形学",
+      "credit_hours": 3,
+      "course_id": "22020360",
+      "time": "3-2"
+    },
+    {
+      "name": "人工智能",
+      "credit_hours": 3,
+      "course_id": "22020370",
+      "time": "4-1"
+    }
+  ]
+}

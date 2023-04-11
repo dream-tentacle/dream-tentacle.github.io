@@ -1,23 +1,29 @@
 import React, { useState, useEffect, useRef } from "react";
+import "./cursor.css";
+
 function Cursor(props) {
-  const [mousePosition, setMousePosition] = useState({ x: 100, y: 100 });
+  const [mousePosition, setMousePosition] = [
+    props.mousePosition,
+    props.setMousePosition,
+  ];
   const [outerX, setOuterX] = useState(0);
   const [outerY, setOuterY] = useState(0);
   const [effectX, setEffectX] = useState(0);
   const [effectY, setEffectY] = useState(0);
   const [time, setTime] = useState(0);
-  const [effectScale, setOuterScale] = useState(2);
-  const [effectOpacity, setOuterOpacity] = useState(0);
+  const [effectScale, setEffectScale] = useState(2);
+  const [effectOpacity, setEffectOpacity] = useState(0);
   useEffect(() => {
     function handleMouseMove(e) {
       setMousePosition({ x: e.clientX, y: e.clientY });
     }
     function handleMouseClick(e) {
-      if (effectScale < 2) return;
-      setEffectX(e.clientX);
-      setEffectY(e.clientY);
-      setOuterScale(0);
-      setOuterOpacity(0.1);
+      if (effectScale >= 2) {
+        setEffectX(e.clientX);
+        setEffectY(e.clientY);
+        setEffectScale(0);
+        setEffectOpacity(0.1);
+      }
     }
     window.addEventListener("mousemove", handleMouseMove);
     window.addEventListener("click", handleMouseClick);
@@ -52,11 +58,12 @@ function Cursor(props) {
   useEffect(() => {
     setOuterX((x) => x + (mousePosition.x - x) * 0.2);
     setOuterY((y) => y + (mousePosition.y - y) * 0.2);
-    if (effectScale <= 0.7) setOuterScale((effectScale) => effectScale + 0.05);
-    else if (effectScale < 2) setOuterScale((effectScale) => effectScale + 0.02);
-    if (effectScale <= 0.6) setOuterOpacity((effectOpacity) => effectOpacity + 0.04);
+    if (effectScale <= 0.7) setEffectScale((effectScale) => effectScale + 0.07);
+    else if (effectScale <= 2) setEffectScale((effectScale) => effectScale + 0.03);
+    if (effectScale <= 0.6)
+      setEffectOpacity((effectOpacity) => effectOpacity + 0.04);
     if (effectScale >= 0.6 && effectOpacity >= 0)
-      setOuterOpacity((effectOpacity) => effectOpacity - 0.03);
+      setEffectOpacity((effectOpacity) => effectOpacity - 0.03);
   }, [time]);
   return (
     <div className="ako-cursor-container" style={{ opacity: "1" }}>

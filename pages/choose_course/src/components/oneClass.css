@@ -1,0 +1,33 @@
+button.gray {
+  background-color: rgba(255, 255, 255, 0);
+  color: white;
+}
+
+button.green {
+  background-color: rgba(255, 255, 255, 0.9);
+  color: lightgreen;
+}
+button.yellow {
+  background-color: rgba(255, 255, 255, 0.9);
+  color: yellow;
+}
+button.coral {
+  background-color: rgba(255, 255, 255, 0.9);
+  color: lightcoral;
+}
+button.red {
+  background-color: rgba(255, 255, 255, 0.9);
+  color: red;
+}
+.floatInfo {
+  background-color: aliceblue;
+  min-width: 80px;
+  min-height: 40px;
+  padding: 4px;
+  user-select: text;
+  position: absolute;
+  z-index: 100;
+  pointer-events: none;
+  text-align: center;
+  border-radius: 8px;
+}
