@@ -838,7 +838,7 @@ function App() {
         ""
       )}
       <button className="AchievementsButton" onClick={() => setBulletinBox(true)}>
-        0.3.4
+        0.3.5
       </button>
       <br />
       {backgroundColor()}
