@@ -69,7 +69,7 @@ function OneClass(props) {
         onClick={() => {
           props.chooseClass(props.item.id);
         }}
-        className={chooseColor()}
+        className={`${chooseColor()} class-btn`}
         onMouseEnter={() => {
           props.changeCursorStage(1);
           setIsHover(true);
@@ -80,9 +80,9 @@ function OneClass(props) {
         }}
         style={{
           translate: "transform 0.5s ease-in-out",
-          transform: `translate3d(${transitionX + Math.random() * 5}px, ${
+          /* transform: `translate3d(${transitionX + Math.random() * 5}px, ${
             transitionY + Math.random() * 5
-          }px, 0px)`,
+          }px, 0px)`, */
         }}
       >
         {props.item.name}
@@ -92,7 +92,11 @@ function OneClass(props) {
         <br />
         {"学期: "}
         {props.item.time}
-      </button>
+      </button>{" "}
+      <button
+        className="delete-btn"
+        onClick={() => props.deleteClass(props.item.id)}
+      ></button>
     </div>
   );
 }

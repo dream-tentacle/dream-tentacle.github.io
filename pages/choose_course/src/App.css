@@ -1,5 +1,5 @@
 html {
-  background-color: rgba(50, 50, 50);
+  background-color: rgb(142, 186, 195);
 }
 p {
   font-size: 16px;
@@ -28,6 +28,8 @@ button {
   font-size: 16px;
   font-weight: bold;
   cursor: url("./components/cursor-inner.png") 3 3, default;
+}
+.class-btn {
   border-radius: 6px;
   border: 0;
   min-height: 60px;

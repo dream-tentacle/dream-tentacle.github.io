@@ -31,6 +31,7 @@ function FloatInfo(props) {
       window.removeEventListener("keydown", KeyDown);
     };
   }, []);
+  if (props.course_id === "未设置") return null;
   return (
     <div
       className="floatInfo"

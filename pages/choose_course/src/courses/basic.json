@@ -5,61 +5,71 @@
       "name": "问题求解(一)",
       "credit_hours": 4,
       "course_id": "22020010A",
-      "time": "1-1"
+      "time": "1-1",
+      "flag": false
     },
     {
       "name": "数字逻辑与计算机组成",
       "credit_hours": 4,
       "course_id": "22000160",
-      "time": "1-2"
+      "time": "1-2",
+      "flag": false
     },
     {
       "name": "问题求解(二)",
       "credit_hours": 4,
       "course_id": "22020010B",
-      "time": "1-2"
+      "time": "1-2",
+      "flag": false
     },
     {
       "name": "计算机系统基础",
       "credit_hours": 5,
       "course_id": "22000100",
-      "time": "2-1"
+      "time": "2-1",
+      "flag": false
     },
     {
       "name": "数字逻辑与计算机组成实验",
       "credit_hours": 3,
       "course_id": "22000180T",
-      "time": "2-1"
+      "time": "2-1",
+      "flag": false
     },
     {
       "name": "问题求解(三)",
       "credit_hours": 6,
       "course_id": "22020010C",
-      "time": "2-1"
+      "time": "2-1",
+      "flag": false
     },
     {
       "name": "概率论与数理统计",
       "credit_hours": 3,
       "course_id": "11100200",
-      "time": "2-2"
+      "time": "2-2",
+      "flag": false
     },
     {
       "name": "数理逻辑",
       "credit_hours": 3,
       "course_id": "22010200",
-      "time": "2-2"
+      "time": "2-2",
+      "flag": false
     },
     {
       "name": "问题求解(四)",
       "credit_hours": 6,
       "course_id": "22020010D",
-      "time": "2-2"
+      "time": "2-2",
+      "flag": false
     },
     {
       "name": "概率论与数理统计",
       "credit_hours": 3,
       "course_id": "22020170",
-      "time": "2-2"
+      "time": "2-2",
+      "flag": false
     }
   ]
 }
