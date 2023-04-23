@@ -1,47 +1,45 @@
 /* CSS Document */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;700&display=swap');
 html {
-    /* px 表示“像素（pixels）”: 基础字号为 10 像素 */
-    font-size: 10px;
+    font-size: 24px;
     /* Google fonts 输出的 CSS */
     font-family: 'Noto Sans SC', sans-serif;
     background-color: #F4F4F4;
 }
 h1 {
-    margin: 0 auto;
     font-size: 32px;
     text-align: center;
     padding: 20px 0px;
     color: black;
 }
+h2 {
+    font-size: 24px;
+    color: black;
+}
 
-p, li {
-	font-size: 16px;
-    /* line-height 后面可以跟不同的参数，如果是数字，就是当前字体大小乘上数字 */
-    line-height: 2;
-    letter-spacing: 1px;
+a{
+    text-decoration: none;
     color: black;
 }
-a {
-	font-size: 16px;
-    /* line-height 后面可以跟不同的参数，如果是数字，就是当前字体大小乘上数字 */
-    line-height: 2;
-    letter-spacing: 1px;
-    color: black;
-}
-.large {
-	font-size: 24px;
-	line-height: 2;
-	letter-spacing: 2px;
-	color: black;
-	
+.link {
+	font-size: 20px;
+    margin: 10px 20px;
 }
 body {
-    margin: 0 auto;
     padding: 0 50px 50px 50px;
 }
-.flex{
-  display:flex;
-  flex-direction: column;
-}
 
+.flex{
+    width:100%;
+    display: flex;
+    flex-direction: row;
+    border: 1px solid black;
+    flex-wrap: wrap;
+}
+.box{
+    min-width: 300px;
+    border: 1px solid black;
+    margin: 10px;
+    padding: 10px;
+    
+}

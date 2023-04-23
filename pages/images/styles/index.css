@@ -1,0 +1,30 @@
+/* 设置图片容器的样式 */
+.image-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  margin: 0 auto;
+}
+/* 设置图片的样式 */
+.image-container img {
+  max-width: 300px;
+  object-fit: cover;
+  margin: 10px;
+  cursor: pointer;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+  transition: all 0.3s;
+  transition-timing-function: ease-in-out;
+  z-index: 1;
+}
+.image-container img:hover {
+  transform: scale(1.15);
+  transition: all 0.4s;
+  z-index: 2;
+}
+/* 设置链接的样式 */
+a {
+  font-size: large;
+  text-decoration: none;
+  color: rgb(0, 55, 255);
+}

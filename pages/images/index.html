@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="author" content="dream tentacle" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>index</title>
+    <link href="styles/index.css" rel="stylesheet" />
+    <link rel="icon" href="./../../logo_blueEye.png" type="image/x-icon" />
+    <script defer="defer" src="./static/js/main.7afe517a.js"></script>
+    <link href="./static/css/main.f31235d7.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <header>
+      <h1>
+        这些是AI绘图的作品!
+        <a href="./../../index.html">返回主页</a>
+      </h1>
+    </header>
+    <main>
+      <div class="image-container">
+        <img src="images/1.png" />
+        <img src="images/2.png" />
+        <img src="images/3.png" />
+        <img src="images/4.png" />
+        <img src="images/5.png" />
+      </div>
+    </main>
+
+    <script>
+      // 获取所有的图片元素
+      var images = document.querySelectorAll(".image-container img");
+
+      // 为每个图片添加点击事件处理程序
+      images.forEach(function (img) {
+        img.addEventListener("click", function () {
+          // 获取当前图片的 src 属性值
+          var imageUrl = this.getAttribute("src");
+          // 在新窗口中打开图片链接地址所指向的网页
+          window.open(imageUrl, "_blank");
+        });
+      });
+    </script>
+  </body>
+</html>

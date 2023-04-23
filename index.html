@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="author" content="dream tentacle" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>index</title>
     <link href="styles/index.css" rel="stylesheet" />
     <link rel="icon" href="logo_blueEye.png" type="image/x-icon" />
@@ -13,28 +14,35 @@
   <body>
     <div id="root"></div>
     <header>
-      <h1>主页</h1>
+      <h1>欢迎来到dream tentacle的主页!</h1>
     </header>
     <main>
-      <ul class="flex">
-        <li>
-          <a class="large" href="game.html" title="冰与火之舞">音游</a>
-        </li>
-        <li>
-          <a
-            class="large"
-            href="pages/choose_course/build/index.html"
-            title="如何选课?"
-            >选课</a
-          >
-        </li>
-        <li>
-          <a class="large" href="pages/me/build/index.html" title="轻启门扉">人生</a>
-        </li>
-        <li>
-          <a class="large" href="pages/snake/index.html" title="整点薯条!!!">薯条</a>
-        </li>
-      </ul>
+      <h2>在这里, 你可以...</h2>
+      <div class="flex">
+        <ul class="box">
+          <h2>看看他的作品</h2>
+          <li class="link">
+            <a href="game.html" title="冰与火之舞">冰与火之舞(音游)自制谱</a>
+          </li>
+          <li class="link">
+            <a href="pages/images/index.html" title="图片">AI绘画</a>
+        </ul class="box">
+        <ul class="box">
+          <h2>来点好玩的</h2>
+          <li class="link">
+            <a href="pages/me/build/index.html" title="轻启门扉">人生</a>
+          </li>
+          <li class="link">
+            <a href="pages/snake/index.html" title="整点薯条!!!">薯条</a>
+          </li>
+        </ul class="box">
+        <ul class="box">
+          <h2>有用的工具</h2>
+          <li class="link">
+            <a href="pages/choose_course/build/index.html" title="如何选课?">选课</a>
+          </li>
+        </ul class="box">
+      </div>
     </main>
   </body>
 </html>
