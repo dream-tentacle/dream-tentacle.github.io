@@ -31,7 +31,7 @@ p {
 body {
   background-color: #f7f7ff;
 }
-.container {
+main {
   width: 90%;
   max-width: 1050px;
   margin: 30px auto;
@@ -49,4 +49,8 @@ body {
   background-color: rgba(83, 241, 255, 0.327);
   border: none;
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+}
+.link-img {
+  width: 50px;
+  height: 50px;
 }
