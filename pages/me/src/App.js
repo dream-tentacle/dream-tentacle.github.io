@@ -9,7 +9,8 @@ import moneyPicture from "./images/moneyPicture.png";
 import Bulletin from "./bulletin";
 import "./App.css";
 import bgm from "./audio/bgm1.mp3";
-import Cursor from "./components/cursor.js";
+import Cursor from "./components/cursor1.js";
+import Cursor1 from "./components/cursor1.js";
 
 //hobbies
 const write = "写作",
@@ -814,7 +815,7 @@ function App() {
   //App:
   return (
     <div className="App">
-      <Cursor />
+      <Cursor1 />
       <audio src={bgm} autoPlay loop />
       <br />
       {achievementsBox ? (

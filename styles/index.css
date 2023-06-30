@@ -4,12 +4,11 @@ html {
   font-size: 24px;
   /* Google fonts 输出的 CSS */
   font-family: "Noto Sans SC", sans-serif;
-  background-color: #f4f4f4;
+  background-color: #9cf7ff;
 }
 h1 {
   font-size: 32px;
   text-align: center;
-  padding: 20px 0px;
   color: black;
 }
 h2 {
@@ -29,16 +28,11 @@ body {
   padding: 0 50px 50px 50px;
 }
 
-.flex {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  border: 1px solid black;
-  flex-wrap: wrap;
-}
 .box {
-  width: 200px;
+  width: 95w;
   border: 1px solid black;
-  margin: 10px;
-  padding: 10px;
+  margin: 5vh auto;
+  padding: 0 20px 20px 20px;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.327);
 }

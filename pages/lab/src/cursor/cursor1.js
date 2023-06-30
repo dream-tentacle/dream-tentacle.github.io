@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
-function Cursor(props) {
+import "./cursor1.css";
+function Cursor1(props) {
   const [mousePosition, setMousePosition] = useState({ x: 100, y: 100 });
   const [outerX, setOuterX] = useState(0);
   const [outerY, setOuterY] = useState(0);
@@ -81,7 +82,7 @@ function Cursor(props) {
   );
 }
 
-export default Cursor;
+export default Cursor1;
 
 /*
   在App中需要使用的内容:
