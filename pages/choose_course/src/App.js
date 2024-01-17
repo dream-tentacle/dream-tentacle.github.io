@@ -205,7 +205,7 @@ function App() {
       />
       <button onClick={() => changeClassesPack(0)}>基础课</button>
       <button onClick={() => changeClassesPack(1)}>核心课</button>
-      <p style={{ margin: "16px", fontSize: "24px", userSelect: "none" }}>
+      <p>
         总计: {total}
         <br />
         至少:

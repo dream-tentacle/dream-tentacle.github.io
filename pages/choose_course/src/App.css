@@ -1,10 +1,10 @@
 html {
-  background-color: rgb(143, 214, 228);
+  margin: 10px;
 }
 p {
-  font-size: 16px;
+  font-size: 20px;
   font-weight: bold;
-  color: white;
+  color: rgb(0, 0, 0);
 }
 
 .total-box {
@@ -13,11 +13,11 @@ p {
   height: 24px;
   margin-left: 24px;
   background-color: white;
-  border: 3px solid rgb(255, 59, 59);
+  border: 3px solid #007bff;
 }
 .sum-box {
   height: 24px;
-  background-color: rgba(255, 59, 59, 0.458);
+  background-color: rgba(0, 123, 255, 0.5);
   max-width: 100%;
 }
 .buttonBox {

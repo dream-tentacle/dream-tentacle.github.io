@@ -1,23 +1,28 @@
 button.gray {
   background-color: rgba(255, 255, 255, 0);
-  color: white;
+  color: rgb(128, 128, 128);
+  border: 2px solid rgba(0, 0, 0, 0.2);
 }
 
 button.green {
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(0, 0, 0, 0.1);
   color: lightgreen;
+  border: 2px solid lightgreen;
 }
 button.yellow {
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(0, 0, 0, 0.1);
   color: yellow;
+  border: 2px solid yellow;
 }
 button.coral {
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(0, 0, 0, 0.1);
   color: lightcoral;
+  border: 2px solid lightcoral;
 }
 button.red {
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(0, 0, 0, 0.1);
   color: red;
+  border: 2px solid red;
 }
 .floatInfo {
   background-color: aliceblue;

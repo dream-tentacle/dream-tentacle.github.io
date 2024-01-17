@@ -17,7 +17,7 @@ html {
   z-index: 999999;
   width: 36px;
   height: 36px;
-  border: 1px solid #747171;
+  border: 2.5px solid #747171;
   transition: background-color 0.3s, width 0.3s, height 0.3s;
 }
 .ako-cursor-container .ako-cursor-effect {
@@ -25,5 +25,5 @@ html {
   z-index: 999998;
   width: 80px;
   height: 80px;
-  border: 4px solid #ffffff;
+  border: 3px solid #919191;
 }
