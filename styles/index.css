@@ -30,6 +30,12 @@ p {
   font-size: 20px;
   margin: 5px 10px;
 }
+.link {
+  /* 下划线 */
+  text-decoration: underline;
+  /* 下划线变浅 */
+  text-decoration-color: #00000067;
+}
 body {
   background-color: #f7f7ff;
 }
